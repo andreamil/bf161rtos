@@ -1,0 +1,47 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F46 `(v ~T0 @X0 0 tf ]
+"4 kernel.c
+[; ;kernel.c: 4: f_aptos_t readyQueue;
+[c E38 0 1 2 .. ]
+[n E38 . READY RUNNING WAITING  ]
+"14 ./types.h
+[; ;./types.h: 14: typedef struct tcb {
+[s S1 `uc 1 `*F46 1 `E38 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc -> 32 `i `*uc 1 ]
+[n S1 tcb task_id task_func task_state task_priority BSR_reg WORK_reg STATUS_reg STACK task_sp ]
+"28
+[; ;./types.h: 28: typedef struct f_aptos {
+[s S2 `S1 -> 5 `i `uc 1 `*S1 1 ]
+[n S2 f_aptos readyQueue readyQueueSize taskRunning ]
+"4 kernel.c
+[; ;kernel.c: 4: f_aptos_t readyQueue;
+[v _readyQueue `S2 ~T0 @X0 1 e ]
+"6
+[; ;kernel.c: 6: void os_config(void)
+[v _os_config `(v ~T0 @X0 1 ef ]
+"7
+[; ;kernel.c: 7: {
+{
+[e :U _os_config ]
+[f ]
+"8
+[; ;kernel.c: 8:     readyQueue.readyQueueSize = 0;
+[e = . _readyQueue 1 -> -> 0 `i `uc ]
+"9
+[; ;kernel.c: 9:     readyQueue.taskRunning = &readyQueue.readyQueue[0];
+[e = . _readyQueue 2 &U *U + &U . _readyQueue 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _readyQueue 0 `ui `ux ]
+"10
+[; ;kernel.c: 10: }
+[e :UE 3 ]
+}
+"12
+[; ;kernel.c: 12: void os_start(void)
+[v _os_start `(v ~T0 @X0 1 ef ]
+"13
+[; ;kernel.c: 13: {
+{
+[e :U _os_start ]
+[f ]
+"15
+[; ;kernel.c: 15: }
+[e :UE 4 ]
+}

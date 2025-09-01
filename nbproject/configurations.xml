@@ -9,6 +9,7 @@
       <itemPath>user_app.h</itemPath>
       <itemPath>syscall.h</itemPath>
       <itemPath>os_config.h</itemPath>
+      <itemPath>scheduler.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -26,6 +27,7 @@
       <itemPath>kernel.c</itemPath>
       <itemPath>user_app.c</itemPath>
       <itemPath>syscall.c</itemPath>
+      <itemPath>scheduler.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>

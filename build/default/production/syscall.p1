@@ -1,0 +1,104 @@
+Version 4.0 HI-TECH Software Intermediate Code
+[v F72 `(v ~T0 @X0 0 tf ]
+[v F75 `(v ~T0 @X0 0 tf ]
+[v F46 `(v ~T0 @X0 0 tf ]
+"5 syscall.c
+[; ;syscall.c: 5:     tcb_t new_task;
+[c E38 0 1 2 .. ]
+[n E38 . READY RUNNING WAITING  ]
+"14 ./types.h
+[; ;./types.h: 14: typedef struct tcb {
+[s S1 `uc 1 `*F46 1 `E38 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc -> 32 `i `*uc 1 ]
+[n S1 tcb task_id task_func task_state task_priority BSR_reg WORK_reg STATUS_reg STACK task_sp ]
+"3 syscall.c
+[; ;syscall.c: 3: void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior)
+[v _os_create_task `(v ~T0 @X0 1 ef3`uc`*F72`uc ]
+"4
+[; ;syscall.c: 4: {
+{
+[e :U _os_create_task ]
+"3
+[; ;syscall.c: 3: void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior)
+[v _id `uc ~T0 @X0 1 r1 ]
+[v _task_f `*F75 ~T0 @X0 1 r2 ]
+[v _prior `uc ~T0 @X0 1 r3 ]
+"4
+[; ;syscall.c: 4: {
+[f ]
+"5
+[; ;syscall.c: 5:     tcb_t new_task;
+[v _new_task `S1 ~T0 @X0 1 a ]
+"7
+[; ;syscall.c: 7:     new_task.task_id = id;
+[e = . _new_task 0 _id ]
+"8
+[; ;syscall.c: 8:     new_task.task_func = task_f;
+[e = . _new_task 1 _task_f ]
+"9
+[; ;syscall.c: 9:     new_task.task_priority = prior;
+[e = . _new_task 3 _prior ]
+"10
+[; ;syscall.c: 10:     new_task.task_state = READY;
+[e = . _new_task 2 . `E38 0 ]
+"12
+[; ;syscall.c: 12:     new_task.BSR_reg = 0;
+[e = . _new_task 4 -> -> 0 `i `uc ]
+"13
+[; ;syscall.c: 13:     new_task.STATUS_reg = 0;
+[e = . _new_task 6 -> -> 0 `i `uc ]
+"14
+[; ;syscall.c: 14:     new_task.WORK_reg = 0;
+[e = . _new_task 5 -> -> 0 `i `uc ]
+"15
+[; ;syscall.c: 15:     new_task.task_sp = &new_task.STACK[0];
+[e = . _new_task 8 &U *U + &U . _new_task 7 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _new_task 7 `ui `ux ]
+"19
+[; ;syscall.c: 19: }
+[e :UE 3 ]
+}
+"21
+[; ;syscall.c: 21: void os_delay(uint8_t time)
+[v _os_delay `(v ~T0 @X0 1 ef1`uc ]
+"22
+[; ;syscall.c: 22: {
+{
+[e :U _os_delay ]
+"21
+[; ;syscall.c: 21: void os_delay(uint8_t time)
+[v _time `uc ~T0 @X0 1 r1 ]
+"22
+[; ;syscall.c: 22: {
+[f ]
+"24
+[; ;syscall.c: 24: }
+[e :UE 4 ]
+}
+"26
+[; ;syscall.c: 26: void os_yield()
+[v _os_yield `(v ~T0 @X0 1 ef ]
+"27
+[; ;syscall.c: 27: {
+{
+[e :U _os_yield ]
+[f ]
+"29
+[; ;syscall.c: 29: }
+[e :UE 5 ]
+}
+"31
+[; ;syscall.c: 31: void os_change_state(state_t new_state)
+[v _os_change_state `(v ~T0 @X0 1 ef1`E38 ]
+"32
+[; ;syscall.c: 32: {
+{
+[e :U _os_change_state ]
+"31
+[; ;syscall.c: 31: void os_change_state(state_t new_state)
+[v _new_state `E38 ~T0 @X0 1 r1 ]
+"32
+[; ;syscall.c: 32: {
+[f ]
+"34
+[; ;syscall.c: 34: }
+[e :UE 6 ]
+}
