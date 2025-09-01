@@ -1,1 +1,49 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"3 user_app.c
+[; ;user_app.c: 3: void config_app(void)
+[v _config_app `(v ~T0 @X0 1 ef ]
+"4
+[; ;user_app.c: 4: {
+{
+[e :U _config_app ]
+[f ]
+"6
+[; ;user_app.c: 6: }
+[e :UE 3 ]
+}
+"8
+[; ;user_app.c: 8: TASK tarefa_1(void)
+[v _tarefa_1 `(v ~T0 @X0 1 ef ]
+"9
+[; ;user_app.c: 9: {
+{
+[e :U _tarefa_1 ]
+[f ]
+"11
+[; ;user_app.c: 11: }
+[e :UE 4 ]
+}
+"13
+[; ;user_app.c: 13: TASK tarefa_2(void)
+[v _tarefa_2 `(v ~T0 @X0 1 ef ]
+"14
+[; ;user_app.c: 14: {
+{
+[e :U _tarefa_2 ]
+[f ]
+"16
+[; ;user_app.c: 16: }
+[e :UE 5 ]
+}
+"18
+[; ;user_app.c: 18: TASK tarefa_3(void)
+[v _tarefa_3 `(v ~T0 @X0 1 ef ]
+"19
+[; ;user_app.c: 19: {
+{
+[e :U _tarefa_3 ]
+[f ]
+"21
+[; ;user_app.c: 21: }
+[e :UE 6 ]
+}

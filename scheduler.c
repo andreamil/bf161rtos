@@ -1,6 +1,6 @@
 #include "scheduler.h"
 #include "os_config.h"
-#include "syscall.c"
+#include "syscall.h"
 
 // Declaração da fila de aptos
 extern f_aptos_t readyQueue;

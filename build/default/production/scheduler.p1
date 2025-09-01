@@ -1,1 +1,113 @@
 Version 4.0 HI-TECH Software Intermediate Code
+[v F47 `(v ~T0 @X0 0 tf ]
+"9 scheduler.c
+[; ;scheduler.c: 9: tcb_t *rr_scheduler()
+[c E39 0 1 2 .. ]
+[n E39 . READY RUNNING WAITING  ]
+"21 ./types.h
+[; ;./types.h: 21: typedef struct tcb {
+[s S1 `uc 1 `*F47 1 `E39 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `um -> 32 `i `*um 1 ]
+[n S1 tcb task_id task_func task_state task_priority task_time_to_waiting BSR_reg WORK_reg STATUS_reg STACK task_sp ]
+"36
+[; ;./types.h: 36: typedef struct f_aptos {
+[s S2 `S1 -> 5 `i `uc 1 `*S1 1 ]
+[n S2 f_aptos readyQueue readyQueueSize taskRunning ]
+"6 scheduler.c
+[; ;scheduler.c: 6: extern f_aptos_t readyQueue;
+[v _readyQueue `S2 ~T0 @X0 0 e ]
+"9 scheduler.c
+[; ;scheduler.c: 9: tcb_t *rr_scheduler()
+[v _rr_scheduler `(*S1 ~T0 @X0 1 ef ]
+"10
+[; ;scheduler.c: 10: {
+{
+[e :U _rr_scheduler ]
+[f ]
+"12
+[; ;scheduler.c: 12:     for (tcb_t *next = readyQueue.taskRunning;
+{
+[v _next `*S1 ~T0 @X0 1 a ]
+[e = _next . _readyQueue 2 ]
+[e $U 7  ]
+[e :U 4 ]
+"13
+[; ;scheduler.c: 13:          next != &readyQueue.readyQueue[readyQueue.readyQueueSize];) {
+{
+"14
+[; ;scheduler.c: 14:         next++;
+[e ++ _next * -> -> 1 `i `x -> -> # *U _next `i `x ]
+"15
+[; ;scheduler.c: 15:         if (next->task_state == READY) return next;
+[e $ ! == -> . *U _next 2 `ui -> . `E39 0 `ui 8  ]
+[e ) _next ]
+[e $UE 3  ]
+[e :U 8 ]
+"16
+[; ;scheduler.c: 16:     }
+}
+[e :U 7 ]
+[e $ != _next &U *U + &U . _readyQueue 0 * -> . _readyQueue 1 `ux -> -> # *U &U . _readyQueue 0 `ui `ux 4  ]
+[e :U 5 ]
+}
+"17
+[; ;scheduler.c: 17:     for (tcb_t *next = &readyQueue.readyQueue[0];
+{
+[v _next `*S1 ~T0 @X0 1 a ]
+[e = _next &U *U + &U . _readyQueue 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _readyQueue 0 `ui `ux ]
+[e $U 12  ]
+[e :U 9 ]
+"18
+[; ;scheduler.c: 18:          next != &readyQueue.readyQueue[readyQueue.readyQueueSize];) {
+{
+"19
+[; ;scheduler.c: 19:         next++;
+[e ++ _next * -> -> 1 `i `x -> -> # *U _next `i `x ]
+"20
+[; ;scheduler.c: 20:         if (next->task_state == READY) return next;
+[e $ ! == -> . *U _next 2 `ui -> . `E39 0 `ui 13  ]
+[e ) _next ]
+[e $UE 3  ]
+[e :U 13 ]
+"21
+[; ;scheduler.c: 21:     }
+}
+[e :U 12 ]
+[e $ != _next &U *U + &U . _readyQueue 0 * -> . _readyQueue 1 `ux -> -> # *U &U . _readyQueue 0 `ui `ux 9  ]
+[e :U 10 ]
+}
+"24
+[; ;scheduler.c: 24:     return &readyQueue.readyQueue[0];
+[e ) &U *U + &U . _readyQueue 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _readyQueue 0 `ui `ux ]
+[e $UE 3  ]
+"25
+[; ;scheduler.c: 25: }
+[e :UE 3 ]
+}
+"27
+[; ;scheduler.c: 27: tcb_t *priority_scheduler()
+[v _priority_scheduler `(*S1 ~T0 @X0 1 ef ]
+"28
+[; ;scheduler.c: 28: {
+{
+[e :U _priority_scheduler ]
+[f ]
+"30
+[; ;scheduler.c: 30: }
+[e :UE 14 ]
+}
+"32
+[; ;scheduler.c: 32: tcb_t *scheduler()
+[v _scheduler `(*S1 ~T0 @X0 1 ef ]
+"33
+[; ;scheduler.c: 33: {
+{
+[e :U _scheduler ]
+[f ]
+"35
+[; ;scheduler.c: 35:     return rr_scheduler();
+[e ) ( _rr_scheduler ..  ]
+[e $UE 15  ]
+"39
+[; ;scheduler.c: 39: }
+[e :UE 15 ]
+}

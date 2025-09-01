@@ -5907,11 +5907,86 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
 # 2 "main.c" 2
+# 1 "./syscall.h" 1
 
+
+
+# 1 "./types.h" 1
+
+
+
+
+# 1 "./os_config.h" 1
+
+
+
+# 1 "./types.h" 1
+# 5 "./os_config.h" 2
+# 6 "./types.h" 2
+
+
+
+
+
+
+typedef void TASK;
+
+
+typedef void (*f_ptr)(void);
+
+
+typedef enum {READY = 0, RUNNING, WAITING} state_t;
+
+
+typedef struct tcb {
+    uint8_t task_id;
+    f_ptr task_func;
+    state_t task_state;
+    uint8_t task_priority;
+    uint8_t task_time_to_waiting;
+
+    uint8_t BSR_reg;
+    uint8_t WORK_reg;
+    uint8_t STATUS_reg;
+    uint24_t STACK[32];
+    uint24_t *task_sp;
+} tcb_t;
+
+
+typedef struct f_aptos {
+    tcb_t readyQueue[5];
+    uint8_t readyQueueSize;
+    tcb_t *taskRunning;
+} f_aptos_t;
+# 5 "./syscall.h" 2
+
+void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior);
+void os_delay(uint8_t time);
+void os_yield();
+void os_change_state(state_t new_state);
+# 3 "main.c" 2
+# 1 "./kernel.h" 1
+
+
+
+
+
+
+void os_config(void);
+void os_start(void);
+void os_idle_task(void);
+# 4 "main.c" 2
 
 
 int main()
 {
+    os_config();
+
+
+
+    os_start();
+
+    while (1);
 
     return 0;
 }

@@ -1,2 +1,6 @@
 build/default/production/main.p1:  \
-main.c 
+main.c  \
+syscall.h  \
+types.h  \
+os_config.h  \
+kernel.h 

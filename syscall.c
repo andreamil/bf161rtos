@@ -1,5 +1,5 @@
-#include "syscall.h"
 #include <xc.h>
+#include "syscall.h"
 #include "kernel.h"
 #include "scheduler.h"
 
@@ -60,4 +60,3 @@ void os_change_state(state_t new_state)
     
     ei();
 }
-

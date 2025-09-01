@@ -28,8 +28,8 @@ typedef struct tcb {
     uint8_t     BSR_reg;
     uint8_t     WORK_reg;
     uint8_t     STATUS_reg;
-    uint8_t     STACK[32];
-    uint8_t     *task_sp;    
+    uint24_t     STACK[32];
+    uint24_t     *task_sp;    
 } tcb_t;
 
 // Fila de aptos

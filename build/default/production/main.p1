@@ -1,5 +1,11 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
+"7 ./kernel.h
+[; ;./kernel.h: 7: void os_config(void);
+[v _os_config `(v ~T0 @X0 0 ef ]
+"8
+[; ;./kernel.h: 8: void os_start(void);
+[v _os_start `(v ~T0 @X0 0 ef ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -511,19 +517,31 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
 [v $root$_main `(v ~T0 @X0 0 e ]
-"5 main.c
-[; ;main.c: 5: int main()
+"6 main.c
+[; ;main.c: 6: int main()
 [v _main `(i ~T0 @X0 1 ef ]
-"6
-[; ;main.c: 6: {
+"7
+[; ;main.c: 7: {
 {
 [e :U _main ]
 [f ]
 "8
-[; ;main.c: 8:     return 0;
+[; ;main.c: 8:     os_config();
+[e ( _os_config ..  ]
+"12
+[; ;main.c: 12:     os_start();
+[e ( _os_start ..  ]
+"14
+[; ;main.c: 14:     while (1);
+[e :U 395 ]
+[e :U 394 ]
+[e $U 395  ]
+[e :U 396 ]
+"16
+[; ;main.c: 16:     return 0;
 [e ) -> 0 `i ]
-[e $UE 391  ]
-"9
-[; ;main.c: 9: }
-[e :UE 391 ]
+[e $UE 393  ]
+"17
+[; ;main.c: 17: }
+[e :UE 393 ]
 }

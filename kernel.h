@@ -1,8 +1,8 @@
 #ifndef KERNEL_H
 #define	KERNEL_H
 
-#include "syscall.c"
-
+#include <xc.h>
+#include <stdint.h>
 
 void os_config(void);
 void os_start(void);
@@ -10,7 +10,7 @@ void os_idle_task(void);
 
 // Salvar e restaurar o contexto
 
-#define SAVE_CONTEXT(state_t new_state) \
+#define SAVE_CONTEXT(new_state) \
 do { \
     if (readyQueue.taskRunning->task_state == RUNNING) { \
         readyQueue.taskRunning->BSR_reg     = BSR; \
@@ -18,7 +18,7 @@ do { \
         readyQueue.taskRunning->WORK_reg    = WREG; \
         /* Piha */ \
         while (STKPTR) { \
-            readyQueue.taskRunning->task_sp = TOS; \
+            *(readyQueue.taskRunning->task_sp) = TOS; \
             readyQueue.taskRunning->task_sp++; \
             asm("POP"); \
         } \
@@ -38,11 +38,11 @@ do { \
         do { \
             asm("PUSH"); \
             if (readyQueue.taskRunning->task_sp == &readyQueue.taskRunning->STACK[0]) { \
-                TOS = readyQueue.taskRunning->task_func; \
+                TOS = (uint24_t)readyQueue.taskRunning->task_func; \
             } \
             else { \
                 readyQueue.taskRunning->task_sp--; \
-                TOS = readyQueue.taskRunning->task_sp; \
+                TOS = *(readyQueue.taskRunning->task_sp); \
             } \
         } while (readyQueue.taskRunning->task_sp != &readyQueue.taskRunning->STACK[0]); \
         readyQueue.taskRunning->task_state  = RUNNING; \
