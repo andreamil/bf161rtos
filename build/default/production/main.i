@@ -5972,10 +5972,26 @@ void os_change_state(state_t new_state);
 
 
 
+
+
+extern f_aptos_t readyQueue;
+
 void os_config(void);
 void os_start(void);
 void os_idle_task(void);
 # 4 "main.c" 2
+# 1 "./user_app.h" 1
+
+
+
+
+
+void config_app(void);
+
+TASK tarefa_1(void);
+TASK tarefa_2(void);
+TASK tarefa_3(void);
+# 5 "main.c" 2
 
 
 int main()
@@ -5983,6 +5999,9 @@ int main()
     os_config();
 
 
+    os_create_task(100, tarefa_1, 5);
+    os_create_task(101, tarefa_2, 5);
+    os_create_task(102, tarefa_3, 5);
 
     os_start();
 

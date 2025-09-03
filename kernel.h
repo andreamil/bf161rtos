@@ -3,6 +3,10 @@
 
 #include <xc.h>
 #include <stdint.h>
+#include "types.h"
+
+// Declaração da fila de aptos
+extern f_aptos_t readyQueue;
 
 void os_config(void);
 void os_start(void);
@@ -17,6 +21,7 @@ do { \
         readyQueue.taskRunning->STATUS_reg  = STATUS; \
         readyQueue.taskRunning->WORK_reg    = WREG; \
         /* Piha */ \
+        readyQueue.taskRunning->task_sp     = &readyQueue.taskRunning->STACK[0]; \
         while (STKPTR) { \
             *(readyQueue.taskRunning->task_sp) = TOS; \
             readyQueue.taskRunning->task_sp++; \

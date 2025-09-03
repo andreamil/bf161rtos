@@ -1,53 +1,77 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"4010 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4010:     struct {
-[s S160 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S160 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"4020
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4020:     struct {
-[s S161 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S161 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"4009
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4009: typedef union {
-[u S159 `S160 1 `S161 1 ]
-[n S159 . . . ]
-"4031
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4031: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
-[v _TRISDbits `VS159 ~T0 @X0 0 e@3989 ]
-"3267
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3267:     struct {
-[s S136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S136 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
-"3277
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3277:     struct {
-[s S137 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S137 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
-"3266
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3266: typedef union {
-[u S135 `S136 1 `S137 1 ]
-[n S135 . . . ]
-"3288
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3288: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
-[v _LATDbits `VS135 ~T0 @X0 0 e@3980 ]
-"2709
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2709:     struct {
-[s S117 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S117 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"2719
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2719:     struct {
-[s S118 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S118 . SPP0 SPP1 SPP2 SPP3 SPP4 SPP5 SPP6 SPP7 ]
-"2729
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2729:     struct {
-[s S119 :7 `uc 1 :1 `uc 1 ]
-[n S119 . . SS2 ]
-"2708
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2708: typedef union {
-[u S116 `S117 1 `S118 1 `S119 1 ]
-[n S116 . . . . ]
-"2734
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2734: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
-[v _PORTDbits `VS116 ~T0 @X0 0 e@3971 ]
+"8073 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8073:     struct {
+[s S347 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S347 . T0PS PSA T0SE T0CS T08BIT TMR0ON ]
+"8081
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8081:     struct {
+[s S348 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S348 . T0PS0 T0PS1 T0PS2 ]
+"8072
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8072: typedef union {
+[u S346 `S347 1 `S348 1 ]
+[n S346 . . . ]
+"8087
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8087: extern volatile T0CONbits_t T0CONbits __attribute__((address(0xFD5)));
+[v _T0CONbits `VS346 ~T0 @X0 0 e@4053 ]
+"8137
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8137: extern volatile unsigned short TMR0 __attribute__((address(0xFD6)));
+[v _TMR0 `Vus ~T0 @X0 0 e@4054 ]
+"8586
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8586:     struct {
+[s S360 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S360 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"8596
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8596:     struct {
+[s S361 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S361 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"8606
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8606:     struct {
+[s S362 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S362 . . GIEL GIEH ]
+"8585
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8585: typedef union {
+[u S359 `S360 1 `S361 1 `S362 1 ]
+[n S359 . . . . ]
+"8612
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8612: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS359 ~T0 @X0 0 e@4082 ]
+[t ~ __interrupt . k ]
+[t T37 __interrupt ]
+[v F3357 `(v ~T0 @X0 0 tf ]
+"30 hardware.c
+[; ;hardware.c: 30:         do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = &readyQueue.taskRunning->STACK[0]; while (STKPTR) { *(readyQueue.taskRunning->task_sp) = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = READY; } } while (0);;
+[c E3349 0 1 2 .. ]
+[n E3349 . READY RUNNING WAITING  ]
+"21 ./types.h
+[; ;./types.h: 21: typedef struct tcb {
+[s S391 `uc 1 `*F3357 1 `E3349 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `um -> 32 `i `*um 1 ]
+[n S391 tcb task_id task_func task_state task_priority task_time_to_waiting BSR_reg WORK_reg STATUS_reg STACK task_sp ]
+"36
+[; ;./types.h: 36: typedef struct f_aptos {
+[s S392 `S391 -> 5 `i `uc 1 `*S391 1 ]
+[n S392 f_aptos readyQueue readyQueueSize taskRunning ]
+"9 ./kernel.h
+[; ;./kernel.h: 9: extern f_aptos_t readyQueue;
+[v _readyQueue `S392 ~T0 @X0 0 e ]
+"8285 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8285: extern volatile unsigned char BSR __attribute__((address(0xFE0)));
+[v _BSR `Vuc ~T0 @X0 0 e@4064 ]
+"8158
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8158: extern volatile unsigned char STATUS __attribute__((address(0xFD8)));
+[v _STATUS `Vuc ~T0 @X0 0 e@4056 ]
+"8348
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8348: extern volatile unsigned char WREG __attribute__((address(0xFE8)));
+[v _WREG `Vuc ~T0 @X0 0 e@4072 ]
+"8867
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8867: extern volatile __uint24 TOS __attribute__((address(0xFFD)));
+[v _TOS `Vum ~T0 @X0 0 e@4093 ]
+"8792
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8792: extern volatile unsigned char STKPTR __attribute__((address(0xFFC)));
+[v _STKPTR `Vuc ~T0 @X0 0 e@4092 ]
+"15 ./scheduler.h
+[; ;./scheduler.h: 15: tcb_t *scheduler(void);
+[v _scheduler `(*S391 ~T0 @X0 0 ef ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -558,96 +582,135 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8891
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"5 user_app.c
-[; ;user_app.c: 5: void config_app(void)
-[v _config_app `(v ~T0 @X0 1 ef ]
-"6
-[; ;user_app.c: 6: {
+"7 hardware.c
+[; ;hardware.c: 7: void conf_timer_0(void)
+[v _conf_timer_0 `(v ~T0 @X0 1 ef ]
+"8
+[; ;hardware.c: 8: {
 {
-[e :U _config_app ]
+[e :U _conf_timer_0 ]
 [f ]
-"7
-[; ;user_app.c: 7:     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
-[e = . . _TRISDbits 1 0 = . . _TRISDbits 1 1 = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
-"9
-[; ;user_app.c: 9:     __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
-[; <" GLOBAL _tarefa_1, _tarefa_2, _tarefa_3 ;# ">
 "10
-[; ;user_app.c: 10: }
+[; ;hardware.c: 10:     T0CONbits.T0CS = 0;
+[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+"11
+[; ;hardware.c: 11:     T0CONbits.PSA = 0;
+[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
+"12
+[; ;hardware.c: 12:     T0CONbits.T0PS = 0b110;
+[e = . . _T0CONbits 0 0 -> -> 6 `i `uc ]
+"13
+[; ;hardware.c: 13:     TMR0 = 128;
+[e = _TMR0 -> -> 128 `i `us ]
+"14
+[; ;hardware.c: 14:     INTCONbits.TMR0IE = 1;
+[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
+"15
+[; ;hardware.c: 15:     INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"16
+[; ;hardware.c: 16:     T0CONbits.TMR0ON = 1;
+[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
+"17
+[; ;hardware.c: 17: }
 [e :UE 393 ]
 }
-"12
-[; ;user_app.c: 12: TASK tarefa_1(void)
-[v _tarefa_1 `(v ~T0 @X0 1 ef ]
-"13
-[; ;user_app.c: 13: {
-{
-[e :U _tarefa_1 ]
-[f ]
-"14
-[; ;user_app.c: 14:     while (1) {
-[e :U 396 ]
-{
-"15
-[; ;user_app.c: 15:         LATDbits.LD0 = ~PORTDbits.RD0;
-[e = . . _LATDbits 1 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
-"16
-[; ;user_app.c: 16:     }
-}
-[e :U 395 ]
-[e $U 396  ]
-[e :U 397 ]
-"17
-[; ;user_app.c: 17: }
-[e :UE 394 ]
-}
 "19
-[; ;user_app.c: 19: TASK tarefa_2(void)
-[v _tarefa_2 `(v ~T0 @X0 1 ef ]
+[; ;hardware.c: 19: void conf_interrupts(void)
+[v _conf_interrupts `(v ~T0 @X0 1 ef ]
 "20
-[; ;user_app.c: 20: {
+[; ;hardware.c: 20: {
 {
-[e :U _tarefa_2 ]
+[e :U _conf_interrupts ]
 [f ]
 "21
-[; ;user_app.c: 21:     while (1) {
-[e :U 400 ]
-{
+[; ;hardware.c: 21:     INTCONbits.PEIE = 1;
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
 "22
-[; ;user_app.c: 22:         LATDbits.LD1 = ~PORTDbits.RD1;
-[e = . . _LATDbits 1 1 -> ~ -> . . _PORTDbits 0 1 `i `uc ]
-"23
-[; ;user_app.c: 23:     }
+[; ;hardware.c: 22: }
+[e :UE 394 ]
 }
-[e :U 399 ]
-[e $U 400  ]
-[e :U 401 ]
-"24
-[; ;user_app.c: 24: }
-[e :UE 398 ]
-}
+[v $root$_ISR_TIMER_0 `(v ~T0 @X0 0 e ]
+"25
+[; ;hardware.c: 25: void __attribute__((picinterrupt(("")))) ISR_TIMER_0(void)
+[v _ISR_TIMER_0 `(v ~T37 @X0 1 ef ]
 "26
-[; ;user_app.c: 26: TASK tarefa_3(void)
-[v _tarefa_3 `(v ~T0 @X0 1 ef ]
-"27
-[; ;user_app.c: 27: {
+[; ;hardware.c: 26: {
 {
-[e :U _tarefa_3 ]
+[e :U _ISR_TIMER_0 ]
 [f ]
-"28
-[; ;user_app.c: 28:     while (1) {
-[e :U 404 ]
+"27
+[; ;hardware.c: 27:     if (INTCONbits.TMR0IF == 1) {
+[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 396  ]
 {
-"29
-[; ;user_app.c: 29:         LATDbits.LD2 = ~PORTDbits.RD2;
-[e = . . _LATDbits 1 2 -> ~ -> . . _PORTDbits 0 2 `i `uc ]
+"28
+[; ;hardware.c: 28:         INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "30
-[; ;user_app.c: 30:     }
+[; ;hardware.c: 30:         do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = &readyQueue.taskRunning->STACK[0]; while (STKPTR) { *(readyQueue.taskRunning->task_sp) = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = READY; } } while (0);;
+[e :U 399 ]
+{
+[e $ ! == -> . *U . _readyQueue 2 2 `ui -> . `E3349 1 `ui 400  ]
+{
+[e = . *U . _readyQueue 2 5 _BSR ]
+[e = . *U . _readyQueue 2 7 _STATUS ]
+[e = . *U . _readyQueue 2 6 _WREG ]
+[e = . *U . _readyQueue 2 9 &U *U + &U . *U . _readyQueue 2 8 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U . _readyQueue 2 8 `ui `ux ]
+[e $U 401  ]
+[e :U 402 ]
+{
+[e = *U . *U . _readyQueue 2 9 _TOS ]
+[e ++ . *U . _readyQueue 2 9 * -> -> 1 `i `x -> -> # *U . *U . _readyQueue 2 9 `i `x ]
+[; <" POP ;# ">
 }
+[e :U 401 ]
+[e $ != -> _STKPTR `i -> 0 `i 402  ]
 [e :U 403 ]
-[e $U 404  ]
-[e :U 405 ]
+[e = . *U . _readyQueue 2 2 . `E3349 0 ]
+}
+[e :U 400 ]
+}
+[e :U 398 ]
 "31
-[; ;user_app.c: 31: }
-[e :UE 402 ]
+[; ;hardware.c: 31:         scheduler();
+[e ( _scheduler ..  ]
+"32
+[; ;hardware.c: 32:         do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; do { __asm("PUSH"); if (readyQueue.taskRunning->task_sp == &readyQueue.taskRunning->STACK[0]) { TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { readyQueue.taskRunning->task_sp--; TOS = *(readyQueue.taskRunning->task_sp); } } while (readyQueue.taskRunning->task_sp != &readyQueue.taskRunning->STACK[0]); readyQueue.taskRunning->task_state = RUNNING; } } while (0);;
+[e :U 406 ]
+{
+[e $ ! == -> . *U . _readyQueue 2 2 `ui -> . `E3349 0 `ui 407  ]
+{
+[e = _BSR . *U . _readyQueue 2 5 ]
+[e = _STATUS . *U . _readyQueue 2 7 ]
+[e = _WREG . *U . _readyQueue 2 6 ]
+[e = _STKPTR -> -> 0 `i `uc ]
+[e :U 410 ]
+{
+[; <" PUSH ;# ">
+[e $ ! == . *U . _readyQueue 2 9 &U *U + &U . *U . _readyQueue 2 8 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U . _readyQueue 2 8 `ui `ux 411  ]
+{
+[e = _TOS -> . *U . _readyQueue 2 1 `um ]
+}
+[e $U 412  ]
+[e :U 411 ]
+{
+[e -- . *U . _readyQueue 2 9 * -> -> 1 `i `x -> -> # *U . *U . _readyQueue 2 9 `i `x ]
+[e = _TOS *U . *U . _readyQueue 2 9 ]
+}
+[e :U 412 ]
+}
+[e $ != . *U . _readyQueue 2 9 &U *U + &U . *U . _readyQueue 2 8 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U . _readyQueue 2 8 `ui `ux 410  ]
+[e :U 409 ]
+[e = . *U . _readyQueue 2 2 . `E3349 1 ]
+}
+[e :U 407 ]
+}
+[e :U 405 ]
+"33
+[; ;hardware.c: 33:     }
+}
+[e :U 396 ]
+"34
+[; ;hardware.c: 34: }
+[e :UE 395 ]
 }

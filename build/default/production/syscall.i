@@ -5972,15 +5972,19 @@ void os_change_state(state_t new_state);
 
 
 
+
+
+extern f_aptos_t readyQueue;
+
 void os_config(void);
 void os_start(void);
 void os_idle_task(void);
 # 4 "syscall.c" 2
 # 1 "./scheduler.h" 1
 # 13 "./scheduler.h"
-tcb_t *rr_scheduler();
-tcb_t *priority_scheduler();
-tcb_t *scheduler();
+tcb_t *rr_scheduler(void);
+tcb_t *priority_scheduler(void);
+tcb_t *scheduler(void);
 # 5 "syscall.c" 2
 
 
@@ -6009,7 +6013,7 @@ void os_delay(uint8_t time)
     (INTCONbits.GIE = 0);
 
     readyQueue.taskRunning->task_time_to_waiting = time;
-    do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; while (STKPTR) { *(readyQueue.taskRunning->task_sp) = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = WAITING; } } while (0);;
+    do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = &readyQueue.taskRunning->STACK[0]; while (STKPTR) { *(readyQueue.taskRunning->task_sp) = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = WAITING; } } while (0);;
 
     readyQueue.taskRunning = scheduler();
     do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; do { __asm("PUSH"); if (readyQueue.taskRunning->task_sp == &readyQueue.taskRunning->STACK[0]) { TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { readyQueue.taskRunning->task_sp--; TOS = *(readyQueue.taskRunning->task_sp); } } while (readyQueue.taskRunning->task_sp != &readyQueue.taskRunning->STACK[0]); readyQueue.taskRunning->task_state = RUNNING; } } while (0);;
@@ -6021,7 +6025,7 @@ void os_yield()
 {
     (INTCONbits.GIE = 0);
 
-    do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; while (STKPTR) { *(readyQueue.taskRunning->task_sp) = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = READY; } } while (0);;
+    do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = &readyQueue.taskRunning->STACK[0]; while (STKPTR) { *(readyQueue.taskRunning->task_sp) = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = READY; } } while (0);;
 
     readyQueue.taskRunning = scheduler();
     do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; do { __asm("PUSH"); if (readyQueue.taskRunning->task_sp == &readyQueue.taskRunning->STACK[0]) { TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { readyQueue.taskRunning->task_sp--; TOS = *(readyQueue.taskRunning->task_sp); } } while (readyQueue.taskRunning->task_sp != &readyQueue.taskRunning->STACK[0]); readyQueue.taskRunning->task_state = RUNNING; } } while (0);;
@@ -6033,7 +6037,7 @@ void os_change_state(state_t new_state)
 {
     (INTCONbits.GIE = 0);
 
-    do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; while (STKPTR) { *(readyQueue.taskRunning->task_sp) = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = new_state; } } while (0);;
+    do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = &readyQueue.taskRunning->STACK[0]; while (STKPTR) { *(readyQueue.taskRunning->task_sp) = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = new_state; } } while (0);;
 
     readyQueue.taskRunning = scheduler();
     do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; do { __asm("PUSH"); if (readyQueue.taskRunning->task_sp == &readyQueue.taskRunning->STACK[0]) { TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { readyQueue.taskRunning->task_sp--; TOS = *(readyQueue.taskRunning->task_sp); } } while (readyQueue.taskRunning->task_sp != &readyQueue.taskRunning->STACK[0]); readyQueue.taskRunning->task_state = RUNNING; } } while (0);;

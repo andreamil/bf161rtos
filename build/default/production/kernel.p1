@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [v F47 `(v ~T0 @X0 0 tf ]
-"7 kernel.c
-[; ;kernel.c: 7: f_aptos_t readyQueue;
+"9 kernel.c
+[; ;kernel.c: 9: f_aptos_t readyQueue;
 [c E39 0 1 2 .. ]
 [n E39 . READY RUNNING WAITING  ]
 "21 ./types.h
@@ -16,12 +16,86 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6 ./syscall.h
 [; ;./syscall.h: 6: void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior);
 [v _os_create_task `(v ~T0 @X0 0 ef3`uc`*F63`uc ]
-"9 ./kernel.h
-[; ;./kernel.h: 9: void os_idle_task(void);
+"13 ./kernel.h
+[; ;./kernel.h: 13: void os_idle_task(void);
 [v _os_idle_task `(v ~T0 @X0 0 ef ]
-"8 C:\Program Files\Microchip\xc8\v3.00\pic\include/builtins.h
-[v ___nop `(v ~T0 @X0 0 ef ]
-[p i ___nop ]
+"7 ./hardware.h
+[; ;./hardware.h: 7: void conf_interrupts(void);
+[v _conf_interrupts `(v ~T0 @X0 0 ef ]
+"6
+[; ;./hardware.h: 6: void conf_timer_0(void);
+[v _conf_timer_0 `(v ~T0 @X0 0 ef ]
+"6 ./user_app.h
+[; ;./user_app.h: 6: void config_app(void);
+[v _config_app `(v ~T0 @X0 0 ef ]
+"8586 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8586:     struct {
+[s S362 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S362 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"8596
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8596:     struct {
+[s S363 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S363 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"8606
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8606:     struct {
+[s S364 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S364 . . GIEL GIEH ]
+"8585
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8585: typedef union {
+[u S361 `S362 1 `S363 1 `S364 1 ]
+[n S361 . . . . ]
+"8612
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8612: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS361 ~T0 @X0 0 e@4082 ]
+"4010
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4010:     struct {
+[s S162 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S162 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"4020
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4020:     struct {
+[s S163 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S163 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"4009
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4009: typedef union {
+[u S161 `S162 1 `S163 1 ]
+[n S161 . . . ]
+"4031
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4031: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
+[v _TRISDbits `VS161 ~T0 @X0 0 e@3989 ]
+"3267
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3267:     struct {
+[s S138 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S138 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+"3277
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3277:     struct {
+[s S139 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S139 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+"3266
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3266: typedef union {
+[u S137 `S138 1 `S139 1 ]
+[n S137 . . . ]
+"3288
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3288: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
+[v _LATDbits `VS137 ~T0 @X0 0 e@3980 ]
+"2709
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2709:     struct {
+[s S119 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S119 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"2719
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2719:     struct {
+[s S120 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S120 . SPP0 SPP1 SPP2 SPP3 SPP4 SPP5 SPP6 SPP7 ]
+"2729
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2729:     struct {
+[s S121 :7 `uc 1 :1 `uc 1 ]
+[n S121 . . SS2 ]
+"2708
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2708: typedef union {
+[u S118 `S119 1 `S120 1 `S121 1 ]
+[n S118 . . . . ]
+"2734
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2734: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
+[v _PORTDbits `VS118 ~T0 @X0 0 e@3971 ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -532,64 +606,82 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8891
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"7 kernel.c
-[; ;kernel.c: 7: f_aptos_t readyQueue;
+"9 kernel.c
+[; ;kernel.c: 9: f_aptos_t readyQueue;
 [v _readyQueue `S2 ~T0 @X0 1 e ]
-"9
-[; ;kernel.c: 9: void os_config(void)
+"11
+[; ;kernel.c: 11: void os_config(void)
 [v _os_config `(v ~T0 @X0 1 ef ]
-"10
-[; ;kernel.c: 10: {
+"12
+[; ;kernel.c: 12: {
 {
 [e :U _os_config ]
 [f ]
-"11
-[; ;kernel.c: 11:     readyQueue.readyQueueSize = 0;
+"13
+[; ;kernel.c: 13:     readyQueue.readyQueueSize = 0;
 [e = . _readyQueue 1 -> -> 0 `i `uc ]
-"12
-[; ;kernel.c: 12:     readyQueue.taskRunning = &readyQueue.readyQueue[0];
+"14
+[; ;kernel.c: 14:     readyQueue.taskRunning = &readyQueue.readyQueue[0];
 [e = . _readyQueue 2 &U *U + &U . _readyQueue 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _readyQueue 0 `ui `ux ]
-"15
-[; ;kernel.c: 15:     os_create_task(0, os_idle_task, 1);
+"17
+[; ;kernel.c: 17:     os_create_task(0, os_idle_task, 1);
 [e ( _os_create_task (3 , , -> -> 0 `i `uc &U _os_idle_task -> -> 1 `i `uc ]
-"16
-[; ;kernel.c: 16: }
+"19
+[; ;kernel.c: 19:     __asm("GLOBAL _os_idle_task");
+[; <" GLOBAL _os_idle_task ;# ">
+"20
+[; ;kernel.c: 20: }
 [e :UE 393 ]
 }
-"18
-[; ;kernel.c: 18: void os_start(void)
+"22
+[; ;kernel.c: 22: void os_start(void)
 [v _os_start `(v ~T0 @X0 1 ef ]
-"19
-[; ;kernel.c: 19: {
+"23
+[; ;kernel.c: 23: {
 {
 [e :U _os_start ]
 [f ]
-"23
-[; ;kernel.c: 23: }
+"25
+[; ;kernel.c: 25:     conf_interrupts();
+[e ( _conf_interrupts ..  ]
+"26
+[; ;kernel.c: 26:     conf_timer_0();
+[e ( _conf_timer_0 ..  ]
+"29
+[; ;kernel.c: 29:     config_app();
+[e ( _config_app ..  ]
+"32
+[; ;kernel.c: 32:     (INTCONbits.GIE = 1);
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"33
+[; ;kernel.c: 33: }
 [e :UE 394 ]
 }
-"26
-[; ;kernel.c: 26: void os_idle_task(void)
+"36
+[; ;kernel.c: 36: void os_idle_task(void)
 [v _os_idle_task `(v ~T0 @X0 1 ef ]
-"27
-[; ;kernel.c: 27: {
+"37
+[; ;kernel.c: 37: {
 {
 [e :U _os_idle_task ]
 [f ]
-"28
-[; ;kernel.c: 28:     while (1) {
+"38
+[; ;kernel.c: 38:     TRISDbits.RD3 = 0;
+[e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
+"40
+[; ;kernel.c: 40:     while (1) {
 [e :U 397 ]
 {
-"29
-[; ;kernel.c: 29:         __nop();
-[e ( ___nop ..  ]
-"30
-[; ;kernel.c: 30:     }
+"42
+[; ;kernel.c: 42:         LATDbits.LD3 = ~PORTDbits.RD3;
+[e = . . _LATDbits 1 3 -> ~ -> . . _PORTDbits 0 3 `i `uc ]
+"43
+[; ;kernel.c: 43:     }
 }
 [e :U 396 ]
 [e $U 397  ]
 [e :U 398 ]
-"31
-[; ;kernel.c: 31: }
+"44
+[; ;kernel.c: 44: }
 [e :UE 395 ]
 }

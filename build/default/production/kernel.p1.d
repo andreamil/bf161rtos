@@ -3,4 +3,6 @@ kernel.c  \
 types.h  \
 os_config.h  \
 syscall.h  \
-kernel.h 
+kernel.h  \
+hardware.h  \
+user_app.h 
