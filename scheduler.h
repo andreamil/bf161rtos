@@ -10,9 +10,9 @@
 
 #include "types.h"
 
-tcb_t *rr_scheduler();
-tcb_t *priority_scheduler();
-tcb_t *scheduler();
+tcb_t *rr_scheduler(void);
+tcb_t *priority_scheduler(void);
+tcb_t *scheduler(void);
 
 
 #endif	/* SCHEDULER_H */
