@@ -3,4 +3,5 @@ scheduler.c  \
 scheduler.h  \
 types.h  \
 os_config.h  \
-syscall.h 
+syscall.h  \
+kernel.h 

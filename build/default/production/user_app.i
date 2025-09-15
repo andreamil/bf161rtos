@@ -5929,7 +5929,6 @@ unsigned char __t3rd16on(void);
 
 
 
-
 typedef void TASK;
 
 
@@ -5950,7 +5949,7 @@ typedef struct tcb {
     uint8_t WORK_reg;
     uint8_t STATUS_reg;
     uint24_t STACK[32];
-    uint24_t *task_sp;
+    uint8_t task_sp;
 } tcb_t;
 
 

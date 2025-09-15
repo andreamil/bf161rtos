@@ -28,7 +28,7 @@ void __interrupt() ISR_TIMER_0(void)
         INTCONbits.TMR0IF = 0;
         
         SAVE_CONTEXT(READY);
-        scheduler();
+        readyQueue.taskRunning = scheduler();
         RESTORE_CONTEXT();
     }
 }

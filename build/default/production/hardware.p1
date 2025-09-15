@@ -40,15 +40,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [t T37 __interrupt ]
 [v F3357 `(v ~T0 @X0 0 tf ]
 "30 hardware.c
-[; ;hardware.c: 30:         do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = &readyQueue.taskRunning->STACK[0]; while (STKPTR) { *(readyQueue.taskRunning->task_sp) = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = READY; } } while (0);;
+[; ;hardware.c: 30:         do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = 0; while (STKPTR) { readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp] = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = READY; } } while (0);;
 [c E3349 0 1 2 .. ]
 [n E3349 . READY RUNNING WAITING  ]
-"21 ./types.h
-[; ;./types.h: 21: typedef struct tcb {
-[s S391 `uc 1 `*F3357 1 `E3349 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `um -> 32 `i `*um 1 ]
+"20 ./types.h
+[; ;./types.h: 20: typedef struct tcb {
+[s S391 `uc 1 `*F3357 1 `E3349 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `um -> 32 `i `uc 1 ]
 [n S391 tcb task_id task_func task_state task_priority task_time_to_waiting BSR_reg WORK_reg STATUS_reg STACK task_sp ]
-"36
-[; ;./types.h: 36: typedef struct f_aptos {
+"35
+[; ;./types.h: 35: typedef struct f_aptos {
 [s S392 `S391 -> 5 `i `uc 1 `*S391 1 ]
 [n S392 f_aptos readyQueue readyQueueSize taskRunning ]
 "9 ./kernel.h
@@ -647,7 +647,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;hardware.c: 28:         INTCONbits.TMR0IF = 0;
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
 "30
-[; ;hardware.c: 30:         do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = &readyQueue.taskRunning->STACK[0]; while (STKPTR) { *(readyQueue.taskRunning->task_sp) = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = READY; } } while (0);;
+[; ;hardware.c: 30:         do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = 0; while (STKPTR) { readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp] = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = READY; } } while (0);;
 [e :U 399 ]
 {
 [e $ ! == -> . *U . _readyQueue 2 2 `ui -> . `E3349 1 `ui 400  ]
@@ -655,12 +655,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U . _readyQueue 2 5 _BSR ]
 [e = . *U . _readyQueue 2 7 _STATUS ]
 [e = . *U . _readyQueue 2 6 _WREG ]
-[e = . *U . _readyQueue 2 9 &U *U + &U . *U . _readyQueue 2 8 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U . _readyQueue 2 8 `ui `ux ]
+[e = . *U . _readyQueue 2 9 -> -> 0 `i `uc ]
 [e $U 401  ]
 [e :U 402 ]
 {
-[e = *U . *U . _readyQueue 2 9 _TOS ]
-[e ++ . *U . _readyQueue 2 9 * -> -> 1 `i `x -> -> # *U . *U . _readyQueue 2 9 `i `x ]
+[e = *U + &U . *U . _readyQueue 2 8 * -> . *U . _readyQueue 2 9 `ux -> -> # *U &U . *U . _readyQueue 2 8 `ui `ux _TOS ]
+[e ++ . *U . _readyQueue 2 9 -> -> 1 `i `uc ]
 [; <" POP ;# ">
 }
 [e :U 401 ]
@@ -672,10 +672,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 398 ]
 "31
-[; ;hardware.c: 31:         scheduler();
-[e ( _scheduler ..  ]
+[; ;hardware.c: 31:         readyQueue.taskRunning = scheduler();
+[e = . _readyQueue 2 ( _scheduler ..  ]
 "32
-[; ;hardware.c: 32:         do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; do { __asm("PUSH"); if (readyQueue.taskRunning->task_sp == &readyQueue.taskRunning->STACK[0]) { TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { readyQueue.taskRunning->task_sp--; TOS = *(readyQueue.taskRunning->task_sp); } } while (readyQueue.taskRunning->task_sp != &readyQueue.taskRunning->STACK[0]); readyQueue.taskRunning->task_state = RUNNING; } } while (0);;
+[; ;hardware.c: 32:         do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; if (readyQueue.taskRunning->task_sp == 0) { __asm("PUSH"); TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { do { __asm("PUSH"); readyQueue.taskRunning->task_sp--; TOS = readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp]; } while (readyQueue.taskRunning->task_sp != 0); } readyQueue.taskRunning->task_state = RUNNING; } } while (0);;
 [e :U 406 ]
 {
 [e $ ! == -> . *U . _readyQueue 2 2 `ui -> . `E3349 0 `ui 407  ]
@@ -684,22 +684,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _STATUS . *U . _readyQueue 2 7 ]
 [e = _WREG . *U . _readyQueue 2 6 ]
 [e = _STKPTR -> -> 0 `i `uc ]
-[e :U 410 ]
+[e $ ! == -> . *U . _readyQueue 2 9 `i -> 0 `i 408  ]
 {
 [; <" PUSH ;# ">
-[e $ ! == . *U . _readyQueue 2 9 &U *U + &U . *U . _readyQueue 2 8 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U . _readyQueue 2 8 `ui `ux 411  ]
-{
 [e = _TOS -> . *U . _readyQueue 2 1 `um ]
 }
-[e $U 412  ]
-[e :U 411 ]
+[e $U 409  ]
+[e :U 408 ]
 {
-[e -- . *U . _readyQueue 2 9 * -> -> 1 `i `x -> -> # *U . *U . _readyQueue 2 9 `i `x ]
-[e = _TOS *U . *U . _readyQueue 2 9 ]
-}
 [e :U 412 ]
+{
+[; <" PUSH ;# ">
+[e -- . *U . _readyQueue 2 9 -> -> 1 `i `uc ]
+[e = _TOS *U + &U . *U . _readyQueue 2 8 * -> . *U . _readyQueue 2 9 `ux -> -> # *U &U . *U . _readyQueue 2 8 `ui `ux ]
 }
-[e $ != . *U . _readyQueue 2 9 &U *U + &U . *U . _readyQueue 2 8 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U . _readyQueue 2 8 `ui `ux 410  ]
+[e $ != -> . *U . _readyQueue 2 9 `i -> 0 `i 412  ]
+[e :U 411 ]
+}
 [e :U 409 ]
 [e = . *U . _readyQueue 2 2 . `E3349 1 ]
 }

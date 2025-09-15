@@ -129,7 +129,6 @@ typedef uint32_t uint_fast32_t;
 
 
 
-
 typedef void TASK;
 
 
@@ -150,7 +149,7 @@ typedef struct tcb {
     uint8_t WORK_reg;
     uint8_t STATUS_reg;
     uint24_t STACK[32];
-    uint24_t *task_sp;
+    uint8_t task_sp;
 } tcb_t;
 
 
@@ -5987,6 +5986,7 @@ extern f_aptos_t readyQueue;
 void os_config(void);
 void os_start(void);
 void os_idle_task(void);
+uint8_t os_task_pos(f_ptr task);
 # 4 "kernel.c" 2
 # 1 "./hardware.h" 1
 
@@ -6020,7 +6020,7 @@ f_aptos_t readyQueue;
 void os_config(void)
 {
     readyQueue.readyQueueSize = 0;
-    readyQueue.taskRunning = &readyQueue.readyQueue[0];
+    readyQueue.taskRunning = 0;
 
 
     os_create_task(0, os_idle_task, 1);
@@ -6032,10 +6032,11 @@ void os_start(void)
 {
 
     conf_interrupts();
-    conf_timer_0();
 
 
     config_app();
+
+    conf_timer_0();
 
 
     (INTCONbits.GIE = 1);
@@ -6050,4 +6051,13 @@ void os_idle_task(void)
 
         LATDbits.LD3 = ~PORTDbits.RD3;
     }
+}
+
+uint8_t os_task_pos(f_ptr task)
+{
+    for (uint8_t i = 0; i < readyQueue.readyQueueSize; i++) {
+        if (readyQueue.readyQueue[i].task_func == task) return i;
+    }
+
+    return 0;
 }

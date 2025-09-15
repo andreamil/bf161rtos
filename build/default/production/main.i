@@ -5928,7 +5928,6 @@ unsigned char __t3rd16on(void);
 
 
 
-
 typedef void TASK;
 
 
@@ -5949,7 +5948,7 @@ typedef struct tcb {
     uint8_t WORK_reg;
     uint8_t STATUS_reg;
     uint24_t STACK[32];
-    uint24_t *task_sp;
+    uint8_t task_sp;
 } tcb_t;
 
 
@@ -5979,6 +5978,7 @@ extern f_aptos_t readyQueue;
 void os_config(void);
 void os_start(void);
 void os_idle_task(void);
+uint8_t os_task_pos(f_ptr task);
 # 4 "main.c" 2
 # 1 "./user_app.h" 1
 

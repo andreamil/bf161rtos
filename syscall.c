@@ -18,7 +18,7 @@ void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior)
     new_task.BSR_reg            = 0;
     new_task.STATUS_reg         = 0;
     new_task.WORK_reg           = 0;
-    new_task.task_sp            = &new_task.STACK[0];
+    new_task.task_sp            = 0;
     
     // Inserir tarefa na fila de aptos
     readyQueue.readyQueue[readyQueue.readyQueueSize++] = new_task;    
