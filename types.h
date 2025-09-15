@@ -38,5 +38,9 @@ typedef struct f_aptos {
     tcb_t *taskRunning;
 } f_aptos_t;
 
+typedef struct semaphore {
+    
+} sem_t;
+
 #endif	/* TYPES_H */
 
