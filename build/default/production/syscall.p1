@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3393 `(v ~T0 @X0 0 tf ]
-[v F3396 `(v ~T0 @X0 0 tf ]
+[v F3394 `(v ~T0 @X0 0 tf ]
+[v F3397 `(v ~T0 @X0 0 tf ]
 [v F3354 `(v ~T0 @X0 0 tf ]
 "11 syscall.c
 [; ;syscall.c: 11:     tcb_t new_task;
@@ -52,8 +52,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8792: extern volatile unsigned char STKPTR __attribute__((address(0xFFC)));
 [v _STKPTR `Vuc ~T0 @X0 0 e@4092 ]
 "15 ./scheduler.h
-[; ;./scheduler.h: 15: tcb_t *scheduler(void);
-[v _scheduler `(*S391 ~T0 @X0 0 ef ]
+[; ;./scheduler.h: 15: void scheduler(void);
+[v _scheduler `(v ~T0 @X0 0 ef ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -566,7 +566,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "9 syscall.c
 [; ;syscall.c: 9: void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior)
-[v _os_create_task `(v ~T0 @X0 1 ef3`uc`*F3393`uc ]
+[v _os_create_task `(v ~T0 @X0 1 ef3`uc`*F3394`uc ]
 "10
 [; ;syscall.c: 10: {
 {
@@ -574,7 +574,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9
 [; ;syscall.c: 9: void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior)
 [v _id `uc ~T0 @X0 1 r1 ]
-[v _task_f `*F3396 ~T0 @X0 1 r2 ]
+[v _task_f `*F3397 ~T0 @X0 1 r2 ]
 [v _prior `uc ~T0 @X0 1 r3 ]
 "10
 [; ;syscall.c: 10: {
@@ -658,8 +658,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 396 ]
 "34
-[; ;syscall.c: 34:     readyQueue.taskRunning = scheduler();
-[e = . _readyQueue 2 ( _scheduler ..  ]
+[; ;syscall.c: 34:     scheduler();
+[e ( _scheduler ..  ]
 "35
 [; ;syscall.c: 35:     do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; if (readyQueue.taskRunning->task_sp == 0) { __asm("PUSH"); TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { do { __asm("PUSH"); readyQueue.taskRunning->task_sp--; TOS = readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp]; } while (readyQueue.taskRunning->task_sp != 0); } readyQueue.taskRunning->task_state = RUNNING; } } while (0);;
 [e :U 404 ]
@@ -737,8 +737,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 413 ]
 "46
-[; ;syscall.c: 46:     readyQueue.taskRunning = scheduler();
-[e = . _readyQueue 2 ( _scheduler ..  ]
+[; ;syscall.c: 46:     scheduler();
+[e ( _scheduler ..  ]
 "47
 [; ;syscall.c: 47:     do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; if (readyQueue.taskRunning->task_sp == 0) { __asm("PUSH"); TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { do { __asm("PUSH"); readyQueue.taskRunning->task_sp--; TOS = readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp]; } while (readyQueue.taskRunning->task_sp != 0); } readyQueue.taskRunning->task_state = RUNNING; } } while (0);;
 [e :U 421 ]
@@ -821,8 +821,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 430 ]
 "58
-[; ;syscall.c: 58:     readyQueue.taskRunning = scheduler();
-[e = . _readyQueue 2 ( _scheduler ..  ]
+[; ;syscall.c: 58:     scheduler();
+[e ( _scheduler ..  ]
 "59
 [; ;syscall.c: 59:     do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; if (readyQueue.taskRunning->task_sp == 0) { __asm("PUSH"); TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { do { __asm("PUSH"); readyQueue.taskRunning->task_sp--; TOS = readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp]; } while (readyQueue.taskRunning->task_sp != 0); } readyQueue.taskRunning->task_state = RUNNING; } } while (0);;
 [e :U 438 ]

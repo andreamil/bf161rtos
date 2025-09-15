@@ -52,3 +52,16 @@ uint8_t os_task_pos(f_ptr task)
     
     return 0;
 }
+
+void os_task_time_decrease()
+{
+    for (uint8_t i = 1; i < readyQueue.readyQueueSize; i++) {
+        if (readyQueue.readyQueue[i].task_state == WAITING) {
+            readyQueue.readyQueue[i].task_time_to_waiting--;
+            if (readyQueue.readyQueue[i].task_time_to_waiting == 0) {
+                // Restaura o estado de pronto (ready)
+                readyQueue.readyQueue[i].task_state = READY;
+            }
+        }
+    }
+}

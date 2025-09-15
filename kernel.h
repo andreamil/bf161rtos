@@ -12,6 +12,7 @@ void os_config(void);
 void os_start(void);
 void os_idle_task(void);
 uint8_t os_task_pos(f_ptr task);
+void os_task_time_decrease();
 
 // Salvar e restaurar o contexto
 

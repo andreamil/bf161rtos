@@ -19,6 +19,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9 scheduler.c
 [; ;scheduler.c: 9: extern f_aptos_t readyQueue;
 [v _readyQueue `S2 ~T0 @X0 0 e ]
+"13 ./kernel.h
+[; ;./kernel.h: 13: void os_idle_task(void);
+[v _os_idle_task `(v ~T0 @X0 0 ef ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -541,53 +544,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;scheduler.c: 14:     uint8_t pos_task_running = os_task_pos(readyQueue.taskRunning->task_func);
 [v _pos_task_running `uc ~T0 @X0 1 a ]
 [e = _pos_task_running ( _os_task_pos (1 . *U . _readyQueue 2 1 ]
+"15
+[; ;scheduler.c: 15:     uint8_t idle_selected = 0;
+[v _idle_selected `uc ~T0 @X0 1 a ]
+[e = _idle_selected -> -> 0 `i `uc ]
 "17
-[; ;scheduler.c: 17:     for (uint8_t i = pos_task_running+i; i < readyQueue.readyQueueSize; i++) {
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> + -> _pos_task_running `i -> _i `i `uc ]
-[e $U 399  ]
-[e :U 396 ]
+[; ;scheduler.c: 17:     do {
+[e :U 398 ]
 {
 "18
-[; ;scheduler.c: 18:         if (readyQueue.readyQueue[i].task_state == READY) return &readyQueue.readyQueue[i];
-[e $ ! == -> . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 2 `ui -> . `E39 0 `ui 400  ]
-[e ) &U *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux ]
+[; ;scheduler.c: 18:         pos_task_running = (pos_task_running+1) % readyQueue.readyQueueSize;
+[e = _pos_task_running -> % + -> _pos_task_running `i -> 1 `i -> . _readyQueue 1 `i `uc ]
+"19
+[; ;scheduler.c: 19:         if (readyQueue.readyQueue[pos_task_running].task_func == os_idle_task) {
+[e $ ! == . *U + &U . _readyQueue 0 * -> _pos_task_running `ux -> -> # *U &U . _readyQueue 0 `ui `ux 1 &U _os_idle_task 399  ]
+{
+"20
+[; ;scheduler.c: 20:             idle_selected++;
+[e ++ _idle_selected -> -> 1 `i `uc ]
+"21
+[; ;scheduler.c: 21:             if (idle_selected > 1) return &readyQueue.readyQueue[0];
+[e $ ! > -> _idle_selected `i -> 1 `i 400  ]
+[e ) &U *U + &U . _readyQueue 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _readyQueue 0 `ui `ux ]
 [e $UE 395  ]
 [e :U 400 ]
-"19
-[; ;scheduler.c: 19:     }
-}
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 399 ]
-[e $ < -> _i `i -> . _readyQueue 1 `i 396  ]
-[e :U 397 ]
-}
 "22
-[; ;scheduler.c: 22:     for (uint8_t i = 1; i < pos_task_running; i++) {
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 1 `i `uc ]
-[e $U 404  ]
-[e :U 401 ]
-{
-"23
-[; ;scheduler.c: 23:         if (readyQueue.readyQueue[i].task_state == READY) return &readyQueue.readyQueue[i];
-[e $ ! == -> . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 2 `ui -> . `E39 0 `ui 405  ]
-[e ) &U *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux ]
-[e $UE 395  ]
-[e :U 405 ]
+[; ;scheduler.c: 22:         }
+}
+[e :U 399 ]
 "24
-[; ;scheduler.c: 24:     }
+[; ;scheduler.c: 24:     } while (readyQueue.readyQueue[pos_task_running].task_state != READY ||
 }
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 404 ]
-[e $ < -> _i `i -> _pos_task_running `i 401  ]
-[e :U 402 ]
-}
+[e $ || != -> . *U + &U . _readyQueue 0 * -> _pos_task_running `ux -> -> # *U &U . _readyQueue 0 `ui `ux 2 `ui -> . `E39 0 `ui == . *U + &U . _readyQueue 0 * -> _pos_task_running `ux -> -> # *U &U . _readyQueue 0 `ui `ux 1 &U _os_idle_task 398  ]
+[e :U 397 ]
 "27
-[; ;scheduler.c: 27:     return &readyQueue.readyQueue[0];
-[e ) &U *U + &U . _readyQueue 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _readyQueue 0 `ui `ux ]
+[; ;scheduler.c: 27:     return &readyQueue.readyQueue[pos_task_running];
+[e ) &U *U + &U . _readyQueue 0 * -> _pos_task_running `ux -> -> # *U &U . _readyQueue 0 `ui `ux ]
 [e $UE 395  ]
 "28
 [; ;scheduler.c: 28: }
@@ -608,24 +600,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "34
 [; ;scheduler.c: 34:     return next;
 [e ) _next ]
-[e $UE 406  ]
+[e $UE 401  ]
 "35
 [; ;scheduler.c: 35: }
-[e :UE 406 ]
+[e :UE 401 ]
 }
 "37
-[; ;scheduler.c: 37: tcb_t *scheduler()
-[v _scheduler `(*S1 ~T0 @X0 1 ef ]
+[; ;scheduler.c: 37: void scheduler()
+[v _scheduler `(v ~T0 @X0 1 ef ]
 "38
 [; ;scheduler.c: 38: {
 {
 [e :U _scheduler ]
 [f ]
 "40
-[; ;scheduler.c: 40:     return rr_scheduler();
-[e ) ( _rr_scheduler ..  ]
-[e $UE 407  ]
+[; ;scheduler.c: 40:     readyQueue.taskRunning = rr_scheduler();
+[e = . _readyQueue 2 ( _rr_scheduler ..  ]
 "44
 [; ;scheduler.c: 44: }
-[e :UE 407 ]
+[e :UE 402 ]
 }

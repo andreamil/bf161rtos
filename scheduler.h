@@ -12,7 +12,7 @@
 
 tcb_t *rr_scheduler(void);
 tcb_t *priority_scheduler(void);
-tcb_t *scheduler(void);
+void scheduler(void);
 
 
 #endif	/* SCHEDULER_H */

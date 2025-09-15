@@ -24,11 +24,18 @@ void conf_interrupts(void)
 // Tratador de interrupção
 void __interrupt() ISR_TIMER_0(void)
 {
+    di();
+    
     if (INTCONbits.TMR0IF == 1) {
         INTCONbits.TMR0IF = 0;
         
+        // Diminui tempo das tarefas em espera
+        os_task_time_decrease();
+        
         SAVE_CONTEXT(READY);
-        readyQueue.taskRunning = scheduler();
+        scheduler();
         RESTORE_CONTEXT();
     }
+    
+    ei();
 }

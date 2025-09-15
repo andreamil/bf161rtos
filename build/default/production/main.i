@@ -5979,6 +5979,7 @@ void os_config(void);
 void os_start(void);
 void os_idle_task(void);
 uint8_t os_task_pos(f_ptr task);
+void os_task_time_decrease();
 # 4 "main.c" 2
 # 1 "./user_app.h" 1
 

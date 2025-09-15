@@ -96,8 +96,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2734
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2734: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
 [v _PORTDbits `VS118 ~T0 @X0 0 e@3971 ]
-[v F3401 `(v ~T0 @X0 0 tf ]
-[v F3403 `(v ~T0 @X0 0 tf ]
+[v F3402 `(v ~T0 @X0 0 tf ]
+[v F3404 `(v ~T0 @X0 0 tf ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -689,14 +689,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "47
 [; ;kernel.c: 47: uint8_t os_task_pos(f_ptr task)
-[v _os_task_pos `(uc ~T0 @X0 1 ef1`*F3401 ]
+[v _os_task_pos `(uc ~T0 @X0 1 ef1`*F3402 ]
 "48
 [; ;kernel.c: 48: {
 {
 [e :U _os_task_pos ]
 "47
 [; ;kernel.c: 47: uint8_t os_task_pos(f_ptr task)
-[v _task `*F3403 ~T0 @X0 1 r1 ]
+[v _task `*F3404 ~T0 @X0 1 r1 ]
 "48
 [; ;kernel.c: 48: {
 [f ]
@@ -729,4 +729,54 @@ Version 4.0 HI-TECH Software Intermediate Code
 "54
 [; ;kernel.c: 54: }
 [e :UE 399 ]
+}
+"56
+[; ;kernel.c: 56: void os_task_time_decrease()
+[v _os_task_time_decrease `(v ~T0 @X0 1 ef ]
+"57
+[; ;kernel.c: 57: {
+{
+[e :U _os_task_time_decrease ]
+[f ]
+"58
+[; ;kernel.c: 58:     for (uint8_t i = 1; i < readyQueue.readyQueueSize; i++) {
+{
+[v _i `uc ~T0 @X0 1 a ]
+[e = _i -> -> 1 `i `uc ]
+[e $U 409  ]
+[e :U 406 ]
+{
+"59
+[; ;kernel.c: 59:         if (readyQueue.readyQueue[i].task_state == WAITING) {
+[e $ ! == -> . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 2 `ui -> . `E39 2 `ui 410  ]
+{
+"60
+[; ;kernel.c: 60:             readyQueue.readyQueue[i].task_time_to_waiting--;
+[e -- . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 4 -> -> 1 `i `uc ]
+"61
+[; ;kernel.c: 61:             if (readyQueue.readyQueue[i].task_time_to_waiting == 0) {
+[e $ ! == -> . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 4 `i -> 0 `i 411  ]
+{
+"63
+[; ;kernel.c: 63:                 readyQueue.readyQueue[i].task_state = READY;
+[e = . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 2 . `E39 0 ]
+"64
+[; ;kernel.c: 64:             }
+}
+[e :U 411 ]
+"65
+[; ;kernel.c: 65:         }
+}
+[e :U 410 ]
+"66
+[; ;kernel.c: 66:     }
+}
+[e ++ _i -> -> 1 `i `uc ]
+[e :U 409 ]
+[e $ < -> _i `i -> . _readyQueue 1 `i 406  ]
+[e :U 407 ]
+}
+"67
+[; ;kernel.c: 67: }
+[e :UE 405 ]
 }

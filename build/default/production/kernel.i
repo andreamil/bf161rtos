@@ -5987,6 +5987,7 @@ void os_config(void);
 void os_start(void);
 void os_idle_task(void);
 uint8_t os_task_pos(f_ptr task);
+void os_task_time_decrease();
 # 4 "kernel.c" 2
 # 1 "./hardware.h" 1
 
@@ -6060,4 +6061,17 @@ uint8_t os_task_pos(f_ptr task)
     }
 
     return 0;
+}
+
+void os_task_time_decrease()
+{
+    for (uint8_t i = 1; i < readyQueue.readyQueueSize; i++) {
+        if (readyQueue.readyQueue[i].task_state == WAITING) {
+            readyQueue.readyQueue[i].task_time_to_waiting--;
+            if (readyQueue.readyQueue[i].task_time_to_waiting == 0) {
+
+                readyQueue.readyQueue[i].task_state = READY;
+            }
+        }
+    }
 }

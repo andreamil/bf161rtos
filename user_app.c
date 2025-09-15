@@ -1,6 +1,7 @@
 #include <xc.h>
 
 #include "user_app.h"
+#include "syscall.h"
 
 void config_app(void)
 {
@@ -20,6 +21,7 @@ TASK tarefa_2(void)
 {
     while (1) {
         LATDbits.LD1 = ~PORTDbits.RD1;
+        os_delay(200);
     }    
 }
 

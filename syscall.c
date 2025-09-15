@@ -31,7 +31,7 @@ void os_delay(uint8_t time)
     readyQueue.taskRunning->task_time_to_waiting = time;
     SAVE_CONTEXT(WAITING);
     // Escalonador
-    readyQueue.taskRunning  = scheduler();
+    scheduler();
     RESTORE_CONTEXT(); 
     
     ei();    
@@ -43,7 +43,7 @@ void os_yield()
     
     SAVE_CONTEXT(READY);
     // Escalonador
-    readyQueue.taskRunning  = scheduler();
+    scheduler();
     RESTORE_CONTEXT();    
     
     ei();
@@ -55,7 +55,7 @@ void os_change_state(state_t new_state)
 
     SAVE_CONTEXT(new_state);
     // Escalonador
-    readyQueue.taskRunning  = scheduler();
+    scheduler();
     RESTORE_CONTEXT();    
     
     ei();

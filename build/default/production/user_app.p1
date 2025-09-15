@@ -48,6 +48,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2734
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2734: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
 [v _PORTDbits `VS116 ~T0 @X0 0 e@3971 ]
+"7 ./syscall.h
+[; ;./syscall.h: 7: void os_delay(uint8_t time);
+[v _os_delay `(v ~T0 @X0 0 ef1`uc ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -558,96 +561,99 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8891
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"5 user_app.c
-[; ;user_app.c: 5: void config_app(void)
+"6 user_app.c
+[; ;user_app.c: 6: void config_app(void)
 [v _config_app `(v ~T0 @X0 1 ef ]
-"6
-[; ;user_app.c: 6: {
+"7
+[; ;user_app.c: 7: {
 {
 [e :U _config_app ]
 [f ]
-"7
-[; ;user_app.c: 7:     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
+"8
+[; ;user_app.c: 8:     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
 [e = . . _TRISDbits 1 0 = . . _TRISDbits 1 1 = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
-"9
-[; ;user_app.c: 9:     __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
-[; <" GLOBAL _tarefa_1, _tarefa_2, _tarefa_3 ;# ">
 "10
-[; ;user_app.c: 10: }
+[; ;user_app.c: 10:     __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
+[; <" GLOBAL _tarefa_1, _tarefa_2, _tarefa_3 ;# ">
+"11
+[; ;user_app.c: 11: }
 [e :UE 393 ]
 }
-"12
-[; ;user_app.c: 12: TASK tarefa_1(void)
-[v _tarefa_1 `(v ~T0 @X0 1 ef ]
 "13
-[; ;user_app.c: 13: {
+[; ;user_app.c: 13: TASK tarefa_1(void)
+[v _tarefa_1 `(v ~T0 @X0 1 ef ]
+"14
+[; ;user_app.c: 14: {
 {
 [e :U _tarefa_1 ]
 [f ]
-"14
-[; ;user_app.c: 14:     while (1) {
+"15
+[; ;user_app.c: 15:     while (1) {
 [e :U 396 ]
 {
-"15
-[; ;user_app.c: 15:         LATDbits.LD0 = ~PORTDbits.RD0;
-[e = . . _LATDbits 1 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
 "16
-[; ;user_app.c: 16:     }
+[; ;user_app.c: 16:         LATDbits.LD0 = ~PORTDbits.RD0;
+[e = . . _LATDbits 1 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
+"17
+[; ;user_app.c: 17:     }
 }
 [e :U 395 ]
 [e $U 396  ]
 [e :U 397 ]
-"17
-[; ;user_app.c: 17: }
+"18
+[; ;user_app.c: 18: }
 [e :UE 394 ]
 }
-"19
-[; ;user_app.c: 19: TASK tarefa_2(void)
-[v _tarefa_2 `(v ~T0 @X0 1 ef ]
 "20
-[; ;user_app.c: 20: {
+[; ;user_app.c: 20: TASK tarefa_2(void)
+[v _tarefa_2 `(v ~T0 @X0 1 ef ]
+"21
+[; ;user_app.c: 21: {
 {
 [e :U _tarefa_2 ]
 [f ]
-"21
-[; ;user_app.c: 21:     while (1) {
+"22
+[; ;user_app.c: 22:     while (1) {
 [e :U 400 ]
 {
-"22
-[; ;user_app.c: 22:         LATDbits.LD1 = ~PORTDbits.RD1;
-[e = . . _LATDbits 1 1 -> ~ -> . . _PORTDbits 0 1 `i `uc ]
 "23
-[; ;user_app.c: 23:     }
+[; ;user_app.c: 23:         LATDbits.LD1 = ~PORTDbits.RD1;
+[e = . . _LATDbits 1 1 -> ~ -> . . _PORTDbits 0 1 `i `uc ]
+"24
+[; ;user_app.c: 24:         os_delay(200);
+[e ( _os_delay (1 -> -> 200 `i `uc ]
+"25
+[; ;user_app.c: 25:     }
 }
 [e :U 399 ]
 [e $U 400  ]
 [e :U 401 ]
-"24
-[; ;user_app.c: 24: }
+"26
+[; ;user_app.c: 26: }
 [e :UE 398 ]
 }
-"26
-[; ;user_app.c: 26: TASK tarefa_3(void)
+"28
+[; ;user_app.c: 28: TASK tarefa_3(void)
 [v _tarefa_3 `(v ~T0 @X0 1 ef ]
-"27
-[; ;user_app.c: 27: {
+"29
+[; ;user_app.c: 29: {
 {
 [e :U _tarefa_3 ]
 [f ]
-"28
-[; ;user_app.c: 28:     while (1) {
+"30
+[; ;user_app.c: 30:     while (1) {
 [e :U 404 ]
 {
-"29
-[; ;user_app.c: 29:         LATDbits.LD2 = ~PORTDbits.RD2;
+"31
+[; ;user_app.c: 31:         LATDbits.LD2 = ~PORTDbits.RD2;
 [e = . . _LATDbits 1 2 -> ~ -> . . _PORTDbits 0 2 `i `uc ]
-"30
-[; ;user_app.c: 30:     }
+"32
+[; ;user_app.c: 32:     }
 }
 [e :U 403 ]
 [e $U 404  ]
 [e :U 405 ]
-"31
-[; ;user_app.c: 31: }
+"33
+[; ;user_app.c: 33: }
 [e :UE 402 ]
 }

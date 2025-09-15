@@ -164,7 +164,7 @@ typedef struct f_aptos {
 
 tcb_t *rr_scheduler(void);
 tcb_t *priority_scheduler(void);
-tcb_t *scheduler(void);
+void scheduler(void);
 # 2 "scheduler.c" 2
 
 # 1 "./syscall.h" 1
@@ -5995,6 +5995,7 @@ void os_config(void);
 void os_start(void);
 void os_idle_task(void);
 uint8_t os_task_pos(f_ptr task);
+void os_task_time_decrease();
 # 5 "scheduler.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdio.h" 1 3
@@ -6158,19 +6159,19 @@ extern f_aptos_t readyQueue;
 tcb_t *rr_scheduler()
 {
     uint8_t pos_task_running = os_task_pos(readyQueue.taskRunning->task_func);
+    uint8_t idle_selected = 0;
 
+    do {
+        pos_task_running = (pos_task_running+1) % readyQueue.readyQueueSize;
+        if (readyQueue.readyQueue[pos_task_running].task_func == os_idle_task) {
+            idle_selected++;
+            if (idle_selected > 1) return &readyQueue.readyQueue[0];
+        }
 
-    for (uint8_t i = pos_task_running+i; i < readyQueue.readyQueueSize; i++) {
-        if (readyQueue.readyQueue[i].task_state == READY) return &readyQueue.readyQueue[i];
-    }
+    } while (readyQueue.readyQueue[pos_task_running].task_state != READY ||
+             readyQueue.readyQueue[pos_task_running].task_func == os_idle_task);
 
-
-    for (uint8_t i = 1; i < pos_task_running; i++) {
-        if (readyQueue.readyQueue[i].task_state == READY) return &readyQueue.readyQueue[i];
-    }
-
-
-    return &readyQueue.readyQueue[0];
+    return &readyQueue.readyQueue[pos_task_running];
 }
 
 tcb_t *priority_scheduler()
@@ -6180,10 +6181,10 @@ tcb_t *priority_scheduler()
     return next;
 }
 
-tcb_t *scheduler()
+void scheduler()
 {
 
-    return rr_scheduler();
+    readyQueue.taskRunning = rr_scheduler();
 
 
 

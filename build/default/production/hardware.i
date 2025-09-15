@@ -5979,12 +5979,13 @@ void os_config(void);
 void os_start(void);
 void os_idle_task(void);
 uint8_t os_task_pos(f_ptr task);
+void os_task_time_decrease();
 # 3 "hardware.c" 2
 # 1 "./scheduler.h" 1
 # 13 "./scheduler.h"
 tcb_t *rr_scheduler(void);
 tcb_t *priority_scheduler(void);
-tcb_t *scheduler(void);
+void scheduler(void);
 # 4 "hardware.c" 2
 
 
@@ -6009,11 +6010,18 @@ void conf_interrupts(void)
 
 void __attribute__((picinterrupt(("")))) ISR_TIMER_0(void)
 {
+    (INTCONbits.GIE = 0);
+
     if (INTCONbits.TMR0IF == 1) {
         INTCONbits.TMR0IF = 0;
 
+
+        os_task_time_decrease();
+
         do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = 0; while (STKPTR) { readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp] = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = READY; } } while (0);;
-        readyQueue.taskRunning = scheduler();
+        scheduler();
         do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; if (readyQueue.taskRunning->task_sp == 0) { __asm("PUSH"); TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { do { __asm("PUSH"); readyQueue.taskRunning->task_sp--; TOS = readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp]; } while (readyQueue.taskRunning->task_sp != 0); } readyQueue.taskRunning->task_state = RUNNING; } } while (0);;
     }
+
+    (INTCONbits.GIE = 1);
 }

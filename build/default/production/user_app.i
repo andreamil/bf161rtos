@@ -5966,6 +5966,17 @@ TASK tarefa_1(void);
 TASK tarefa_2(void);
 TASK tarefa_3(void);
 # 4 "user_app.c" 2
+# 1 "./syscall.h" 1
+
+
+
+
+
+void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior);
+void os_delay(uint8_t time);
+void os_yield();
+void os_change_state(state_t new_state);
+# 5 "user_app.c" 2
 
 void config_app(void)
 {
@@ -5985,6 +5996,7 @@ TASK tarefa_2(void)
 {
     while (1) {
         LATDbits.LD1 = ~PORTDbits.RD1;
+        os_delay(200);
     }
 }
 
