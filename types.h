@@ -14,7 +14,7 @@ typedef void TASK;
 typedef void (*f_ptr)(void);
 
 // Define os estados possíveis
-typedef enum {READY = 0, RUNNING, WAITING} state_t;
+typedef enum {READY = 0, RUNNING, WAITING, WAITING_SEM} state_t;
 
 // Define a TCB 
 typedef struct tcb {
@@ -39,7 +39,10 @@ typedef struct f_aptos {
 } f_aptos_t;
 
 typedef struct semaphore {
-    
+    int contador;
+    tcb_t *sem_queue[MAX_TASKS_ON_READY_QUEUE];
+    uint8_t sem_queue_in;
+    uint8_t sem_queue_out;
 } sem_t;
 
 #endif	/* TYPES_H */

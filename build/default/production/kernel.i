@@ -135,7 +135,7 @@ typedef void TASK;
 typedef void (*f_ptr)(void);
 
 
-typedef enum {READY = 0, RUNNING, WAITING} state_t;
+typedef enum {READY = 0, RUNNING, WAITING, WAITING_SEM} state_t;
 
 
 typedef struct tcb {
@@ -158,6 +158,13 @@ typedef struct f_aptos {
     uint8_t readyQueueSize;
     tcb_t *taskRunning;
 } f_aptos_t;
+
+typedef struct semaphore {
+    int contador;
+    tcb_t *sem_queue[5];
+    uint8_t sem_queue_in;
+    uint8_t sem_queue_out;
+} sem_t;
 # 2 "kernel.c" 2
 # 1 "./syscall.h" 1
 

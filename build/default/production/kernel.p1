@@ -1,21 +1,21 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F47 `(v ~T0 @X0 0 tf ]
+[v F48 `(v ~T0 @X0 0 tf ]
 "9 kernel.c
 [; ;kernel.c: 9: f_aptos_t readyQueue;
-[c E39 0 1 2 .. ]
-[n E39 . READY RUNNING WAITING  ]
+[c E39 0 1 2 3 .. ]
+[n E39 . READY RUNNING WAITING WAITING_SEM  ]
 "20 ./types.h
 [; ;./types.h: 20: typedef struct tcb {
-[s S1 `uc 1 `*F47 1 `E39 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `um -> 32 `i `uc 1 ]
+[s S1 `uc 1 `*F48 1 `E39 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `um -> 32 `i `uc 1 ]
 [n S1 tcb task_id task_func task_state task_priority task_time_to_waiting BSR_reg WORK_reg STATUS_reg STACK task_sp ]
 "35
 [; ;./types.h: 35: typedef struct f_aptos {
 [s S2 `S1 -> 5 `i `uc 1 `*S1 1 ]
 [n S2 f_aptos readyQueue readyQueueSize taskRunning ]
-[v F63 `(v ~T0 @X0 0 tf ]
+[v F70 `(v ~T0 @X0 0 tf ]
 "6 ./syscall.h
 [; ;./syscall.h: 6: void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior);
-[v _os_create_task `(v ~T0 @X0 0 ef3`uc`*F63`uc ]
+[v _os_create_task `(v ~T0 @X0 0 ef3`uc`*F70`uc ]
 "13 ./kernel.h
 [; ;./kernel.h: 13: void os_idle_task(void);
 [v _os_idle_task `(v ~T0 @X0 0 ef ]
@@ -30,74 +30,74 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _conf_timer_0 `(v ~T0 @X0 0 ef ]
 "8586 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8586:     struct {
-[s S362 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S362 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+[s S363 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S363 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
 "8596
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8596:     struct {
-[s S363 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S363 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+[s S364 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S364 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
 "8606
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8606:     struct {
-[s S364 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S364 . . GIEL GIEH ]
+[s S365 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S365 . . GIEL GIEH ]
 "8585
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8585: typedef union {
-[u S361 `S362 1 `S363 1 `S364 1 ]
-[n S361 . . . . ]
+[u S362 `S363 1 `S364 1 `S365 1 ]
+[n S362 . . . . ]
 "8612
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8612: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS361 ~T0 @X0 0 e@4082 ]
+[v _INTCONbits `VS362 ~T0 @X0 0 e@4082 ]
 "4010
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4010:     struct {
-[s S162 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S162 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+[s S163 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S163 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
 "4020
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4020:     struct {
-[s S163 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S163 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+[s S164 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S164 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
 "4009
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4009: typedef union {
-[u S161 `S162 1 `S163 1 ]
-[n S161 . . . ]
+[u S162 `S163 1 `S164 1 ]
+[n S162 . . . ]
 "4031
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4031: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
-[v _TRISDbits `VS161 ~T0 @X0 0 e@3989 ]
+[v _TRISDbits `VS162 ~T0 @X0 0 e@3989 ]
 "3267
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3267:     struct {
-[s S138 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S138 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+[s S139 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S139 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
 "3277
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3277:     struct {
-[s S139 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S139 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+[s S140 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S140 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
 "3266
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3266: typedef union {
-[u S137 `S138 1 `S139 1 ]
-[n S137 . . . ]
+[u S138 `S139 1 `S140 1 ]
+[n S138 . . . ]
 "3288
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3288: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
-[v _LATDbits `VS137 ~T0 @X0 0 e@3980 ]
+[v _LATDbits `VS138 ~T0 @X0 0 e@3980 ]
 "2709
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2709:     struct {
-[s S119 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S119 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+[s S120 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S120 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
 "2719
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2719:     struct {
-[s S120 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S120 . SPP0 SPP1 SPP2 SPP3 SPP4 SPP5 SPP6 SPP7 ]
+[s S121 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S121 . SPP0 SPP1 SPP2 SPP3 SPP4 SPP5 SPP6 SPP7 ]
 "2729
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2729:     struct {
-[s S121 :7 `uc 1 :1 `uc 1 ]
-[n S121 . . SS2 ]
+[s S122 :7 `uc 1 :1 `uc 1 ]
+[n S122 . . SS2 ]
 "2708
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2708: typedef union {
-[u S118 `S119 1 `S120 1 `S121 1 ]
-[n S118 . . . . ]
+[u S119 `S120 1 `S121 1 `S122 1 ]
+[n S119 . . . . ]
 "2734
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2734: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
-[v _PORTDbits `VS118 ~T0 @X0 0 e@3971 ]
-[v F3402 `(v ~T0 @X0 0 tf ]
-[v F3404 `(v ~T0 @X0 0 tf ]
+[v _PORTDbits `VS119 ~T0 @X0 0 e@3971 ]
+[v F3409 `(v ~T0 @X0 0 tf ]
+[v F3411 `(v ~T0 @X0 0 tf ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -633,7 +633,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" GLOBAL _os_idle_task ;# ">
 "20
 [; ;kernel.c: 20: }
-[e :UE 393 ]
+[e :UE 394 ]
 }
 "22
 [; ;kernel.c: 22: void os_start(void)
@@ -657,7 +657,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "34
 [; ;kernel.c: 34: }
-[e :UE 394 ]
+[e :UE 395 ]
 }
 "37
 [; ;kernel.c: 37: void os_idle_task(void)
@@ -672,7 +672,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
 "41
 [; ;kernel.c: 41:     while (1) {
-[e :U 397 ]
+[e :U 398 ]
 {
 "43
 [; ;kernel.c: 43:         LATDbits.LD3 = ~PORTDbits.RD3;
@@ -680,23 +680,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 "44
 [; ;kernel.c: 44:     }
 }
-[e :U 396 ]
-[e $U 397  ]
-[e :U 398 ]
+[e :U 397 ]
+[e $U 398  ]
+[e :U 399 ]
 "45
 [; ;kernel.c: 45: }
-[e :UE 395 ]
+[e :UE 396 ]
 }
 "47
 [; ;kernel.c: 47: uint8_t os_task_pos(f_ptr task)
-[v _os_task_pos `(uc ~T0 @X0 1 ef1`*F3402 ]
+[v _os_task_pos `(uc ~T0 @X0 1 ef1`*F3409 ]
 "48
 [; ;kernel.c: 48: {
 {
 [e :U _os_task_pos ]
 "47
 [; ;kernel.c: 47: uint8_t os_task_pos(f_ptr task)
-[v _task `*F3404 ~T0 @X0 1 r1 ]
+[v _task `*F3411 ~T0 @X0 1 r1 ]
 "48
 [; ;kernel.c: 48: {
 [f ]
@@ -705,30 +705,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 403  ]
-[e :U 400 ]
+[e $U 404  ]
+[e :U 401 ]
 {
 "50
 [; ;kernel.c: 50:         if (readyQueue.readyQueue[i].task_func == task) return i;
-[e $ ! == . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 1 _task 404  ]
+[e $ ! == . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 1 _task 405  ]
 [e ) _i ]
-[e $UE 399  ]
-[e :U 404 ]
+[e $UE 400  ]
+[e :U 405 ]
 "51
 [; ;kernel.c: 51:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 403 ]
-[e $ < -> _i `i -> . _readyQueue 1 `i 400  ]
-[e :U 401 ]
+[e :U 404 ]
+[e $ < -> _i `i -> . _readyQueue 1 `i 401  ]
+[e :U 402 ]
 }
 "53
 [; ;kernel.c: 53:     return 0;
 [e ) -> -> 0 `i `uc ]
-[e $UE 399  ]
+[e $UE 400  ]
 "54
 [; ;kernel.c: 54: }
-[e :UE 399 ]
+[e :UE 400 ]
 }
 "56
 [; ;kernel.c: 56: void os_task_time_decrease()
@@ -743,19 +743,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 1 `i `uc ]
-[e $U 409  ]
-[e :U 406 ]
+[e $U 410  ]
+[e :U 407 ]
 {
 "59
 [; ;kernel.c: 59:         if (readyQueue.readyQueue[i].task_state == WAITING) {
-[e $ ! == -> . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 2 `ui -> . `E39 2 `ui 410  ]
+[e $ ! == -> . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 2 `ui -> . `E39 2 `ui 411  ]
 {
 "60
 [; ;kernel.c: 60:             readyQueue.readyQueue[i].task_time_to_waiting--;
 [e -- . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 4 -> -> 1 `i `uc ]
 "61
 [; ;kernel.c: 61:             if (readyQueue.readyQueue[i].task_time_to_waiting == 0) {
-[e $ ! == -> . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 4 `i -> 0 `i 411  ]
+[e $ ! == -> . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 4 `i -> 0 `i 412  ]
 {
 "63
 [; ;kernel.c: 63:                 readyQueue.readyQueue[i].task_state = READY;
@@ -763,20 +763,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "64
 [; ;kernel.c: 64:             }
 }
-[e :U 411 ]
+[e :U 412 ]
 "65
 [; ;kernel.c: 65:         }
 }
-[e :U 410 ]
+[e :U 411 ]
 "66
 [; ;kernel.c: 66:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e :U 409 ]
-[e $ < -> _i `i -> . _readyQueue 1 `i 406  ]
-[e :U 407 ]
+[e :U 410 ]
+[e $ < -> _i `i -> . _readyQueue 1 `i 407  ]
+[e :U 408 ]
 }
 "67
 [; ;kernel.c: 67: }
-[e :UE 405 ]
+[e :UE 406 ]
 }

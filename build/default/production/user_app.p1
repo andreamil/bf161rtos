@@ -577,7 +577,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" GLOBAL _tarefa_1, _tarefa_2, _tarefa_3 ;# ">
 "11
 [; ;user_app.c: 11: }
-[e :UE 393 ]
+[e :UE 394 ]
 }
 "13
 [; ;user_app.c: 13: TASK tarefa_1(void)
@@ -589,7 +589,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "15
 [; ;user_app.c: 15:     while (1) {
-[e :U 396 ]
+[e :U 397 ]
 {
 "16
 [; ;user_app.c: 16:         LATDbits.LD0 = ~PORTDbits.RD0;
@@ -597,12 +597,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17
 [; ;user_app.c: 17:     }
 }
-[e :U 395 ]
-[e $U 396  ]
-[e :U 397 ]
+[e :U 396 ]
+[e $U 397  ]
+[e :U 398 ]
 "18
 [; ;user_app.c: 18: }
-[e :UE 394 ]
+[e :UE 395 ]
 }
 "20
 [; ;user_app.c: 20: TASK tarefa_2(void)
@@ -614,7 +614,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "22
 [; ;user_app.c: 22:     while (1) {
-[e :U 400 ]
+[e :U 401 ]
 {
 "23
 [; ;user_app.c: 23:         LATDbits.LD1 = ~PORTDbits.RD1;
@@ -625,12 +625,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25
 [; ;user_app.c: 25:     }
 }
-[e :U 399 ]
-[e $U 400  ]
-[e :U 401 ]
+[e :U 400 ]
+[e $U 401  ]
+[e :U 402 ]
 "26
 [; ;user_app.c: 26: }
-[e :UE 398 ]
+[e :UE 399 ]
 }
 "28
 [; ;user_app.c: 28: TASK tarefa_3(void)
@@ -642,7 +642,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "30
 [; ;user_app.c: 30:     while (1) {
-[e :U 404 ]
+[e :U 405 ]
 {
 "31
 [; ;user_app.c: 31:         LATDbits.LD2 = ~PORTDbits.RD2;
@@ -650,10 +650,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "32
 [; ;user_app.c: 32:     }
 }
-[e :U 403 ]
-[e $U 404  ]
-[e :U 405 ]
+[e :U 404 ]
+[e $U 405  ]
+[e :U 406 ]
 "33
 [; ;user_app.c: 33: }
-[e :UE 402 ]
+[e :UE 403 ]
 }
