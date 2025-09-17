@@ -11,7 +11,8 @@
       <itemPath>os_config.h</itemPath>
       <itemPath>scheduler.h</itemPath>
       <itemPath>hardware.h</itemPath>
-      <itemPath>Simulacao/sync.h</itemPath>
+      <itemPath>sync.c</itemPath>
+      <itemPath>sync.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -31,11 +32,10 @@
       <itemPath>syscall.c</itemPath>
       <itemPath>scheduler.c</itemPath>
       <itemPath>hardware.c</itemPath>
-      <itemPath>Simulacao/sync.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
-    <Elem>Simulacao</Elem>
+    <Elem>.</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

@@ -1,5 +1,6 @@
 #include "sync.h"
 #include "kernel.h"
+#include "scheduler.h"
 #include <xc.h>
 
 // Declaração da fila de aptos
