@@ -1,4 +1,17 @@
 Version 4.0 HI-TECH Software Intermediate Code
+[v F3355 `(v ~T0 @X0 0 tf ]
+"7 user_app.c
+[; ;user_app.c: 7: sem_t semaforo_teste;
+[c E3346 0 1 2 3 .. ]
+[n E3346 . READY RUNNING WAITING WAITING_SEM  ]
+"20 ./types.h
+[; ;./types.h: 20: typedef struct tcb {
+[s S391 `uc 1 `*F3355 1 `E3346 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `um -> 32 `i `uc 1 ]
+[n S391 tcb task_id task_func task_state task_priority task_time_to_waiting BSR_reg WORK_reg STATUS_reg STACK task_sp ]
+"41
+[; ;./types.h: 41: typedef struct semaphore {
+[s S393 `i 1 `*S391 -> 5 `i `uc 1 `uc 1 ]
+[n S393 semaphore contador sem_queue sem_queue_in sem_queue_out ]
 "4010 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4010:     struct {
 [s S160 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -14,7 +27,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4031
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4031: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
 [v _TRISDbits `VS159 ~T0 @X0 0 e@3989 ]
-"3267
+"6 ./sync.h
+[; ;./sync.h: 6: void sem_init(sem_t *s, uint8_t init_value);
+[v _sem_init `(v ~T0 @X0 0 ef2`*S393`uc ]
+"3267 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3267:     struct {
 [s S136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S136 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
@@ -48,9 +64,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2734
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2734: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
 [v _PORTDbits `VS116 ~T0 @X0 0 e@3971 ]
-"7 ./syscall.h
-[; ;./syscall.h: 7: void os_delay(uint8_t time);
-[v _os_delay `(v ~T0 @X0 0 ef1`uc ]
+"7 ./sync.h
+[; ;./sync.h: 7: void sem_wait(sem_t *s);
+[v _sem_wait `(v ~T0 @X0 0 ef1`*S393 ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -561,99 +577,105 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8891
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"6 user_app.c
-[; ;user_app.c: 6: void config_app(void)
+"7 user_app.c
+[; ;user_app.c: 7: sem_t semaforo_teste;
+[v _semaforo_teste `S393 ~T0 @X0 1 e ]
+"9
+[; ;user_app.c: 9: void config_app(void)
 [v _config_app `(v ~T0 @X0 1 ef ]
-"7
-[; ;user_app.c: 7: {
+"10
+[; ;user_app.c: 10: {
 {
 [e :U _config_app ]
 [f ]
-"8
-[; ;user_app.c: 8:     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
-[e = . . _TRISDbits 1 0 = . . _TRISDbits 1 1 = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
-"10
-[; ;user_app.c: 10:     __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
-[; <" GLOBAL _tarefa_1, _tarefa_2, _tarefa_3 ;# ">
 "11
-[; ;user_app.c: 11: }
+[; ;user_app.c: 11:     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
+[e = . . _TRISDbits 1 0 = . . _TRISDbits 1 1 = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
+"13
+[; ;user_app.c: 13:     sem_init(&semaforo_teste, 0);
+[e ( _sem_init (2 , &U _semaforo_teste -> -> 0 `i `uc ]
+"15
+[; ;user_app.c: 15:     __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
+[; <" GLOBAL _tarefa_1, _tarefa_2, _tarefa_3 ;# ">
+"16
+[; ;user_app.c: 16: }
 [e :UE 394 ]
 }
-"13
-[; ;user_app.c: 13: TASK tarefa_1(void)
+"18
+[; ;user_app.c: 18: TASK tarefa_1(void)
 [v _tarefa_1 `(v ~T0 @X0 1 ef ]
-"14
-[; ;user_app.c: 14: {
+"19
+[; ;user_app.c: 19: {
 {
 [e :U _tarefa_1 ]
 [f ]
-"15
-[; ;user_app.c: 15:     while (1) {
+"20
+[; ;user_app.c: 20:     while (1) {
 [e :U 397 ]
 {
-"16
-[; ;user_app.c: 16:         LATDbits.LD0 = ~PORTDbits.RD0;
+"21
+[; ;user_app.c: 21:         LATDbits.LD0 = ~PORTDbits.RD0;
 [e = . . _LATDbits 1 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
-"17
-[; ;user_app.c: 17:     }
+"22
+[; ;user_app.c: 22:         sem_wait(&semaforo_teste);
+[e ( _sem_wait (1 &U _semaforo_teste ]
+"23
+[; ;user_app.c: 23:     }
 }
 [e :U 396 ]
 [e $U 397  ]
 [e :U 398 ]
-"18
-[; ;user_app.c: 18: }
+"24
+[; ;user_app.c: 24: }
 [e :UE 395 ]
 }
-"20
-[; ;user_app.c: 20: TASK tarefa_2(void)
+"26
+[; ;user_app.c: 26: TASK tarefa_2(void)
 [v _tarefa_2 `(v ~T0 @X0 1 ef ]
-"21
-[; ;user_app.c: 21: {
+"27
+[; ;user_app.c: 27: {
 {
 [e :U _tarefa_2 ]
 [f ]
-"22
-[; ;user_app.c: 22:     while (1) {
+"28
+[; ;user_app.c: 28:     while (1) {
 [e :U 401 ]
 {
-"23
-[; ;user_app.c: 23:         LATDbits.LD1 = ~PORTDbits.RD1;
+"29
+[; ;user_app.c: 29:         LATDbits.LD1 = ~PORTDbits.RD1;
 [e = . . _LATDbits 1 1 -> ~ -> . . _PORTDbits 0 1 `i `uc ]
-"24
-[; ;user_app.c: 24:         os_delay(200);
-[e ( _os_delay (1 -> -> 200 `i `uc ]
-"25
-[; ;user_app.c: 25:     }
+"31
+[; ;user_app.c: 31:     }
 }
 [e :U 400 ]
 [e $U 401  ]
 [e :U 402 ]
-"26
-[; ;user_app.c: 26: }
+"32
+[; ;user_app.c: 32: }
 [e :UE 399 ]
 }
-"28
-[; ;user_app.c: 28: TASK tarefa_3(void)
+"34
+[; ;user_app.c: 34: TASK tarefa_3(void)
 [v _tarefa_3 `(v ~T0 @X0 1 ef ]
-"29
-[; ;user_app.c: 29: {
+"35
+[; ;user_app.c: 35: {
 {
 [e :U _tarefa_3 ]
 [f ]
-"30
-[; ;user_app.c: 30:     while (1) {
+"36
+[; ;user_app.c: 36:     while (1) {
 [e :U 405 ]
 {
-"31
-[; ;user_app.c: 31:         LATDbits.LD2 = ~PORTDbits.RD2;
+"37
+[; ;user_app.c: 37:         LATDbits.LD2 = ~PORTDbits.RD2;
 [e = . . _LATDbits 1 2 -> ~ -> . . _PORTDbits 0 2 `i `uc ]
-"32
-[; ;user_app.c: 32:     }
+"39
+[; ;user_app.c: 39:     }
 }
 [e :U 404 ]
 [e $U 405  ]
 [e :U 406 ]
-"33
-[; ;user_app.c: 33: }
+"40
+[; ;user_app.c: 40: }
 [e :UE 403 ]
 }

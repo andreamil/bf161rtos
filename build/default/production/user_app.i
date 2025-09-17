@@ -5984,10 +5984,24 @@ void os_delay(uint8_t time);
 void os_yield();
 void os_change_state(state_t new_state);
 # 5 "user_app.c" 2
+# 1 "./sync.h" 1
+
+
+
+
+
+void sem_init(sem_t *s, uint8_t init_value);
+void sem_wait(sem_t *s);
+void sem_post(sem_t *s);
+# 6 "user_app.c" 2
+
+sem_t semaforo_teste;
 
 void config_app(void)
 {
     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
+
+    sem_init(&semaforo_teste, 0);
 
     __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
 }
@@ -5996,6 +6010,7 @@ TASK tarefa_1(void)
 {
     while (1) {
         LATDbits.LD0 = ~PORTDbits.RD0;
+        sem_wait(&semaforo_teste);
     }
 }
 
@@ -6003,7 +6018,7 @@ TASK tarefa_2(void)
 {
     while (1) {
         LATDbits.LD1 = ~PORTDbits.RD1;
-        os_delay(200);
+
     }
 }
 
@@ -6011,5 +6026,6 @@ TASK tarefa_3(void)
 {
     while (1) {
         LATDbits.LD2 = ~PORTDbits.RD2;
+
     }
 }
