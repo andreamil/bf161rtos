@@ -5,6 +5,7 @@
 
 #define MAX_TASKS_ON_READY_QUEUE    5
 #define DEFAULT_SCHEDULER           RR_SCHEDULER
+#define PIPE_MAX_SIZE               3
 
 
 
