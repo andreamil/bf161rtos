@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [v F3355 `(v ~T0 @X0 0 tf ]
-"7 user_app.c
-[; ;user_app.c: 7: sem_t semaforo_teste;
+"9 user_app.c
+[; ;user_app.c: 9: pipe_t canal;
 [c E3346 0 1 2 3 .. ]
 [n E3346 . READY RUNNING WAITING WAITING_SEM  ]
 "20 ./types.h
@@ -12,6 +12,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./types.h: 41: typedef struct semaphore {
 [s S393 `i 1 `*S391 -> 5 `i `uc 1 `uc 1 ]
 [n S393 semaphore contador sem_queue sem_queue_in sem_queue_out ]
+"48
+[; ;./types.h: 48: typedef struct pipe {
+[s S394 `uc 1 `uc 1 `uc -> 3 `i `S393 1 `S393 1 ]
+[n S394 pipe pipe_pos_read pipe_pos_write pipe_data pipe_sem_read pipe_sem_write ]
 "4010 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4010:     struct {
 [s S160 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -27,9 +31,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4031
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4031: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
 [v _TRISDbits `VS159 ~T0 @X0 0 e@3989 ]
-"6 ./sync.h
-[; ;./sync.h: 6: void sem_init(sem_t *s, uint8_t init_value);
-[v _sem_init `(v ~T0 @X0 0 ef2`*S393`uc ]
+"3856
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3856:     struct {
+[s S154 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S154 . TRISC0 TRISC1 TRISC2 . TRISC6 TRISC7 ]
+"3864
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3864:     struct {
+[s S155 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S155 . RC0 RC1 RC2 . RC6 RC7 ]
+"3855
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3855: typedef union {
+[u S153 `S154 1 `S155 1 ]
+[n S153 . . . ]
+"3873
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3873: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
+[v _TRISCbits `VS153 ~T0 @X0 0 e@3988 ]
+"6 ./pipe.h
+[; ;./pipe.h: 6: void create_pipe(pipe_t *p);
+[v _create_pipe `(v ~T0 @X0 0 ef1`*S394 ]
 "3267 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3267:     struct {
 [s S136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -64,9 +83,30 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2734
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2734: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
 [v _PORTDbits `VS116 ~T0 @X0 0 e@3971 ]
-"7 ./sync.h
-[; ;./sync.h: 7: void sem_wait(sem_t *s);
-[v _sem_wait `(v ~T0 @X0 0 ef1`*S393 ]
+"8 ./pipe.h
+[; ;./pipe.h: 8: void write_pipe(pipe_t *p, char buffer);
+[v _write_pipe `(v ~T0 @X0 0 ef2`*S394`uc ]
+"7 ./syscall.h
+[; ;./syscall.h: 7: void os_delay(uint8_t time);
+[v _os_delay `(v ~T0 @X0 0 ef1`uc ]
+"7 ./pipe.h
+[; ;./pipe.h: 7: void read_pipe(pipe_t *p, char *buffer);
+[v _read_pipe `(v ~T0 @X0 0 ef2`*S394`*uc ]
+"3189 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3189:     struct {
+[s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S133 . LATC0 LATC1 LATC2 . LATC6 LATC7 ]
+"3197
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3197:     struct {
+[s S134 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S134 . LC0 LC1 LC2 . LC6 LC7 ]
+"3188
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3188: typedef union {
+[u S132 `S133 1 `S134 1 ]
+[n S132 . . . ]
+"3206
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3206: extern volatile LATCbits_t LATCbits __attribute__((address(0xF8B)));
+[v _LATCbits `VS132 ~T0 @X0 0 e@3979 ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -577,105 +617,176 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8891
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"7 user_app.c
-[; ;user_app.c: 7: sem_t semaforo_teste;
-[v _semaforo_teste `S393 ~T0 @X0 1 e ]
-"9
-[; ;user_app.c: 9: void config_app(void)
+"9 user_app.c
+[; ;user_app.c: 9: pipe_t canal;
+[v _canal `S394 ~T0 @X0 1 e ]
+"11
+[; ;user_app.c: 11: void config_app(void)
 [v _config_app `(v ~T0 @X0 1 ef ]
-"10
-[; ;user_app.c: 10: {
+"12
+[; ;user_app.c: 12: {
 {
 [e :U _config_app ]
 [f ]
-"11
-[; ;user_app.c: 11:     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
-[e = . . _TRISDbits 1 0 = . . _TRISDbits 1 1 = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
 "13
-[; ;user_app.c: 13:     sem_init(&semaforo_teste, 0);
-[e ( _sem_init (2 , &U _semaforo_teste -> -> 0 `i `uc ]
+[; ;user_app.c: 13:     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
+[e = . . _TRISDbits 1 0 = . . _TRISDbits 1 1 = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
 "15
-[; ;user_app.c: 15:     __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
-[; <" GLOBAL _tarefa_1, _tarefa_2, _tarefa_3 ;# ">
-"16
-[; ;user_app.c: 16: }
-[e :UE 394 ]
-}
+[; ;user_app.c: 15:     TRISCbits.RC0 = TRISCbits.RC1 = 0;
+[e = . . _TRISCbits 1 0 = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
 "18
-[; ;user_app.c: 18: TASK tarefa_1(void)
+[; ;user_app.c: 18:     create_pipe(&canal);
+[e ( _create_pipe (1 &U _canal ]
+"20
+[; ;user_app.c: 20:     __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
+[; <" GLOBAL _tarefa_1, _tarefa_2, _tarefa_3 ;# ">
+"21
+[; ;user_app.c: 21: }
+[e :UE 395 ]
+}
+"23
+[; ;user_app.c: 23: TASK tarefa_1(void)
 [v _tarefa_1 `(v ~T0 @X0 1 ef ]
-"19
-[; ;user_app.c: 19: {
+"24
+[; ;user_app.c: 24: {
 {
 [e :U _tarefa_1 ]
 [f ]
-"20
-[; ;user_app.c: 20:     while (1) {
-[e :U 397 ]
-{
-"21
-[; ;user_app.c: 21:         LATDbits.LD0 = ~PORTDbits.RD0;
-[e = . . _LATDbits 1 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
-"22
-[; ;user_app.c: 22:         sem_wait(&semaforo_teste);
-[e ( _sem_wait (1 &U _semaforo_teste ]
-"23
-[; ;user_app.c: 23:     }
-}
-[e :U 396 ]
-[e $U 397  ]
-[e :U 398 ]
-"24
-[; ;user_app.c: 24: }
-[e :UE 395 ]
-}
+[v F3416 `uc ~T0 @X0 -> 3 `i s ]
+[i F3416
+:U ..
+"25
+[; ;user_app.c: 25:     char dados[] = {'a', 'b', 'c'};
+-> -> 97 `ui `uc
+-> -> 98 `ui `uc
+-> -> 99 `ui `uc
+..
+]
+[v _dados `uc ~T0 @X0 -> 3 `i a ]
+[e = _dados F3416 ]
 "26
-[; ;user_app.c: 26: TASK tarefa_2(void)
-[v _tarefa_2 `(v ~T0 @X0 1 ef ]
+[; ;user_app.c: 26:     int index = 0;
+[v _index `i ~T0 @X0 1 a ]
+[e = _index -> 0 `i ]
 "27
-[; ;user_app.c: 27: {
+[; ;user_app.c: 27:     while (1) {
+[e :U 398 ]
+{
+"28
+[; ;user_app.c: 28:         LATDbits.LD0 = ~PORTDbits.RD0;
+[e = . . _LATDbits 1 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
+"30
+[; ;user_app.c: 30:         write_pipe(&canal, dados[index]);
+[e ( _write_pipe (2 , &U _canal *U + &U _dados * -> -> _index `ui `ux -> -> # *U &U _dados `ui `ux ]
+"31
+[; ;user_app.c: 31:         index = (index + 1) % 3;
+[e = _index % + _index -> 1 `i -> 3 `i ]
+"32
+[; ;user_app.c: 32:         os_delay(50);
+[e ( _os_delay (1 -> -> 50 `i `uc ]
+"33
+[; ;user_app.c: 33:     }
+}
+[e :U 397 ]
+[e $U 398  ]
+[e :U 399 ]
+"34
+[; ;user_app.c: 34: }
+[e :UE 396 ]
+}
+"36
+[; ;user_app.c: 36: TASK tarefa_2(void)
+[v _tarefa_2 `(v ~T0 @X0 1 ef ]
+"37
+[; ;user_app.c: 37: {
 {
 [e :U _tarefa_2 ]
 [f ]
-"28
-[; ;user_app.c: 28:     while (1) {
-[e :U 401 ]
-{
-"29
-[; ;user_app.c: 29:         LATDbits.LD1 = ~PORTDbits.RD1;
-[e = . . _LATDbits 1 1 -> ~ -> . . _PORTDbits 0 1 `i `uc ]
-"31
-[; ;user_app.c: 31:     }
-}
-[e :U 400 ]
-[e $U 401  ]
+"38
+[; ;user_app.c: 38:     char dado;
+[v _dado `uc ~T0 @X0 1 a ]
+"40
+[; ;user_app.c: 40:     while (1) {
 [e :U 402 ]
-"32
-[; ;user_app.c: 32: }
-[e :UE 399 ]
+{
+"41
+[; ;user_app.c: 41:         LATDbits.LD1 = ~PORTDbits.RD1;
+[e = . . _LATDbits 1 1 -> ~ -> . . _PORTDbits 0 1 `i `uc ]
+"43
+[; ;user_app.c: 43:         read_pipe(&canal, &dado);
+[e ( _read_pipe (2 , &U _canal &U _dado ]
+"44
+[; ;user_app.c: 44:         if (dado == 'a') {
+[e $ ! == -> _dado `ui -> 97 `ui 404  ]
+{
+"45
+[; ;user_app.c: 45:             LATCbits.LATC0 = 1;
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+"46
+[; ;user_app.c: 46:         }
 }
-"34
-[; ;user_app.c: 34: TASK tarefa_3(void)
+[e $U 405  ]
+"47
+[; ;user_app.c: 47:         else if (dado == 'b') {
+[e :U 404 ]
+[e $ ! == -> _dado `ui -> 98 `ui 406  ]
+{
+"48
+[; ;user_app.c: 48:             LATCbits.LATC1 = 1;
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+"49
+[; ;user_app.c: 49:         }
+}
+[e $U 407  ]
+"50
+[; ;user_app.c: 50:         else if (dado == 'c') {
+[e :U 406 ]
+[e $ ! == -> _dado `ui -> 99 `ui 408  ]
+{
+"51
+[; ;user_app.c: 51:             LATCbits.LATC0 = 0;
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+"52
+[; ;user_app.c: 52:             LATCbits.LATC1 = 0;
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+"53
+[; ;user_app.c: 53:         }
+}
+[e :U 408 ]
+[e :U 407 ]
+[e :U 405 ]
+"54
+[; ;user_app.c: 54:     }
+}
+[e :U 401 ]
+[e $U 402  ]
+[e :U 403 ]
+"55
+[; ;user_app.c: 55: }
+[e :UE 400 ]
+}
+"57
+[; ;user_app.c: 57: TASK tarefa_3(void)
 [v _tarefa_3 `(v ~T0 @X0 1 ef ]
-"35
-[; ;user_app.c: 35: {
+"58
+[; ;user_app.c: 58: {
 {
 [e :U _tarefa_3 ]
 [f ]
-"36
-[; ;user_app.c: 36:     while (1) {
-[e :U 405 ]
+"59
+[; ;user_app.c: 59:     while (1) {
+[e :U 411 ]
 {
-"37
-[; ;user_app.c: 37:         LATDbits.LD2 = ~PORTDbits.RD2;
+"60
+[; ;user_app.c: 60:         LATDbits.LD2 = ~PORTDbits.RD2;
 [e = . . _LATDbits 1 2 -> ~ -> . . _PORTDbits 0 2 `i `uc ]
-"39
-[; ;user_app.c: 39:     }
+"62
+[; ;user_app.c: 62:     }
 }
-[e :U 404 ]
-[e $U 405  ]
-[e :U 406 ]
-"40
-[; ;user_app.c: 40: }
-[e :UE 403 ]
+[e :U 410 ]
+[e $U 411  ]
+[e :U 412 ]
+"63
+[; ;user_app.c: 63: }
+[e :UE 409 ]
 }

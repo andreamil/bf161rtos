@@ -1,24 +1,49 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"11 ./kernel.h
-[; ;./kernel.h: 11: void os_config(void);
-[v _os_config `(v ~T0 @X0 0 ef ]
-[v F3384 `(v ~T0 @X0 0 tf ]
-"6 ./syscall.h
-[; ;./syscall.h: 6: void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior);
-[v _os_create_task `(v ~T0 @X0 0 ef3`uc`*F3384`uc ]
-"8 ./user_app.h
-[; ;./user_app.h: 8: TASK tarefa_1(void);
-[v _tarefa_1 `(v ~T0 @X0 0 ef ]
-"9
-[; ;./user_app.h: 9: TASK tarefa_2(void);
-[v _tarefa_2 `(v ~T0 @X0 0 ef ]
-"10
-[; ;./user_app.h: 10: TASK tarefa_3(void);
-[v _tarefa_3 `(v ~T0 @X0 0 ef ]
-"12 ./kernel.h
-[; ;./kernel.h: 12: void os_start(void);
-[v _os_start `(v ~T0 @X0 0 ef ]
+[v F48 `(v ~T0 @X0 0 tf ]
+"5 pipe.c
+[; ;pipe.c: 5: void create_pipe(pipe_t *p)
+[c E39 0 1 2 3 .. ]
+[n E39 . READY RUNNING WAITING WAITING_SEM  ]
+"20 ./types.h
+[; ;./types.h: 20: typedef struct tcb {
+[s S1 `uc 1 `*F48 1 `E39 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `um -> 32 `i `uc 1 ]
+[n S1 tcb task_id task_func task_state task_priority task_time_to_waiting BSR_reg WORK_reg STATUS_reg STACK task_sp ]
+"41
+[; ;./types.h: 41: typedef struct semaphore {
+[s S3 `i 1 `*S1 -> 5 `i `uc 1 `uc 1 ]
+[n S3 semaphore contador sem_queue sem_queue_in sem_queue_out ]
+"48
+[; ;./types.h: 48: typedef struct pipe {
+[s S4 `uc 1 `uc 1 `uc -> 3 `i `S3 1 `S3 1 ]
+[n S4 pipe pipe_pos_read pipe_pos_write pipe_data pipe_sem_read pipe_sem_write ]
+"6 ./sync.h
+[; ;./sync.h: 6: void sem_init(sem_t *s, uint8_t init_value);
+[v _sem_init `(v ~T0 @X0 0 ef2`*S3`uc ]
+"8586 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8586:     struct {
+[s S364 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S364 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"8596
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8596:     struct {
+[s S365 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S365 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"8606
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8606:     struct {
+[s S366 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S366 . . GIEL GIEH ]
+"8585
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8585: typedef union {
+[u S363 `S364 1 `S365 1 `S366 1 ]
+[n S363 . . . . ]
+"8612
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8612: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS363 ~T0 @X0 0 e@4082 ]
+"7 ./sync.h
+[; ;./sync.h: 7: void sem_wait(sem_t *s);
+[v _sem_wait `(v ~T0 @X0 0 ef1`*S3 ]
+"8
+[; ;./sync.h: 8: void sem_post(sem_t *s);
+[v _sem_post `(v ~T0 @X0 0 ef1`*S3 ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -529,41 +554,104 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8891
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-[v $root$_main `(v ~T0 @X0 0 e ]
-"7 main.c
-[; ;main.c: 7: int main()
-[v _main `(i ~T0 @X0 1 ef ]
-"8
-[; ;main.c: 8: {
+"5 pipe.c
+[; ;pipe.c: 5: void create_pipe(pipe_t *p)
+[v _create_pipe `(v ~T0 @X0 1 ef1`*S4 ]
+"6
+[; ;pipe.c: 6: {
 {
-[e :U _main ]
+[e :U _create_pipe ]
+"5
+[; ;pipe.c: 5: void create_pipe(pipe_t *p)
+[v _p `*S4 ~T0 @X0 1 r1 ]
+"6
+[; ;pipe.c: 6: {
 [f ]
-"9
-[; ;main.c: 9:     os_config();
-[e ( _os_config ..  ]
+"7
+[; ;pipe.c: 7:     p->pipe_pos_read = 0;
+[e = . *U _p 0 -> -> 0 `i `uc ]
+"8
+[; ;pipe.c: 8:     p->pipe_pos_write = 0;
+[e = . *U _p 1 -> -> 0 `i `uc ]
+"10
+[; ;pipe.c: 10:     sem_init(&p->pipe_sem_read, 0);
+[e ( _sem_init (2 , &U . *U _p 3 -> -> 0 `i `uc ]
+"11
+[; ;pipe.c: 11:     sem_init(&p->pipe_sem_write, 3);
+[e ( _sem_init (2 , &U . *U _p 4 -> -> 3 `i `uc ]
 "12
-[; ;main.c: 12:     os_create_task(100, tarefa_1, 5);
-[e ( _os_create_task (3 , , -> -> 100 `i `uc &U _tarefa_1 -> -> 5 `i `uc ]
-"13
-[; ;main.c: 13:     os_create_task(101, tarefa_2, 5);
-[e ( _os_create_task (3 , , -> -> 101 `i `uc &U _tarefa_2 -> -> 5 `i `uc ]
-"14
-[; ;main.c: 14:     os_create_task(102, tarefa_3, 5);
-[e ( _os_create_task (3 , , -> -> 102 `i `uc &U _tarefa_3 -> -> 5 `i `uc ]
-"16
-[; ;main.c: 16:     os_start();
-[e ( _os_start ..  ]
-"18
-[; ;main.c: 18:     while (1);
-[e :U 397 ]
-[e :U 396 ]
-[e $U 397  ]
-[e :U 398 ]
-"20
-[; ;main.c: 20:     return 0;
-[e ) -> 0 `i ]
-[e $UE 395  ]
-"21
-[; ;main.c: 21: }
+[; ;pipe.c: 12: }
 [e :UE 395 ]
+}
+"14
+[; ;pipe.c: 14: void read_pipe(pipe_t *p, char *buffer)
+[v _read_pipe `(v ~T0 @X0 1 ef2`*S4`*uc ]
+"15
+[; ;pipe.c: 15: {
+{
+[e :U _read_pipe ]
+"14
+[; ;pipe.c: 14: void read_pipe(pipe_t *p, char *buffer)
+[v _p `*S4 ~T0 @X0 1 r1 ]
+[v _buffer `*uc ~T0 @X0 1 r2 ]
+"15
+[; ;pipe.c: 15: {
+[f ]
+"16
+[; ;pipe.c: 16:     (INTCONbits.GIE = 0);
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+"19
+[; ;pipe.c: 19:     sem_wait(&p->pipe_sem_read);
+[e ( _sem_wait (1 &U . *U _p 3 ]
+"21
+[; ;pipe.c: 21:     *buffer = p->pipe_data[p->pipe_pos_read];
+[e = *U _buffer *U + &U . *U _p 2 * -> . *U _p 0 `ux -> -> # *U &U . *U _p 2 `ui `ux ]
+"22
+[; ;pipe.c: 22:     p->pipe_pos_read = (p->pipe_pos_read + 1) % 3;
+[e = . *U _p 0 -> % + -> . *U _p 0 `i -> 1 `i -> 3 `i `uc ]
+"25
+[; ;pipe.c: 25:     sem_post(&p->pipe_sem_write);
+[e ( _sem_post (1 &U . *U _p 4 ]
+"27
+[; ;pipe.c: 27:     (INTCONbits.GIE = 1);
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"28
+[; ;pipe.c: 28: }
+[e :UE 396 ]
+}
+"30
+[; ;pipe.c: 30: void write_pipe(pipe_t *p, char buffer)
+[v _write_pipe `(v ~T0 @X0 1 ef2`*S4`uc ]
+"31
+[; ;pipe.c: 31: {
+{
+[e :U _write_pipe ]
+"30
+[; ;pipe.c: 30: void write_pipe(pipe_t *p, char buffer)
+[v _p `*S4 ~T0 @X0 1 r1 ]
+[v _buffer `uc ~T0 @X0 1 r2 ]
+"31
+[; ;pipe.c: 31: {
+[f ]
+"32
+[; ;pipe.c: 32:     (INTCONbits.GIE = 0);
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+"35
+[; ;pipe.c: 35:     sem_wait(&p->pipe_sem_write);
+[e ( _sem_wait (1 &U . *U _p 4 ]
+"37
+[; ;pipe.c: 37:     p->pipe_data[p->pipe_pos_write] = buffer;
+[e = *U + &U . *U _p 2 * -> . *U _p 1 `ux -> -> # *U &U . *U _p 2 `ui `ux _buffer ]
+"38
+[; ;pipe.c: 38:     p->pipe_pos_write = (p->pipe_pos_write + 1) % 3;
+[e = . *U _p 1 -> % + -> . *U _p 1 `i -> 1 `i -> 3 `i `uc ]
+"41
+[; ;pipe.c: 41:     sem_post(&p->pipe_sem_read);
+[e ( _sem_post (1 &U . *U _p 3 ]
+"43
+[; ;pipe.c: 43:     (INTCONbits.GIE = 1);
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"44
+[; ;pipe.c: 44: }
+[e :UE 397 ]
 }

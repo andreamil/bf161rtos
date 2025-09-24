@@ -14,23 +14,23 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S3 semaphore contador sem_queue sem_queue_in sem_queue_out ]
 "8586 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8586:     struct {
-[s S363 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S363 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+[s S364 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S364 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
 "8596
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8596:     struct {
-[s S364 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S364 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+[s S365 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S365 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
 "8606
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8606:     struct {
-[s S365 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S365 . . GIEL GIEH ]
+[s S366 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S366 . . GIEL GIEH ]
 "8585
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8585: typedef union {
-[u S362 `S363 1 `S364 1 `S365 1 ]
-[n S362 . . . . ]
+[u S363 `S364 1 `S365 1 `S366 1 ]
+[n S363 . . . . ]
 "8612
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8612: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS362 ~T0 @X0 0 e@4082 ]
+[v _INTCONbits `VS363 ~T0 @X0 0 e@4082 ]
 "35 ./types.h
 [; ;./types.h: 35: typedef struct f_aptos {
 [s S2 `S1 -> 5 `i `uc 1 `*S1 1 ]
@@ -591,7 +591,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _s 3 -> -> 0 `i `uc ]
 "15
 [; ;sync.c: 15: }
-[e :UE 394 ]
+[e :UE 395 ]
 }
 "17
 [; ;sync.c: 17: void sem_wait(sem_t *s)
@@ -614,7 +614,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e -- . *U _s 0 -> 1 `i ]
 "24
 [; ;sync.c: 24:     if (s->contador < 0) {
-[e $ ! < . *U _s 0 -> 0 `i 396  ]
+[e $ ! < . *U _s 0 -> 0 `i 397  ]
 {
 "26
 [; ;sync.c: 26:         s->sem_queue[s->sem_queue_in] = readyQueue.taskRunning;
@@ -624,75 +624,75 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _s 2 -> % + -> . *U _s 2 `i -> 1 `i -> 5 `i `uc ]
 "29
 [; ;sync.c: 29:         do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = 0; while (STKPTR) { readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp] = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = WAITING_SEM; } } while (0);;
-[e :U 399 ]
+[e :U 400 ]
 {
-[e $ ! == -> . *U . _readyQueue 2 2 `ui -> . `E39 1 `ui 400  ]
+[e $ ! == -> . *U . _readyQueue 2 2 `ui -> . `E39 1 `ui 401  ]
 {
 [e = . *U . _readyQueue 2 5 _BSR ]
 [e = . *U . _readyQueue 2 7 _STATUS ]
 [e = . *U . _readyQueue 2 6 _WREG ]
 [e = . *U . _readyQueue 2 9 -> -> 0 `i `uc ]
-[e $U 401  ]
-[e :U 402 ]
+[e $U 402  ]
+[e :U 403 ]
 {
 [e = *U + &U . *U . _readyQueue 2 8 * -> . *U . _readyQueue 2 9 `ux -> -> # *U &U . *U . _readyQueue 2 8 `ui `ux _TOS ]
 [e ++ . *U . _readyQueue 2 9 -> -> 1 `i `uc ]
 [; <" POP ;# ">
 }
-[e :U 401 ]
-[e $ != -> _STKPTR `i -> 0 `i 402  ]
-[e :U 403 ]
+[e :U 402 ]
+[e $ != -> _STKPTR `i -> 0 `i 403  ]
+[e :U 404 ]
 [e = . *U . _readyQueue 2 2 . `E39 3 ]
 }
-[e :U 400 ]
+[e :U 401 ]
 }
-[e :U 398 ]
+[e :U 399 ]
 "30
 [; ;sync.c: 30:         scheduler();
 [e ( _scheduler ..  ]
 "31
 [; ;sync.c: 31:         do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; if (readyQueue.taskRunning->task_sp == 0) { __asm("PUSH"); TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { do { __asm("PUSH"); readyQueue.taskRunning->task_sp--; TOS = readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp]; } while (readyQueue.taskRunning->task_sp != 0); } readyQueue.taskRunning->task_state = RUNNING; } } while (0);;
-[e :U 406 ]
+[e :U 407 ]
 {
-[e $ ! == -> . *U . _readyQueue 2 2 `ui -> . `E39 0 `ui 407  ]
+[e $ ! == -> . *U . _readyQueue 2 2 `ui -> . `E39 0 `ui 408  ]
 {
 [e = _BSR . *U . _readyQueue 2 5 ]
 [e = _STATUS . *U . _readyQueue 2 7 ]
 [e = _WREG . *U . _readyQueue 2 6 ]
 [e = _STKPTR -> -> 0 `i `uc ]
-[e $ ! == -> . *U . _readyQueue 2 9 `i -> 0 `i 408  ]
+[e $ ! == -> . *U . _readyQueue 2 9 `i -> 0 `i 409  ]
 {
 [; <" PUSH ;# ">
 [e = _TOS -> . *U . _readyQueue 2 1 `um ]
 }
-[e $U 409  ]
-[e :U 408 ]
+[e $U 410  ]
+[e :U 409 ]
 {
-[e :U 412 ]
+[e :U 413 ]
 {
 [; <" PUSH ;# ">
 [e -- . *U . _readyQueue 2 9 -> -> 1 `i `uc ]
 [e = _TOS *U + &U . *U . _readyQueue 2 8 * -> . *U . _readyQueue 2 9 `ux -> -> # *U &U . *U . _readyQueue 2 8 `ui `ux ]
 }
-[e $ != -> . *U . _readyQueue 2 9 `i -> 0 `i 412  ]
-[e :U 411 ]
+[e $ != -> . *U . _readyQueue 2 9 `i -> 0 `i 413  ]
+[e :U 412 ]
 }
-[e :U 409 ]
+[e :U 410 ]
 [e = . *U . _readyQueue 2 2 . `E39 1 ]
 }
-[e :U 407 ]
+[e :U 408 ]
 }
-[e :U 405 ]
+[e :U 406 ]
 "32
 [; ;sync.c: 32:     }
 }
-[e :U 396 ]
+[e :U 397 ]
 "34
 [; ;sync.c: 34:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "35
 [; ;sync.c: 35: }
-[e :UE 395 ]
+[e :UE 396 ]
 }
 "37
 [; ;sync.c: 37: void sem_post(sem_t *s)
@@ -715,7 +715,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ++ . *U _s 0 -> 1 `i ]
 "43
 [; ;sync.c: 43:     if (s->contador <= 0) {
-[e $ ! <= . *U _s 0 -> 0 `i 414  ]
+[e $ ! <= . *U _s 0 -> 0 `i 415  ]
 {
 "44
 [; ;sync.c: 44:         s->sem_queue[s->sem_queue_out]->task_state = READY;
@@ -726,11 +726,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46
 [; ;sync.c: 46:     }
 }
-[e :U 414 ]
+[e :U 415 ]
 "48
 [; ;sync.c: 48:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "49
 [; ;sync.c: 49: }
-[e :UE 413 ]
+[e :UE 414 ]
 }

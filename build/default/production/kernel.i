@@ -165,6 +165,14 @@ typedef struct semaphore {
     uint8_t sem_queue_in;
     uint8_t sem_queue_out;
 } sem_t;
+
+typedef struct pipe {
+    uint8_t pipe_pos_read;
+    uint8_t pipe_pos_write;
+    char pipe_data[3];
+    sem_t pipe_sem_read;
+    sem_t pipe_sem_write;
+} pipe_t;
 # 2 "kernel.c" 2
 # 1 "./syscall.h" 1
 

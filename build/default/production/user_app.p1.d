@@ -4,4 +4,5 @@ user_app.h  \
 types.h  \
 os_config.h  \
 syscall.h  \
-sync.h 
+sync.h  \
+pipe.h 

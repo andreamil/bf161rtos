@@ -5965,6 +5965,14 @@ typedef struct semaphore {
     uint8_t sem_queue_in;
     uint8_t sem_queue_out;
 } sem_t;
+
+typedef struct pipe {
+    uint8_t pipe_pos_read;
+    uint8_t pipe_pos_write;
+    char pipe_data[3];
+    sem_t pipe_sem_read;
+    sem_t pipe_sem_write;
+} pipe_t;
 # 5 "./user_app.h" 2
 
 void config_app(void);
@@ -5994,31 +6002,63 @@ void sem_init(sem_t *s, uint8_t init_value);
 void sem_wait(sem_t *s);
 void sem_post(sem_t *s);
 # 6 "user_app.c" 2
+# 1 "./pipe.h" 1
 
-sem_t semaforo_teste;
+
+
+
+
+void create_pipe(pipe_t *p);
+void read_pipe(pipe_t *p, char *buffer);
+void write_pipe(pipe_t *p, char buffer);
+# 7 "user_app.c" 2
+
+
+pipe_t canal;
 
 void config_app(void)
 {
     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
 
-    sem_init(&semaforo_teste, 0);
+    TRISCbits.RC0 = TRISCbits.RC1 = 0;
+
+
+    create_pipe(&canal);
 
     __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
 }
 
 TASK tarefa_1(void)
 {
+    char dados[] = {'a', 'b', 'c'};
+    int index = 0;
     while (1) {
         LATDbits.LD0 = ~PORTDbits.RD0;
-        sem_wait(&semaforo_teste);
+
+        write_pipe(&canal, dados[index]);
+        index = (index + 1) % 3;
+        os_delay(50);
     }
 }
 
 TASK tarefa_2(void)
 {
+    char dado;
+
     while (1) {
         LATDbits.LD1 = ~PORTDbits.RD1;
 
+        read_pipe(&canal, &dado);
+        if (dado == 'a') {
+            LATCbits.LATC0 = 1;
+        }
+        else if (dado == 'b') {
+            LATCbits.LATC1 = 1;
+        }
+        else if (dado == 'c') {
+            LATCbits.LATC0 = 0;
+            LATCbits.LATC1 = 0;
+        }
     }
 }
 

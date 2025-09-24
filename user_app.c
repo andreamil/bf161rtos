@@ -12,6 +12,8 @@ void config_app(void)
 {
     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
     
+    TRISCbits.RC0 = TRISCbits.RC1                 = 0;             
+    
     //sem_init(&semaforo_teste, 0);
     create_pipe(&canal);
     
@@ -27,6 +29,7 @@ TASK tarefa_1(void)
         //sem_wait(&semaforo_teste);
         write_pipe(&canal, dados[index]);
         index = (index + 1) % 3;
+        os_delay(50);
     }
 }
 
@@ -39,13 +42,14 @@ TASK tarefa_2(void)
         //os_delay(200);
         read_pipe(&canal, &dado);
         if (dado == 'a') {
-            
+            LATCbits.LATC0 = 1;
         }
         else if (dado == 'b') {
-            
+            LATCbits.LATC1 = 1;
         }
         else if (dado == 'c') {
-            
+            LATCbits.LATC0 = 0;
+            LATCbits.LATC1 = 0;
         }
     }    
 }

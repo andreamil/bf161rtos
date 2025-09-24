@@ -616,7 +616,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
 "17
 [; ;hardware.c: 17: }
-[e :UE 394 ]
+[e :UE 395 ]
 }
 "19
 [; ;hardware.c: 19: void conf_interrupts(void)
@@ -631,7 +631,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
 "22
 [; ;hardware.c: 22: }
-[e :UE 395 ]
+[e :UE 396 ]
 }
 [v $root$_ISR_TIMER_0 `(v ~T0 @X0 0 e ]
 "25
@@ -647,7 +647,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
 "29
 [; ;hardware.c: 29:     if (INTCONbits.TMR0IF == 1) {
-[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 397  ]
+[e $ ! == -> . . _INTCONbits 0 2 `i -> 1 `i 398  ]
 {
 "30
 [; ;hardware.c: 30:         INTCONbits.TMR0IF = 0;
@@ -657,73 +657,73 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _os_task_time_decrease ..  ]
 "35
 [; ;hardware.c: 35:         do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = 0; while (STKPTR) { readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp] = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = READY; } } while (0);;
-[e :U 400 ]
+[e :U 401 ]
 {
-[e $ ! == -> . *U . _readyQueue 2 2 `ui -> . `E3349 1 `ui 401  ]
+[e $ ! == -> . *U . _readyQueue 2 2 `ui -> . `E3349 1 `ui 402  ]
 {
 [e = . *U . _readyQueue 2 5 _BSR ]
 [e = . *U . _readyQueue 2 7 _STATUS ]
 [e = . *U . _readyQueue 2 6 _WREG ]
 [e = . *U . _readyQueue 2 9 -> -> 0 `i `uc ]
-[e $U 402  ]
-[e :U 403 ]
+[e $U 403  ]
+[e :U 404 ]
 {
 [e = *U + &U . *U . _readyQueue 2 8 * -> . *U . _readyQueue 2 9 `ux -> -> # *U &U . *U . _readyQueue 2 8 `ui `ux _TOS ]
 [e ++ . *U . _readyQueue 2 9 -> -> 1 `i `uc ]
 [; <" POP ;# ">
 }
-[e :U 402 ]
-[e $ != -> _STKPTR `i -> 0 `i 403  ]
-[e :U 404 ]
+[e :U 403 ]
+[e $ != -> _STKPTR `i -> 0 `i 404  ]
+[e :U 405 ]
 [e = . *U . _readyQueue 2 2 . `E3349 0 ]
 }
-[e :U 401 ]
+[e :U 402 ]
 }
-[e :U 399 ]
+[e :U 400 ]
 "36
 [; ;hardware.c: 36:         scheduler();
 [e ( _scheduler ..  ]
 "37
 [; ;hardware.c: 37:         do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; if (readyQueue.taskRunning->task_sp == 0) { __asm("PUSH"); TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { do { __asm("PUSH"); readyQueue.taskRunning->task_sp--; TOS = readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp]; } while (readyQueue.taskRunning->task_sp != 0); } readyQueue.taskRunning->task_state = RUNNING; } } while (0);;
-[e :U 407 ]
+[e :U 408 ]
 {
-[e $ ! == -> . *U . _readyQueue 2 2 `ui -> . `E3349 0 `ui 408  ]
+[e $ ! == -> . *U . _readyQueue 2 2 `ui -> . `E3349 0 `ui 409  ]
 {
 [e = _BSR . *U . _readyQueue 2 5 ]
 [e = _STATUS . *U . _readyQueue 2 7 ]
 [e = _WREG . *U . _readyQueue 2 6 ]
 [e = _STKPTR -> -> 0 `i `uc ]
-[e $ ! == -> . *U . _readyQueue 2 9 `i -> 0 `i 409  ]
+[e $ ! == -> . *U . _readyQueue 2 9 `i -> 0 `i 410  ]
 {
 [; <" PUSH ;# ">
 [e = _TOS -> . *U . _readyQueue 2 1 `um ]
 }
-[e $U 410  ]
-[e :U 409 ]
+[e $U 411  ]
+[e :U 410 ]
 {
-[e :U 413 ]
+[e :U 414 ]
 {
 [; <" PUSH ;# ">
 [e -- . *U . _readyQueue 2 9 -> -> 1 `i `uc ]
 [e = _TOS *U + &U . *U . _readyQueue 2 8 * -> . *U . _readyQueue 2 9 `ux -> -> # *U &U . *U . _readyQueue 2 8 `ui `ux ]
 }
-[e $ != -> . *U . _readyQueue 2 9 `i -> 0 `i 413  ]
-[e :U 412 ]
+[e $ != -> . *U . _readyQueue 2 9 `i -> 0 `i 414  ]
+[e :U 413 ]
 }
-[e :U 410 ]
+[e :U 411 ]
 [e = . *U . _readyQueue 2 2 . `E3349 1 ]
 }
-[e :U 408 ]
+[e :U 409 ]
 }
-[e :U 406 ]
+[e :U 407 ]
 "38
 [; ;hardware.c: 38:     }
 }
-[e :U 397 ]
+[e :U 398 ]
 "40
 [; ;hardware.c: 40:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
 "41
 [; ;hardware.c: 41: }
-[e :UE 396 ]
+[e :UE 397 ]
 }
