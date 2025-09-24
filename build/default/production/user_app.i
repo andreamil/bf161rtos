@@ -5973,6 +5973,19 @@ typedef struct pipe {
     sem_t pipe_sem_read;
     sem_t pipe_sem_write;
 } pipe_t;
+
+
+
+
+typedef union _SALLOC
+{
+ unsigned char byte;
+ struct _BITS
+ {
+  unsigned count:7;
+  unsigned alloc:1;
+ } bits;
+}SALLOC;
 # 5 "./user_app.h" 2
 
 void config_app(void);
@@ -6012,6 +6025,19 @@ void create_pipe(pipe_t *p);
 void read_pipe(pipe_t *p, char *buffer);
 void write_pipe(pipe_t *p, char buffer);
 # 7 "user_app.c" 2
+# 1 "./mem.h" 1
+
+
+
+
+
+
+
+unsigned char * SRAMalloc(unsigned char nBytes);
+void SRAMfree(unsigned char *pSRAM);
+void SRAMInitHeap(void);
+     unsigned char _SRAMmerge(SALLOC * pSegA);
+# 8 "user_app.c" 2
 
 
 pipe_t canal;
@@ -6030,7 +6056,11 @@ void config_app(void)
 
 TASK tarefa_1(void)
 {
-    char dados[] = {'a', 'b', 'c'};
+    char *dados = (char*)SRAMalloc(sizeof(char) * 3);
+    dados[0] = 'a';
+    dados[1] = 'b';
+    dados[2] = 'c';
+
     int index = 0;
     while (1) {
         LATDbits.LD0 = ~PORTDbits.RD0;
@@ -6039,6 +6069,8 @@ TASK tarefa_1(void)
         index = (index + 1) % 3;
         os_delay(50);
     }
+
+    SRAMfree(dados);
 }
 
 TASK tarefa_2(void)

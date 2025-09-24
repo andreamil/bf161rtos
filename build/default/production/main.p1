@@ -3,10 +3,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11 ./kernel.h
 [; ;./kernel.h: 11: void os_config(void);
 [v _os_config `(v ~T0 @X0 0 ef ]
-[v F3384 `(v ~T0 @X0 0 tf ]
+[v F3391 `(v ~T0 @X0 0 tf ]
 "6 ./syscall.h
 [; ;./syscall.h: 6: void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior);
-[v _os_create_task `(v ~T0 @X0 0 ef3`uc`*F3384`uc ]
+[v _os_create_task `(v ~T0 @X0 0 ef3`uc`*F3391`uc ]
 "8 ./user_app.h
 [; ;./user_app.h: 8: TASK tarefa_1(void);
 [v _tarefa_1 `(v ~T0 @X0 0 ef ]
@@ -555,15 +555,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _os_start ..  ]
 "18
 [; ;main.c: 18:     while (1);
-[e :U 397 ]
-[e :U 396 ]
-[e $U 397  ]
+[e :U 399 ]
 [e :U 398 ]
+[e $U 399  ]
+[e :U 400 ]
 "20
 [; ;main.c: 20:     return 0;
 [e ) -> 0 `i ]
-[e $UE 395  ]
+[e $UE 397  ]
 "21
 [; ;main.c: 21: }
-[e :UE 395 ]
+[e :UE 397 ]
 }

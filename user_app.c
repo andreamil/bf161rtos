@@ -4,6 +4,7 @@
 #include "syscall.h"
 #include "sync.h"
 #include "pipe.h"
+#include "mem.h"
 
 //sem_t semaforo_teste;
 pipe_t canal;
@@ -21,8 +22,12 @@ void config_app(void)
 }
 
 TASK tarefa_1(void)
-{
-    char dados[] = {'a', 'b', 'c'};
+{    
+    char *dados = (char*)SRAMalloc(sizeof(char) * 3);
+    dados[0] = 'a';
+    dados[1] = 'b';
+    dados[2] = 'c';
+    
     int index = 0;
     while (1) {
         LATDbits.LD0 = ~PORTDbits.RD0;
@@ -31,6 +36,8 @@ TASK tarefa_1(void)
         index = (index + 1) % 3;
         os_delay(50);
     }
+    
+    SRAMfree(dados);
 }
 
 TASK tarefa_2(void)

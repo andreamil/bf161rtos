@@ -13,6 +13,7 @@
       <itemPath>hardware.h</itemPath>
       <itemPath>sync.h</itemPath>
       <itemPath>pipe.h</itemPath>
+      <itemPath>mem.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -34,6 +35,7 @@
       <itemPath>hardware.c</itemPath>
       <itemPath>sync.c</itemPath>
       <itemPath>pipe.c</itemPath>
+      <itemPath>mem.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>

@@ -3,14 +3,14 @@
 [d edition pro ]
 [d chip 18F4550 ]
 [d frameptr 4065 ]
-"9 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
+"10 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
 [e E39 . `uc
 READY 0
 RUNNING 1
 WAITING 2
 WAITING_SEM 3
 ]
-"9 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
+"10 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
 [e E3346 . `uc
 READY 0
 RUNNING 1
@@ -85,19 +85,27 @@ WAITING_SEM 3
 [v _conf_interrupts conf_interrupts `(v  1 e 1 0 ]
 "25
 [v _ISR_TIMER_0 ISR_TIMER_0 `IIH(v  1 e 1 0 ]
-"11 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
+"12 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
 [v _os_config os_config `(v  1 e 1 0 ]
-"22
+"23
 [v _os_start os_start `(v  1 e 1 0 ]
-"37
+"43
 [v _os_idle_task os_idle_task `(v  1 e 1 0 ]
-"47
+"53
 [v _os_task_pos os_task_pos `(uc  1 e 1 0 ]
 [v i2_os_task_pos os_task_pos `(uc  1 e 1 0 ]
-"56
+"62
 [v _os_task_time_decrease os_task_time_decrease `(v  1 e 1 0 ]
 "7 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\main.c
 [v _main main `(i  1 e 2 0 ]
+"154 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\mem.c
+[v _SRAMalloc SRAMalloc `(*.39uc  1 e 2 0 ]
+"250
+[v _SRAMfree SRAMfree `(v  1 e 1 0 ]
+"276
+[v _SRAMInitHeap SRAMInitHeap `(v  1 e 1 0 ]
+"322
+[v __SRAMmerge _SRAMmerge `(uc  1 e 1 0 ]
 "5 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\pipe.c
 [v _create_pipe create_pipe `(v  1 e 1 0 ]
 "14
@@ -125,15 +133,15 @@ WAITING_SEM 3
 [v _os_create_task os_create_task `(v  1 e 1 0 ]
 "27
 [v _os_delay os_delay `(v  1 e 1 0 ]
-"11 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
+"12 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
 [v _config_app config_app `(v  1 e 1 0 ]
-"23
+"24
 [v _tarefa_1 tarefa_1 `(v  1 e 1 0 ]
-"36
+"43
 [v _tarefa_2 tarefa_2 `(v  1 e 1 0 ]
-"57
+"64
 [v _tarefa_3 tarefa_3 `(v  1 e 1 0 ]
-[s S154 . 1 `uc 1 RD0 1 0 :1:0 
+[s S158 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -143,7 +151,7 @@ WAITING_SEM 3
 `uc 1 RD7 1 0 :1:7 
 ]
 "2734 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
-[s S234 . 1 `uc 1 SPP0 1 0 :1:0 
+[s S238 . 1 `uc 1 SPP0 1 0 :1:0 
 `uc 1 SPP1 1 0 :1:1 
 `uc 1 SPP2 1 0 :1:2 
 `uc 1 SPP3 1 0 :1:3 
@@ -152,12 +160,12 @@ WAITING_SEM 3
 `uc 1 SPP6 1 0 :1:6 
 `uc 1 SPP7 1 0 :1:7 
 ]
-[s S243 . 1 `uc 1 . 1 0 :7:0 
+[s S247 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 SS2 1 0 :1:7 
 ]
-[u S246 . 1 `S154 1 . 1 0 `S234 1 . 1 0 `S243 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES246  1 e 1 @3971 ]
-[s S481 . 1 `uc 1 LATC0 1 0 :1:0 
+[u S250 . 1 `S158 1 . 1 0 `S238 1 . 1 0 `S247 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES250  1 e 1 @3971 ]
+[s S495 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
@@ -165,16 +173,16 @@ WAITING_SEM 3
 `uc 1 LATC7 1 0 :1:7 
 ]
 "3206
-[s S488 . 1 `uc 1 LC0 1 0 :1:0 
+[s S502 . 1 `uc 1 LC0 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 `uc 1 LC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 LC6 1 0 :1:6 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S495 . 1 `S481 1 . 1 0 `S488 1 . 1 0 ]
-[v _LATCbits LATCbits `VES495  1 e 1 @3979 ]
-[s S185 . 1 `uc 1 LATD0 1 0 :1:0 
+[u S509 . 1 `S495 1 . 1 0 `S502 1 . 1 0 ]
+[v _LATCbits LATCbits `VES509  1 e 1 @3979 ]
+[s S189 . 1 `uc 1 LATD0 1 0 :1:0 
 `uc 1 LATD1 1 0 :1:1 
 `uc 1 LATD2 1 0 :1:2 
 `uc 1 LATD3 1 0 :1:3 
@@ -184,7 +192,7 @@ WAITING_SEM 3
 `uc 1 LATD7 1 0 :1:7 
 ]
 "3288
-[s S194 . 1 `uc 1 LD0 1 0 :1:0 
+[s S198 . 1 `uc 1 LD0 1 0 :1:0 
 `uc 1 LD1 1 0 :1:1 
 `uc 1 LD2 1 0 :1:2 
 `uc 1 LD3 1 0 :1:3 
@@ -193,9 +201,9 @@ WAITING_SEM 3
 `uc 1 LD6 1 0 :1:6 
 `uc 1 LD7 1 0 :1:7 
 ]
-[u S203 . 1 `S185 1 . 1 0 `S194 1 . 1 0 ]
-[v _LATDbits LATDbits `VES203  1 e 1 @3980 ]
-[s S379 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S207 . 1 `S189 1 . 1 0 `S198 1 . 1 0 ]
+[v _LATDbits LATDbits `VES207  1 e 1 @3980 ]
+[s S383 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
@@ -203,16 +211,16 @@ WAITING_SEM 3
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "3873
-[s S386 . 1 `uc 1 RC0 1 0 :1:0 
+[s S390 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 . 1 0 :3:3 
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S393 . 1 `S379 1 . 1 0 `S386 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES393  1 e 1 @3988 ]
-[s S145 . 1 `uc 1 TRISD0 1 0 :1:0 
+[u S397 . 1 `S383 1 . 1 0 `S390 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES397  1 e 1 @3988 ]
+[s S149 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -222,9 +230,9 @@ WAITING_SEM 3
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "4031
-[u S163 . 1 `S145 1 . 1 0 `S154 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES163  1 e 1 @3989 ]
-[s S685 . 1 `uc 1 T0PS 1 0 :3:0 
+[u S167 . 1 `S149 1 . 1 0 `S158 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES167  1 e 1 @3989 ]
+[s S698 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -232,12 +240,12 @@ WAITING_SEM 3
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "8087
-[s S692 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S705 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S696 . 1 `S685 1 . 1 0 `S692 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES696  1 e 1 @4053 ]
+[u S709 . 1 `S698 1 . 1 0 `S705 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES709  1 e 1 @4053 ]
 "8137
 [v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
 "8158
@@ -246,7 +254,7 @@ WAITING_SEM 3
 [v _BSR BSR `VEuc  1 e 1 @4064 ]
 "8348
 [v _WREG WREG `VEuc  1 e 1 @4072 ]
-[s S96 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S100 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -256,7 +264,7 @@ WAITING_SEM 3
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "8612
-[s S105 . 1 `uc 1 . 1 0 :1:0 
+[s S109 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -265,55 +273,57 @@ WAITING_SEM 3
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S114 . 1 `uc 1 . 1 0 :6:0 
+[s S118 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S118 . 1 `S96 1 . 1 0 `S105 1 . 1 0 `S114 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES118  1 e 1 @4082 ]
+[u S122 . 1 `S100 1 . 1 0 `S109 1 . 1 0 `S118 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES122  1 e 1 @4082 ]
 "8792
 [v _STKPTR STKPTR `VEuc  1 e 1 @4092 ]
 "8867
 [v _TOS TOS `VEum  1 e 3 @4093 ]
 [s S63 tcb 106 `uc 1 task_id 1 0 `*.37(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
-"9 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
+"10 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
 [s S74 f_aptos 533 `[5]S63 1 readyQueue 530 0 `uc 1 readyQueueSize 1 530 `*.39S63 1 taskRunning 2 531 ]
 [v _readyQueue readyQueue `S74  1 e 533 0 ]
-"9 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
-[s S346 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
-[s S351 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `[3]uc 1 pipe_data 3 2 `S346 1 pipe_sem_read 14 5 `S346 1 pipe_sem_write 14 19 ]
-[v _canal canal `S351  1 e 33 0 ]
+"120 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\mem.c
+[v __uDynamicHeap _uDynamicHeap `[512]uc  1 e 512 0 ]
+"10 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
+[s S350 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[s S355 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `[3]uc 1 pipe_data 3 2 `S350 1 pipe_sem_read 14 5 `S350 1 pipe_sem_write 14 19 ]
+[v _canal canal `S355  1 e 33 0 ]
 "7 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\main.c
 [v _main main `(i  1 e 2 0 ]
 {
 "21
 } 0
-"22 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
+"23 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
 [v _os_start os_start `(v  1 e 1 0 ]
 {
-"34
+"40
 } 0
-"11 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
+"12 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
 [v _config_app config_app `(v  1 e 1 0 ]
 {
-"21
+"22
 } 0
 "5 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\pipe.c
 [v _create_pipe create_pipe `(v  1 e 1 0 ]
 {
 [s S63 tcb 106 `uc 1 task_id 1 0 `*.37(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
-[s S346 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
-[s S351 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `[3]uc 1 pipe_data 3 2 `S346 1 pipe_sem_read 14 5 `S346 1 pipe_sem_write 14 19 ]
-[v create_pipe@p p `*.30S351  1 p 1 110 ]
+[s S350 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[s S355 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `[3]uc 1 pipe_data 3 2 `S350 1 pipe_sem_read 14 5 `S350 1 pipe_sem_write 14 19 ]
+[v create_pipe@p p `*.30S355  1 p 1 106 ]
 "12
 } 0
 "10 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\sync.c
 [v _sem_init sem_init `(v  1 e 1 0 ]
 {
 [s S63 tcb 106 `uc 1 task_id 1 0 `*.37(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
-[s S346 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
-[v sem_init@s s `*.30S346  1 p 1 106 ]
-[v sem_init@init_value init_value `uc  1 p 1 107 ]
+[s S350 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[v sem_init@s s `*.30S350  1 p 1 102 ]
+[v sem_init@init_value init_value `uc  1 p 1 103 ]
 "15
 } 0
 "7 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\hardware.c
@@ -326,10 +336,19 @@ WAITING_SEM 3
 {
 "22
 } 0
-"11 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
+"276 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\mem.c
+[v _SRAMInitHeap SRAMInitHeap `(v  1 e 1 0 ]
+{
+"279
+[v SRAMInitHeap@count count `ui  1 a 2 104 ]
+"278
+[v SRAMInitHeap@pHeap pHeap `*.39uc  1 a 2 102 ]
+"299
+} 0
+"12 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
 [v _os_config os_config `(v  1 e 1 0 ]
 {
-"20
+"21
 } 0
 "9 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\syscall.c
 [v _os_create_task os_create_task `(v  1 e 1 0 ]
@@ -340,52 +359,50 @@ WAITING_SEM 3
 [v os_create_task@new_task new_task `S63  1 a 106 1 ]
 "9
 [v os_create_task@id id `uc  1 p 1 wreg ]
-[v os_create_task@task_f task_f `*.37(v  1 p 2 106 ]
-[v os_create_task@prior prior `uc  1 p 1 108 ]
+[v os_create_task@task_f task_f `*.37(v  1 p 2 102 ]
+[v os_create_task@prior prior `uc  1 p 1 104 ]
 "13
 [v os_create_task@id id `uc  1 p 1 0 ]
 "25
 } 0
-"37 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
+"43 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
 [v _os_idle_task os_idle_task `(v  1 e 1 0 ]
 {
-"45
+"51
 } 0
-"23 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
+"24 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
 [v _tarefa_1 tarefa_1 `(v  1 e 1 0 ]
 {
-"25
-[v tarefa_1@dados dados `[3]uc  1 a 3 74 ]
 "26
-[v tarefa_1@index index `i  1 a 2 77 ]
-"24
-[v tarefa_1@F3416 F3416 `[3]uc  1 s 3 F3416 ]
-"34
+[v tarefa_1@dados dados `*.39uc  1 a 2 73 ]
+"31
+[v tarefa_1@index index `i  1 a 2 71 ]
+"41
 } 0
 "30 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\pipe.c
 [v _write_pipe write_pipe `(v  1 e 1 0 ]
 {
 [s S63 tcb 106 `uc 1 task_id 1 0 `*.37(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
-[s S346 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
-[s S351 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `[3]uc 1 pipe_data 3 2 `S346 1 pipe_sem_read 14 5 `S346 1 pipe_sem_write 14 19 ]
-[v write_pipe@p p `*.30S351  1 p 1 4 ]
-[v write_pipe@buffer buffer `uc  1 p 1 5 ]
+[s S350 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[s S355 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `[3]uc 1 pipe_data 3 2 `S350 1 pipe_sem_read 14 5 `S350 1 pipe_sem_write 14 19 ]
+[v write_pipe@p p `*.30S355  1 p 1 9 ]
+[v write_pipe@buffer buffer `uc  1 p 1 10 ]
 "44
 } 0
 "17 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\sync.c
 [v _sem_wait sem_wait `(v  1 e 1 0 ]
 {
 [s S63 tcb 106 `uc 1 task_id 1 0 `*.37(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
-[s S346 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
-[v sem_wait@s s `*.30S346  1 p 1 91 ]
+[s S350 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[v sem_wait@s s `*.30S350  1 p 1 87 ]
 "35
 } 0
 "37
 [v _sem_post sem_post `(v  1 e 1 0 ]
 {
 [s S63 tcb 106 `uc 1 task_id 1 0 `*.37(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
-[s S346 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
-[v sem_post@s s `*.30S346  1 p 1 85 ]
+[s S350 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[v sem_post@s s `*.30S350  1 p 1 81 ]
 "49
 } 0
 "27 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\syscall.c
@@ -394,7 +411,7 @@ WAITING_SEM 3
 [v os_delay@time time `uc  1 p 1 wreg ]
 [v os_delay@time time `uc  1 p 1 wreg ]
 "29
-[v os_delay@time time `uc  1 p 1 4 ]
+[v os_delay@time time `uc  1 p 1 12 ]
 "38
 } 0
 "37 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\scheduler.c
@@ -408,52 +425,97 @@ WAITING_SEM 3
 [v _rr_scheduler rr_scheduler `(*.39S63  1 e 2 0 ]
 {
 "14
-[v rr_scheduler@pos_task_running pos_task_running `uc  1 a 1 90 ]
+[v rr_scheduler@pos_task_running pos_task_running `uc  1 a 1 86 ]
 "15
-[v rr_scheduler@idle_selected idle_selected `uc  1 a 1 89 ]
+[v rr_scheduler@idle_selected idle_selected `uc  1 a 1 85 ]
 "28
 } 0
-"47 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
+"53 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
 [v _os_task_pos os_task_pos `(uc  1 e 1 0 ]
 {
-"49
-[v os_task_pos@i i `uc  1 a 1 83 ]
-"47
-[v os_task_pos@task task `*.37(v  1 p 2 79 ]
-"54
+"55
+[v os_task_pos@i i `uc  1 a 1 79 ]
+"53
+[v os_task_pos@task task `*.37(v  1 p 2 75 ]
+"60
 } 0
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
 {
 "10
-[v ___awmod@sign sign `uc  1 a 1 84 ]
-[v ___awmod@counter counter `uc  1 a 1 83 ]
+[v ___awmod@sign sign `uc  1 a 1 80 ]
+[v ___awmod@counter counter `uc  1 a 1 79 ]
 "7
-[v ___awmod@dividend dividend `i  1 p 2 79 ]
-[v ___awmod@divisor divisor `i  1 p 2 81 ]
+[v ___awmod@dividend dividend `i  1 p 2 75 ]
+[v ___awmod@divisor divisor `i  1 p 2 77 ]
 "34
 } 0
-"36 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
+"250 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\mem.c
+[v _SRAMfree SRAMfree `(v  1 e 1 0 ]
+{
+[v SRAMfree@pSRAM pSRAM `*.39uc  1 p 2 12 ]
+"254
+} 0
+"154
+[v _SRAMalloc SRAMalloc `(*.39uc  1 e 2 0 ]
+{
+[v SRAMalloc@nBytes nBytes `uc  1 p 1 wreg ]
+[s S1010 _BITS 1 `uc 1 count 1 0 :7:0 
+`uc 1 alloc 1 0 :1:7 
+]
+"156
+[u S1013 _SALLOC 1 `uc 1 byte 1 0 `S1010 1 bits 1 0 ]
+[v SRAMalloc@pHeap pHeap `*.39S1013  1 a 2 16 ]
+"157
+[v SRAMalloc@temp temp `*.39S1013  1 a 2 11 ]
+"158
+[v SRAMalloc@segHeader segHeader `S1013  1 a 1 14 ]
+"159
+[v SRAMalloc@segLen segLen `uc  1 a 1 13 ]
+"154
+[v SRAMalloc@nBytes nBytes `uc  1 p 1 wreg ]
+"162
+[v SRAMalloc@nBytes nBytes `uc  1 p 1 15 ]
+"226
+} 0
+"322
+[v __SRAMmerge _SRAMmerge `(uc  1 e 1 0 ]
+{
+[s S1010 _BITS 1 `uc 1 count 1 0 :7:0 
+`uc 1 alloc 1 0 :1:7 
+]
+"324
+[u S1013 _SALLOC 1 `uc 1 byte 1 0 `S1010 1 bits 1 0 ]
+[v __SRAMmerge@pSegB pSegB `*.39S1013  1 a 2 16 ]
+"325
+[v __SRAMmerge@uSegB uSegB `S1013  1 a 1 19 ]
+[v __SRAMmerge@uSegA uSegA `S1013  1 a 1 18 ]
+[v __SRAMmerge@uSum uSum `S1013  1 a 1 15 ]
+"322
+[v __SRAMmerge@pSegA pSegA `*.39S1013  1 p 2 12 ]
+"366
+} 0
+"43 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
 [v _tarefa_2 tarefa_2 `(v  1 e 1 0 ]
 {
-"38
-[v tarefa_2@dado dado `uc  1 a 1 104 ]
-"55
+"45
+[v tarefa_2@dado dado `uc  1 a 1 100 ]
+"62
 } 0
 "14 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\pipe.c
 [v _read_pipe read_pipe `(v  1 e 1 0 ]
 {
 [s S63 tcb 106 `uc 1 task_id 1 0 `*.37(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
-[s S346 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
-[s S351 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `[3]uc 1 pipe_data 3 2 `S346 1 pipe_sem_read 14 5 `S346 1 pipe_sem_write 14 19 ]
-[v read_pipe@p p `*.30S351  1 p 1 99 ]
-[v read_pipe@buffer buffer `*.39uc  1 p 2 100 ]
+[s S350 semaphore 14 `i 1 contador 2 0 `[5]*.39S63 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[s S355 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `[3]uc 1 pipe_data 3 2 `S350 1 pipe_sem_read 14 5 `S350 1 pipe_sem_write 14 19 ]
+[v read_pipe@p p `*.30S355  1 p 1 95 ]
+[v read_pipe@buffer buffer `*.39uc  1 p 2 96 ]
 "28
 } 0
-"57 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
+"64 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\user_app.c
 [v _tarefa_3 tarefa_3 `(v  1 e 1 0 ]
 {
-"63
+"70
 } 0
 "25 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\hardware.c
 [v _ISR_TIMER_0 ISR_TIMER_0 `IIH(v  1 e 1 0 ]
@@ -476,14 +538,14 @@ WAITING_SEM 3
 [v i2rr_scheduler@idle_selected idle_selected `uc  1 a 1 10 ]
 "28
 } 0
-"47 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
+"53 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
 [v i2_os_task_pos os_task_pos `(uc  1 e 1 0 ]
 {
-"49
+"55
 [v i2os_task_pos@i i `uc  1 a 1 4 ]
-"47
+"53
 [v i2os_task_pos@task task `*.37(v  1 p 2 0 ]
-"54
+"60
 } 0
 "7 C:\Program Files\Microchip\xc8\v3.00\pic\sources\c99\common\awmod.c
 [v i2___awmod __awmod `(i  1 e 2 0 ]
@@ -496,10 +558,10 @@ WAITING_SEM 3
 [v i2___awmod@divisor divisor `i  1 p 2 2 ]
 "34
 } 0
-"56 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
+"62 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
 [v _os_task_time_decrease os_task_time_decrease `(v  1 e 1 0 ]
 {
-"58
+"64
 [v os_task_time_decrease@i i `uc  1 a 1 1 ]
-"67
+"73
 } 0

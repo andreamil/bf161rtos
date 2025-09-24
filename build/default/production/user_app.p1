@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [v F3355 `(v ~T0 @X0 0 tf ]
-"9 user_app.c
-[; ;user_app.c: 9: pipe_t canal;
+"10 user_app.c
+[; ;user_app.c: 10: pipe_t canal;
 [c E3346 0 1 2 3 .. ]
 [n E3346 . READY RUNNING WAITING WAITING_SEM  ]
 "20 ./types.h
@@ -49,6 +49,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6 ./pipe.h
 [; ;./pipe.h: 6: void create_pipe(pipe_t *p);
 [v _create_pipe `(v ~T0 @X0 0 ef1`*S394 ]
+"8 ./mem.h
+[; ;./mem.h: 8: unsigned char * SRAMalloc(unsigned char nBytes);
+[v _SRAMalloc `(*uc ~T0 @X0 0 ef1`uc ]
 "3267 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3267:     struct {
 [s S136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -89,6 +92,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7 ./syscall.h
 [; ;./syscall.h: 7: void os_delay(uint8_t time);
 [v _os_delay `(v ~T0 @X0 0 ef1`uc ]
+"9 ./mem.h
+[; ;./mem.h: 9: void SRAMfree(unsigned char *pSRAM);
+[v _SRAMfree `(v ~T0 @X0 0 ef1`*uc ]
 "7 ./pipe.h
 [; ;./pipe.h: 7: void read_pipe(pipe_t *p, char *buffer);
 [v _read_pipe `(v ~T0 @X0 0 ef2`*S394`*uc ]
@@ -617,176 +623,180 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8891
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"9 user_app.c
-[; ;user_app.c: 9: pipe_t canal;
+"10 user_app.c
+[; ;user_app.c: 10: pipe_t canal;
 [v _canal `S394 ~T0 @X0 1 e ]
-"11
-[; ;user_app.c: 11: void config_app(void)
-[v _config_app `(v ~T0 @X0 1 ef ]
 "12
-[; ;user_app.c: 12: {
+[; ;user_app.c: 12: void config_app(void)
+[v _config_app `(v ~T0 @X0 1 ef ]
+"13
+[; ;user_app.c: 13: {
 {
 [e :U _config_app ]
 [f ]
-"13
-[; ;user_app.c: 13:     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
+"14
+[; ;user_app.c: 14:     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
 [e = . . _TRISDbits 1 0 = . . _TRISDbits 1 1 = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
-"15
-[; ;user_app.c: 15:     TRISCbits.RC0 = TRISCbits.RC1 = 0;
+"16
+[; ;user_app.c: 16:     TRISCbits.RC0 = TRISCbits.RC1 = 0;
 [e = . . _TRISCbits 1 0 = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
-"18
-[; ;user_app.c: 18:     create_pipe(&canal);
+"19
+[; ;user_app.c: 19:     create_pipe(&canal);
 [e ( _create_pipe (1 &U _canal ]
-"20
-[; ;user_app.c: 20:     __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
-[; <" GLOBAL _tarefa_1, _tarefa_2, _tarefa_3 ;# ">
 "21
-[; ;user_app.c: 21: }
-[e :UE 395 ]
+[; ;user_app.c: 21:     __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
+[; <" GLOBAL _tarefa_1, _tarefa_2, _tarefa_3 ;# ">
+"22
+[; ;user_app.c: 22: }
+[e :UE 397 ]
 }
-"23
-[; ;user_app.c: 23: TASK tarefa_1(void)
-[v _tarefa_1 `(v ~T0 @X0 1 ef ]
 "24
-[; ;user_app.c: 24: {
+[; ;user_app.c: 24: TASK tarefa_1(void)
+[v _tarefa_1 `(v ~T0 @X0 1 ef ]
+"25
+[; ;user_app.c: 25: {
 {
 [e :U _tarefa_1 ]
 [f ]
-[v F3416 `uc ~T0 @X0 -> 3 `i s ]
-[i F3416
-:U ..
-"25
-[; ;user_app.c: 25:     char dados[] = {'a', 'b', 'c'};
--> -> 97 `ui `uc
--> -> 98 `ui `uc
--> -> 99 `ui `uc
-..
-]
-[v _dados `uc ~T0 @X0 -> 3 `i a ]
-[e = _dados F3416 ]
 "26
-[; ;user_app.c: 26:     int index = 0;
+[; ;user_app.c: 26:     char *dados = (char*)SRAMalloc(sizeof(char) * 3);
+[v _dados `*uc ~T0 @X0 1 a ]
+[e = _dados -> ( _SRAMalloc (1 -> * -> # `uc `ui -> -> 3 `i `ui `uc `*uc ]
+"27
+[; ;user_app.c: 27:     dados[0] = 'a';
+[e = *U + _dados * -> -> 0 `i `x -> -> # *U _dados `i `x -> -> 97 `ui `uc ]
+"28
+[; ;user_app.c: 28:     dados[1] = 'b';
+[e = *U + _dados * -> -> 1 `i `x -> -> # *U _dados `i `x -> -> 98 `ui `uc ]
+"29
+[; ;user_app.c: 29:     dados[2] = 'c';
+[e = *U + _dados * -> -> 2 `i `x -> -> # *U _dados `i `x -> -> 99 `ui `uc ]
+"31
+[; ;user_app.c: 31:     int index = 0;
 [v _index `i ~T0 @X0 1 a ]
 [e = _index -> 0 `i ]
-"27
-[; ;user_app.c: 27:     while (1) {
-[e :U 398 ]
-{
-"28
-[; ;user_app.c: 28:         LATDbits.LD0 = ~PORTDbits.RD0;
-[e = . . _LATDbits 1 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
-"30
-[; ;user_app.c: 30:         write_pipe(&canal, dados[index]);
-[e ( _write_pipe (2 , &U _canal *U + &U _dados * -> -> _index `ui `ux -> -> # *U &U _dados `ui `ux ]
-"31
-[; ;user_app.c: 31:         index = (index + 1) % 3;
-[e = _index % + _index -> 1 `i -> 3 `i ]
 "32
-[; ;user_app.c: 32:         os_delay(50);
-[e ( _os_delay (1 -> -> 50 `i `uc ]
+[; ;user_app.c: 32:     while (1) {
+[e :U 400 ]
+{
 "33
-[; ;user_app.c: 33:     }
-}
-[e :U 397 ]
-[e $U 398  ]
-[e :U 399 ]
-"34
-[; ;user_app.c: 34: }
-[e :UE 396 ]
-}
+[; ;user_app.c: 33:         LATDbits.LD0 = ~PORTDbits.RD0;
+[e = . . _LATDbits 1 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
+"35
+[; ;user_app.c: 35:         write_pipe(&canal, dados[index]);
+[e ( _write_pipe (2 , &U _canal *U + _dados * -> _index `x -> -> # *U _dados `i `x ]
 "36
-[; ;user_app.c: 36: TASK tarefa_2(void)
-[v _tarefa_2 `(v ~T0 @X0 1 ef ]
+[; ;user_app.c: 36:         index = (index + 1) % 3;
+[e = _index % + _index -> 1 `i -> 3 `i ]
 "37
-[; ;user_app.c: 37: {
+[; ;user_app.c: 37:         os_delay(50);
+[e ( _os_delay (1 -> -> 50 `i `uc ]
+"38
+[; ;user_app.c: 38:     }
+}
+[e :U 399 ]
+[e $U 400  ]
+[e :U 401 ]
+"40
+[; ;user_app.c: 40:     SRAMfree(dados);
+[e ( _SRAMfree (1 -> _dados `*uc ]
+"41
+[; ;user_app.c: 41: }
+[e :UE 398 ]
+}
+"43
+[; ;user_app.c: 43: TASK tarefa_2(void)
+[v _tarefa_2 `(v ~T0 @X0 1 ef ]
+"44
+[; ;user_app.c: 44: {
 {
 [e :U _tarefa_2 ]
 [f ]
-"38
-[; ;user_app.c: 38:     char dado;
-[v _dado `uc ~T0 @X0 1 a ]
-"40
-[; ;user_app.c: 40:     while (1) {
-[e :U 402 ]
-{
-"41
-[; ;user_app.c: 41:         LATDbits.LD1 = ~PORTDbits.RD1;
-[e = . . _LATDbits 1 1 -> ~ -> . . _PORTDbits 0 1 `i `uc ]
-"43
-[; ;user_app.c: 43:         read_pipe(&canal, &dado);
-[e ( _read_pipe (2 , &U _canal &U _dado ]
-"44
-[; ;user_app.c: 44:         if (dado == 'a') {
-[e $ ! == -> _dado `ui -> 97 `ui 404  ]
-{
 "45
-[; ;user_app.c: 45:             LATCbits.LATC0 = 1;
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-"46
-[; ;user_app.c: 46:         }
-}
-[e $U 405  ]
+[; ;user_app.c: 45:     char dado;
+[v _dado `uc ~T0 @X0 1 a ]
 "47
-[; ;user_app.c: 47:         else if (dado == 'b') {
+[; ;user_app.c: 47:     while (1) {
 [e :U 404 ]
-[e $ ! == -> _dado `ui -> 98 `ui 406  ]
 {
 "48
-[; ;user_app.c: 48:             LATCbits.LATC1 = 1;
-[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
-"49
-[; ;user_app.c: 49:         }
-}
-[e $U 407  ]
+[; ;user_app.c: 48:         LATDbits.LD1 = ~PORTDbits.RD1;
+[e = . . _LATDbits 1 1 -> ~ -> . . _PORTDbits 0 1 `i `uc ]
 "50
-[; ;user_app.c: 50:         else if (dado == 'c') {
-[e :U 406 ]
-[e $ ! == -> _dado `ui -> 99 `ui 408  ]
-{
+[; ;user_app.c: 50:         read_pipe(&canal, &dado);
+[e ( _read_pipe (2 , &U _canal &U _dado ]
 "51
-[; ;user_app.c: 51:             LATCbits.LATC0 = 0;
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+[; ;user_app.c: 51:         if (dado == 'a') {
+[e $ ! == -> _dado `ui -> 97 `ui 406  ]
+{
 "52
-[; ;user_app.c: 52:             LATCbits.LATC1 = 0;
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+[; ;user_app.c: 52:             LATCbits.LATC0 = 1;
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
 "53
 [; ;user_app.c: 53:         }
 }
-[e :U 408 ]
-[e :U 407 ]
-[e :U 405 ]
+[e $U 407  ]
 "54
-[; ;user_app.c: 54:     }
-}
-[e :U 401 ]
-[e $U 402  ]
-[e :U 403 ]
+[; ;user_app.c: 54:         else if (dado == 'b') {
+[e :U 406 ]
+[e $ ! == -> _dado `ui -> 98 `ui 408  ]
+{
 "55
-[; ;user_app.c: 55: }
-[e :UE 400 ]
+[; ;user_app.c: 55:             LATCbits.LATC1 = 1;
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+"56
+[; ;user_app.c: 56:         }
 }
+[e $U 409  ]
 "57
-[; ;user_app.c: 57: TASK tarefa_3(void)
-[v _tarefa_3 `(v ~T0 @X0 1 ef ]
+[; ;user_app.c: 57:         else if (dado == 'c') {
+[e :U 408 ]
+[e $ ! == -> _dado `ui -> 99 `ui 410  ]
+{
 "58
-[; ;user_app.c: 58: {
+[; ;user_app.c: 58:             LATCbits.LATC0 = 0;
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+"59
+[; ;user_app.c: 59:             LATCbits.LATC1 = 0;
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+"60
+[; ;user_app.c: 60:         }
+}
+[e :U 410 ]
+[e :U 409 ]
+[e :U 407 ]
+"61
+[; ;user_app.c: 61:     }
+}
+[e :U 403 ]
+[e $U 404  ]
+[e :U 405 ]
+"62
+[; ;user_app.c: 62: }
+[e :UE 402 ]
+}
+"64
+[; ;user_app.c: 64: TASK tarefa_3(void)
+[v _tarefa_3 `(v ~T0 @X0 1 ef ]
+"65
+[; ;user_app.c: 65: {
 {
 [e :U _tarefa_3 ]
 [f ]
-"59
-[; ;user_app.c: 59:     while (1) {
-[e :U 411 ]
+"66
+[; ;user_app.c: 66:     while (1) {
+[e :U 413 ]
 {
-"60
-[; ;user_app.c: 60:         LATDbits.LD2 = ~PORTDbits.RD2;
+"67
+[; ;user_app.c: 67:         LATDbits.LD2 = ~PORTDbits.RD2;
 [e = . . _LATDbits 1 2 -> ~ -> . . _PORTDbits 0 2 `i `uc ]
-"62
-[; ;user_app.c: 62:     }
+"69
+[; ;user_app.c: 69:     }
 }
-[e :U 410 ]
-[e $U 411  ]
 [e :U 412 ]
-"63
-[; ;user_app.c: 63: }
-[e :UE 409 ]
+[e $U 413  ]
+[e :U 414 ]
+"70
+[; ;user_app.c: 70: }
+[e :UE 411 ]
 }

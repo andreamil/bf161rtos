@@ -173,6 +173,19 @@ typedef struct pipe {
     sem_t pipe_sem_read;
     sem_t pipe_sem_write;
 } pipe_t;
+
+
+
+
+typedef union _SALLOC
+{
+ unsigned char byte;
+ struct _BITS
+ {
+  unsigned count:7;
+  unsigned alloc:1;
+ } bits;
+}SALLOC;
 # 2 "kernel.c" 2
 # 1 "./syscall.h" 1
 
@@ -6002,7 +6015,7 @@ void os_config(void);
 void os_start(void);
 void os_idle_task(void);
 uint8_t os_task_pos(f_ptr task);
-void os_task_time_decrease();
+void os_task_time_decrease(void);
 # 4 "kernel.c" 2
 # 1 "./hardware.h" 1
 
@@ -6028,6 +6041,19 @@ TASK tarefa_1(void);
 TASK tarefa_2(void);
 TASK tarefa_3(void);
 # 6 "kernel.c" 2
+# 1 "./mem.h" 1
+
+
+
+
+
+
+
+unsigned char * SRAMalloc(unsigned char nBytes);
+void SRAMfree(unsigned char *pSRAM);
+void SRAMInitHeap(void);
+     unsigned char _SRAMmerge(SALLOC * pSegA);
+# 7 "kernel.c" 2
 
 
 
@@ -6048,6 +6074,11 @@ void os_start(void)
 {
 
     conf_interrupts();
+
+
+
+    SRAMInitHeap();
+
 
 
     config_app();

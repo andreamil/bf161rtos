@@ -1,7 +1,7 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [v F48 `(v ~T0 @X0 0 tf ]
-"9 kernel.c
-[; ;kernel.c: 9: f_aptos_t readyQueue;
+"10 kernel.c
+[; ;kernel.c: 10: f_aptos_t readyQueue;
 [c E39 0 1 2 3 .. ]
 [n E39 . READY RUNNING WAITING WAITING_SEM  ]
 "20 ./types.h
@@ -12,16 +12,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./types.h: 35: typedef struct f_aptos {
 [s S2 `S1 -> 5 `i `uc 1 `*S1 1 ]
 [n S2 f_aptos readyQueue readyQueueSize taskRunning ]
-[v F77 `(v ~T0 @X0 0 tf ]
+[v F84 `(v ~T0 @X0 0 tf ]
 "6 ./syscall.h
 [; ;./syscall.h: 6: void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior);
-[v _os_create_task `(v ~T0 @X0 0 ef3`uc`*F77`uc ]
+[v _os_create_task `(v ~T0 @X0 0 ef3`uc`*F84`uc ]
 "13 ./kernel.h
 [; ;./kernel.h: 13: void os_idle_task(void);
 [v _os_idle_task `(v ~T0 @X0 0 ef ]
 "7 ./hardware.h
 [; ;./hardware.h: 7: void conf_interrupts(void);
 [v _conf_interrupts `(v ~T0 @X0 0 ef ]
+"10 ./mem.h
+[; ;./mem.h: 10: void SRAMInitHeap(void);
+[v _SRAMInitHeap `(v ~T0 @X0 0 ef ]
 "6 ./user_app.h
 [; ;./user_app.h: 6: void config_app(void);
 [v _config_app `(v ~T0 @X0 0 ef ]
@@ -30,74 +33,74 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _conf_timer_0 `(v ~T0 @X0 0 ef ]
 "8586 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8586:     struct {
-[s S364 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S364 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+[s S366 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S366 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
 "8596
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8596:     struct {
-[s S365 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S365 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+[s S367 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S367 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
 "8606
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8606:     struct {
-[s S366 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S366 . . GIEL GIEH ]
+[s S368 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S368 . . GIEL GIEH ]
 "8585
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8585: typedef union {
-[u S363 `S364 1 `S365 1 `S366 1 ]
-[n S363 . . . . ]
+[u S365 `S366 1 `S367 1 `S368 1 ]
+[n S365 . . . . ]
 "8612
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8612: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS363 ~T0 @X0 0 e@4082 ]
+[v _INTCONbits `VS365 ~T0 @X0 0 e@4082 ]
 "4010
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4010:     struct {
-[s S164 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S164 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+[s S166 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S166 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
 "4020
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4020:     struct {
-[s S165 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S165 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+[s S167 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S167 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
 "4009
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4009: typedef union {
-[u S163 `S164 1 `S165 1 ]
-[n S163 . . . ]
+[u S165 `S166 1 `S167 1 ]
+[n S165 . . . ]
 "4031
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4031: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
-[v _TRISDbits `VS163 ~T0 @X0 0 e@3989 ]
+[v _TRISDbits `VS165 ~T0 @X0 0 e@3989 ]
 "3267
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3267:     struct {
-[s S140 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S140 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
+[s S142 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S142 . LATD0 LATD1 LATD2 LATD3 LATD4 LATD5 LATD6 LATD7 ]
 "3277
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3277:     struct {
-[s S141 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S141 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
+[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S143 . LD0 LD1 LD2 LD3 LD4 LD5 LD6 LD7 ]
 "3266
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3266: typedef union {
-[u S139 `S140 1 `S141 1 ]
-[n S139 . . . ]
+[u S141 `S142 1 `S143 1 ]
+[n S141 . . . ]
 "3288
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3288: extern volatile LATDbits_t LATDbits __attribute__((address(0xF8C)));
-[v _LATDbits `VS139 ~T0 @X0 0 e@3980 ]
+[v _LATDbits `VS141 ~T0 @X0 0 e@3980 ]
 "2709
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2709:     struct {
-[s S121 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S121 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+[s S123 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S123 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
 "2719
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2719:     struct {
-[s S122 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S122 . SPP0 SPP1 SPP2 SPP3 SPP4 SPP5 SPP6 SPP7 ]
+[s S124 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S124 . SPP0 SPP1 SPP2 SPP3 SPP4 SPP5 SPP6 SPP7 ]
 "2729
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2729:     struct {
-[s S123 :7 `uc 1 :1 `uc 1 ]
-[n S123 . . SS2 ]
+[s S125 :7 `uc 1 :1 `uc 1 ]
+[n S125 . . SS2 ]
 "2708
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2708: typedef union {
-[u S120 `S121 1 `S122 1 `S123 1 ]
-[n S120 . . . . ]
+[u S122 `S123 1 `S124 1 `S125 1 ]
+[n S122 . . . . ]
 "2734
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2734: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
-[v _PORTDbits `VS120 ~T0 @X0 0 e@3971 ]
-[v F3416 `(v ~T0 @X0 0 tf ]
-[v F3418 `(v ~T0 @X0 0 tf ]
+[v _PORTDbits `VS122 ~T0 @X0 0 e@3971 ]
+[v F3430 `(v ~T0 @X0 0 tf ]
+[v F3432 `(v ~T0 @X0 0 tf ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -608,175 +611,178 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8891
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"9 kernel.c
-[; ;kernel.c: 9: f_aptos_t readyQueue;
+"10 kernel.c
+[; ;kernel.c: 10: f_aptos_t readyQueue;
 [v _readyQueue `S2 ~T0 @X0 1 e ]
-"11
-[; ;kernel.c: 11: void os_config(void)
-[v _os_config `(v ~T0 @X0 1 ef ]
 "12
-[; ;kernel.c: 12: {
+[; ;kernel.c: 12: void os_config(void)
+[v _os_config `(v ~T0 @X0 1 ef ]
+"13
+[; ;kernel.c: 13: {
 {
 [e :U _os_config ]
 [f ]
-"13
-[; ;kernel.c: 13:     readyQueue.readyQueueSize = 0;
-[e = . _readyQueue 1 -> -> 0 `i `uc ]
 "14
-[; ;kernel.c: 14:     readyQueue.taskRunning = 0;
+[; ;kernel.c: 14:     readyQueue.readyQueueSize = 0;
+[e = . _readyQueue 1 -> -> 0 `i `uc ]
+"15
+[; ;kernel.c: 15:     readyQueue.taskRunning = 0;
 [e = . _readyQueue 2 -> -> 0 `i `*S1 ]
-"17
-[; ;kernel.c: 17:     os_create_task(0, os_idle_task, 1);
+"18
+[; ;kernel.c: 18:     os_create_task(0, os_idle_task, 1);
 [e ( _os_create_task (3 , , -> -> 0 `i `uc &U _os_idle_task -> -> 1 `i `uc ]
-"19
-[; ;kernel.c: 19:     __asm("GLOBAL _os_idle_task");
-[; <" GLOBAL _os_idle_task ;# ">
 "20
-[; ;kernel.c: 20: }
-[e :UE 395 ]
+[; ;kernel.c: 20:     __asm("GLOBAL _os_idle_task");
+[; <" GLOBAL _os_idle_task ;# ">
+"21
+[; ;kernel.c: 21: }
+[e :UE 397 ]
 }
-"22
-[; ;kernel.c: 22: void os_start(void)
-[v _os_start `(v ~T0 @X0 1 ef ]
 "23
-[; ;kernel.c: 23: {
+[; ;kernel.c: 23: void os_start(void)
+[v _os_start `(v ~T0 @X0 1 ef ]
+"24
+[; ;kernel.c: 24: {
 {
 [e :U _os_start ]
 [f ]
-"25
-[; ;kernel.c: 25:     conf_interrupts();
+"26
+[; ;kernel.c: 26:     conf_interrupts();
 [e ( _conf_interrupts ..  ]
-"28
-[; ;kernel.c: 28:     config_app();
-[e ( _config_app ..  ]
 "30
-[; ;kernel.c: 30:     conf_timer_0();
-[e ( _conf_timer_0 ..  ]
-"33
-[; ;kernel.c: 33:     (INTCONbits.GIE = 1);
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;kernel.c: 30:     SRAMInitHeap();
+[e ( _SRAMInitHeap ..  ]
 "34
-[; ;kernel.c: 34: }
-[e :UE 396 ]
+[; ;kernel.c: 34:     config_app();
+[e ( _config_app ..  ]
+"36
+[; ;kernel.c: 36:     conf_timer_0();
+[e ( _conf_timer_0 ..  ]
+"39
+[; ;kernel.c: 39:     (INTCONbits.GIE = 1);
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"40
+[; ;kernel.c: 40: }
+[e :UE 398 ]
 }
-"37
-[; ;kernel.c: 37: void os_idle_task(void)
+"43
+[; ;kernel.c: 43: void os_idle_task(void)
 [v _os_idle_task `(v ~T0 @X0 1 ef ]
-"38
-[; ;kernel.c: 38: {
+"44
+[; ;kernel.c: 44: {
 {
 [e :U _os_idle_task ]
 [f ]
-"39
-[; ;kernel.c: 39:     TRISDbits.RD3 = 0;
-[e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
-"41
-[; ;kernel.c: 41:     while (1) {
-[e :U 399 ]
-{
-"43
-[; ;kernel.c: 43:         LATDbits.LD3 = ~PORTDbits.RD3;
-[e = . . _LATDbits 1 3 -> ~ -> . . _PORTDbits 0 3 `i `uc ]
-"44
-[; ;kernel.c: 44:     }
-}
-[e :U 398 ]
-[e $U 399  ]
-[e :U 400 ]
 "45
-[; ;kernel.c: 45: }
-[e :UE 397 ]
-}
+[; ;kernel.c: 45:     TRISDbits.RD3 = 0;
+[e = . . _TRISDbits 1 3 -> -> 0 `i `uc ]
 "47
-[; ;kernel.c: 47: uint8_t os_task_pos(f_ptr task)
-[v _os_task_pos `(uc ~T0 @X0 1 ef1`*F3416 ]
-"48
-[; ;kernel.c: 48: {
+[; ;kernel.c: 47:     while (1) {
+[e :U 401 ]
+{
+"49
+[; ;kernel.c: 49:         LATDbits.LD3 = ~PORTDbits.RD3;
+[e = . . _LATDbits 1 3 -> ~ -> . . _PORTDbits 0 3 `i `uc ]
+"50
+[; ;kernel.c: 50:     }
+}
+[e :U 400 ]
+[e $U 401  ]
+[e :U 402 ]
+"51
+[; ;kernel.c: 51: }
+[e :UE 399 ]
+}
+"53
+[; ;kernel.c: 53: uint8_t os_task_pos(f_ptr task)
+[v _os_task_pos `(uc ~T0 @X0 1 ef1`*F3430 ]
+"54
+[; ;kernel.c: 54: {
 {
 [e :U _os_task_pos ]
-"47
-[; ;kernel.c: 47: uint8_t os_task_pos(f_ptr task)
-[v _task `*F3418 ~T0 @X0 1 r1 ]
-"48
-[; ;kernel.c: 48: {
+"53
+[; ;kernel.c: 53: uint8_t os_task_pos(f_ptr task)
+[v _task `*F3432 ~T0 @X0 1 r1 ]
+"54
+[; ;kernel.c: 54: {
 [f ]
-"49
-[; ;kernel.c: 49:     for (uint8_t i = 0; i < readyQueue.readyQueueSize; i++) {
+"55
+[; ;kernel.c: 55:     for (uint8_t i = 0; i < readyQueue.readyQueueSize; i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $U 405  ]
-[e :U 402 ]
+[e $U 407  ]
+[e :U 404 ]
 {
-"50
-[; ;kernel.c: 50:         if (readyQueue.readyQueue[i].task_func == task) return i;
-[e $ ! == . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 1 _task 406  ]
+"56
+[; ;kernel.c: 56:         if (readyQueue.readyQueue[i].task_func == task) return i;
+[e $ ! == . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 1 _task 408  ]
 [e ) _i ]
-[e $UE 401  ]
-[e :U 406 ]
-"51
-[; ;kernel.c: 51:     }
+[e $UE 403  ]
+[e :U 408 ]
+"57
+[; ;kernel.c: 57:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
+[e :U 407 ]
+[e $ < -> _i `i -> . _readyQueue 1 `i 404  ]
 [e :U 405 ]
-[e $ < -> _i `i -> . _readyQueue 1 `i 402  ]
-[e :U 403 ]
 }
-"53
-[; ;kernel.c: 53:     return 0;
+"59
+[; ;kernel.c: 59:     return 0;
 [e ) -> -> 0 `i `uc ]
-[e $UE 401  ]
-"54
-[; ;kernel.c: 54: }
-[e :UE 401 ]
+[e $UE 403  ]
+"60
+[; ;kernel.c: 60: }
+[e :UE 403 ]
 }
-"56
-[; ;kernel.c: 56: void os_task_time_decrease()
+"62
+[; ;kernel.c: 62: void os_task_time_decrease()
 [v _os_task_time_decrease `(v ~T0 @X0 1 ef ]
-"57
-[; ;kernel.c: 57: {
+"63
+[; ;kernel.c: 63: {
 {
 [e :U _os_task_time_decrease ]
 [f ]
-"58
-[; ;kernel.c: 58:     for (uint8_t i = 1; i < readyQueue.readyQueueSize; i++) {
+"64
+[; ;kernel.c: 64:     for (uint8_t i = 1; i < readyQueue.readyQueueSize; i++) {
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 1 `i `uc ]
-[e $U 411  ]
-[e :U 408 ]
+[e $U 413  ]
+[e :U 410 ]
 {
-"59
-[; ;kernel.c: 59:         if (readyQueue.readyQueue[i].task_state == WAITING) {
-[e $ ! == -> . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 2 `ui -> . `E39 2 `ui 412  ]
-{
-"60
-[; ;kernel.c: 60:             readyQueue.readyQueue[i].task_time_to_waiting--;
-[e -- . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 4 -> -> 1 `i `uc ]
-"61
-[; ;kernel.c: 61:             if (readyQueue.readyQueue[i].task_time_to_waiting == 0) {
-[e $ ! == -> . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 4 `i -> 0 `i 413  ]
-{
-"63
-[; ;kernel.c: 63:                 readyQueue.readyQueue[i].task_state = READY;
-[e = . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 2 . `E39 0 ]
-"64
-[; ;kernel.c: 64:             }
-}
-[e :U 413 ]
 "65
-[; ;kernel.c: 65:         }
-}
-[e :U 412 ]
+[; ;kernel.c: 65:         if (readyQueue.readyQueue[i].task_state == WAITING) {
+[e $ ! == -> . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 2 `ui -> . `E39 2 `ui 414  ]
+{
 "66
-[; ;kernel.c: 66:     }
+[; ;kernel.c: 66:             readyQueue.readyQueue[i].task_time_to_waiting--;
+[e -- . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 4 -> -> 1 `i `uc ]
+"67
+[; ;kernel.c: 67:             if (readyQueue.readyQueue[i].task_time_to_waiting == 0) {
+[e $ ! == -> . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 4 `i -> 0 `i 415  ]
+{
+"69
+[; ;kernel.c: 69:                 readyQueue.readyQueue[i].task_state = READY;
+[e = . *U + &U . _readyQueue 0 * -> _i `ux -> -> # *U &U . _readyQueue 0 `ui `ux 2 . `E39 0 ]
+"70
+[; ;kernel.c: 70:             }
+}
+[e :U 415 ]
+"71
+[; ;kernel.c: 71:         }
+}
+[e :U 414 ]
+"72
+[; ;kernel.c: 72:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
+[e :U 413 ]
+[e $ < -> _i `i -> . _readyQueue 1 `i 410  ]
 [e :U 411 ]
-[e $ < -> _i `i -> . _readyQueue 1 `i 408  ]
-[e :U 409 ]
 }
-"67
-[; ;kernel.c: 67: }
-[e :UE 407 ]
+"73
+[; ;kernel.c: 73: }
+[e :UE 409 ]
 }

@@ -5,4 +5,5 @@ types.h  \
 os_config.h  \
 syscall.h  \
 sync.h  \
-pipe.h 
+pipe.h  \
+mem.h 

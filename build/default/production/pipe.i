@@ -177,6 +177,19 @@ typedef struct pipe {
     sem_t pipe_sem_read;
     sem_t pipe_sem_write;
 } pipe_t;
+
+
+
+
+typedef union _SALLOC
+{
+ unsigned char byte;
+ struct _BITS
+ {
+  unsigned count:7;
+  unsigned alloc:1;
+ } bits;
+}SALLOC;
 # 5 "./pipe.h" 2
 
 void create_pipe(pipe_t *p);

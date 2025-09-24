@@ -5985,6 +5985,19 @@ typedef struct pipe {
     sem_t pipe_sem_read;
     sem_t pipe_sem_write;
 } pipe_t;
+
+
+
+
+typedef union _SALLOC
+{
+ unsigned char byte;
+ struct _BITS
+ {
+  unsigned count:7;
+  unsigned alloc:1;
+ } bits;
+}SALLOC;
 # 7 "./kernel.h" 2
 
 
@@ -5994,7 +6007,7 @@ void os_config(void);
 void os_start(void);
 void os_idle_task(void);
 uint8_t os_task_pos(f_ptr task);
-void os_task_time_decrease();
+void os_task_time_decrease(void);
 # 3 "hardware.c" 2
 # 1 "./scheduler.h" 1
 # 13 "./scheduler.h"

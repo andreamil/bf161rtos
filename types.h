@@ -49,9 +49,24 @@ typedef struct pipe {
     uint8_t pipe_pos_read;
     uint8_t pipe_pos_write;
     char pipe_data[PIPE_MAX_SIZE];
+    //char* pipe_data;
     sem_t pipe_sem_read;
     sem_t pipe_sem_write;
 } pipe_t;
+
+/*********************************************************************
+ * Segment header data type
+ ********************************************************************/
+typedef union _SALLOC
+{
+	unsigned char byte;
+	struct _BITS
+	{
+		unsigned count:7;
+		unsigned alloc:1;	
+	} bits;
+}SALLOC;
+
 
 #endif	/* TYPES_H */
 
