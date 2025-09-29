@@ -5917,11 +5917,6 @@ unsigned char __t3rd16on(void);
 
 
 # 1 "./os_config.h" 1
-
-
-
-# 1 "./types.h" 1
-# 5 "./os_config.h" 2
 # 6 "./types.h" 2
 
 
@@ -5969,6 +5964,7 @@ typedef struct pipe {
     uint8_t pipe_pos_read;
     uint8_t pipe_pos_write;
     char pipe_data[3];
+
     sem_t pipe_sem_read;
     sem_t pipe_sem_write;
 } pipe_t;
@@ -6010,27 +6006,22 @@ uint8_t os_task_pos(f_ptr task);
 void os_task_time_decrease(void);
 # 4 "main.c" 2
 # 1 "./user_app.h" 1
-
-
-
-
-
+# 19 "./user_app.h"
 void config_app(void);
 
 TASK tarefa_1(void);
-TASK tarefa_2(void);
-TASK tarefa_3(void);
 # 5 "main.c" 2
 
 
 int main()
 {
+# 17 "main.c"
     os_config();
 
 
     os_create_task(100, tarefa_1, 5);
-    os_create_task(101, tarefa_2, 5);
-    os_create_task(102, tarefa_3, 5);
+
+
 
     os_start();
 

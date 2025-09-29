@@ -1,4 +1,4 @@
-# 1 "sync.c"
+# 1 "io.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 285 "<built-in>" 3
@@ -6,343 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "sync.c" 2
-# 1 "./sync.h" 1
-
-
-
-# 1 "./types.h" 1
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/musl_xc8.h" 1 3
-# 5 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 2 3
-# 26 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 133 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef unsigned __int24 uintptr_t;
-# 148 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef __int24 intptr_t;
-# 164 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef signed char int8_t;
-
-
-
-
-typedef short int16_t;
-
-
-
-
-typedef __int24 int24_t;
-
-
-
-
-typedef long int32_t;
-
-
-
-
-
-typedef long long int64_t;
-# 194 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef long long intmax_t;
-
-
-
-
-
-typedef unsigned char uint8_t;
-
-
-
-
-typedef unsigned short uint16_t;
-
-
-
-
-typedef __uint24 uint24_t;
-
-
-
-
-typedef unsigned long uint32_t;
-
-
-
-
-
-typedef unsigned long long uint64_t;
-# 235 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef unsigned long long uintmax_t;
-# 27 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 2 3
-
-typedef int8_t int_fast8_t;
-
-typedef int64_t int_fast64_t;
-
-
-typedef int8_t int_least8_t;
-typedef int16_t int_least16_t;
-
-typedef int24_t int_least24_t;
-typedef int24_t int_fast24_t;
-
-typedef int32_t int_least32_t;
-
-typedef int64_t int_least64_t;
-
-
-typedef uint8_t uint_fast8_t;
-
-typedef uint64_t uint_fast64_t;
-
-
-typedef uint8_t uint_least8_t;
-typedef uint16_t uint_least16_t;
-
-typedef uint24_t uint_least24_t;
-typedef uint24_t uint_fast24_t;
-
-typedef uint32_t uint_least32_t;
-
-typedef uint64_t uint_least64_t;
-# 148 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/stdint.h" 1 3
-typedef int16_t int_fast16_t;
-typedef int32_t int_fast32_t;
-typedef uint16_t uint_fast16_t;
-typedef uint32_t uint_fast32_t;
-# 149 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 2 3
-# 5 "./types.h" 2
-# 1 "./os_config.h" 1
-# 6 "./types.h" 2
-
-
-
-
-
-typedef void TASK;
-
-
-typedef void (*f_ptr)(void);
-
-
-typedef enum {READY = 0, RUNNING, WAITING, WAITING_SEM} state_t;
-
-
-typedef struct tcb {
-    uint8_t task_id;
-    f_ptr task_func;
-    state_t task_state;
-    uint8_t task_priority;
-    uint8_t task_time_to_waiting;
-
-    uint8_t BSR_reg;
-    uint8_t WORK_reg;
-    uint8_t STATUS_reg;
-    uint24_t STACK[32];
-    uint8_t task_sp;
-} tcb_t;
-
-
-typedef struct f_aptos {
-    tcb_t readyQueue[5];
-    uint8_t readyQueueSize;
-    tcb_t *taskRunning;
-} f_aptos_t;
-
-typedef struct semaphore {
-    int contador;
-    tcb_t *sem_queue[5];
-    uint8_t sem_queue_in;
-    uint8_t sem_queue_out;
-} sem_t;
-
-typedef struct pipe {
-    uint8_t pipe_pos_read;
-    uint8_t pipe_pos_write;
-    char pipe_data[3];
-
-    sem_t pipe_sem_read;
-    sem_t pipe_sem_write;
-} pipe_t;
-
-
-
-
-typedef union _SALLOC
-{
- unsigned char byte;
- struct _BITS
- {
-  unsigned count:7;
-  unsigned alloc:1;
- } bits;
-}SALLOC;
-# 5 "./sync.h" 2
-
-void sem_init(sem_t *s, uint8_t init_value);
-void sem_wait(sem_t *s);
-void sem_post(sem_t *s);
-# 2 "sync.c" 2
-# 1 "./kernel.h" 1
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
-# 18 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 3
-extern const char __xc8_OPTIM_SPEED;
-
-extern double __fpnormalize(double);
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/xc8debug.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 1 3
-# 10 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/features.h" 1 3
-# 11 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 2 3
-# 21 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef long int wchar_t;
-# 128 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/bits/alltypes.h" 3
-typedef unsigned size_t;
-# 22 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 2 3
-
-int atoi (const char *);
-long atol (const char *);
-
-long long atoll (const char *);
-
-double atof (const char *);
-
-
-float strtof (const char *restrict, char **restrict);
-double strtod (const char *restrict, char **restrict);
-long double strtold (const char *restrict, char **restrict);
-
-
-
-long strtol (const char *restrict, char **restrict, int);
-unsigned long strtoul (const char *restrict, char **restrict, int);
-
-long long strtoll (const char *restrict, char **restrict, int);
-unsigned long long strtoull (const char *restrict, char **restrict, int);
-
-
-unsigned long __strtoxl(const char * s, char ** endptr, int base, char is_signed);
-
-unsigned long long __strtoxll(const char * s, char ** endptr, int base, char is_signed);
-# 55 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdlib.h" 3
-int rand (void);
-void srand (unsigned);
-
-void *malloc (size_t);
-void *calloc (size_t, size_t);
-void *realloc (void *, size_t);
-void free (void *);
-
-          void abort (void);
-int atexit (void (*) (void));
-          void exit (int);
-          void _Exit (int);
-
-void *bsearch (const void *, const void *, size_t, size_t, int (*)(const void *, const void *));
-
-
-
-
-
-
-
-__attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const void *, const void *));
-
-int abs (int);
-long labs (long);
-
-long long llabs (long long);
-
-
-typedef struct { int quot, rem; } div_t;
-typedef struct { long quot, rem; } ldiv_t;
-
-typedef struct { long long quot, rem; } lldiv_t;
-
-
-div_t div (int, int);
-ldiv_t ldiv (long, long);
-
-lldiv_t lldiv (long long, long long);
-
-
-typedef struct { unsigned int quot, rem; } udiv_t;
-typedef struct { unsigned long quot, rem; } uldiv_t;
-udiv_t udiv (unsigned int, unsigned int);
-uldiv_t uldiv (unsigned long, unsigned long);
-# 5 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/xc8debug.h" 2 3
-
-
-
-
-
-
-
-#pragma intrinsic(__builtin_software_breakpoint)
-extern void __builtin_software_breakpoint(void);
-# 24 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/builtins.h" 1 3
-
-
-
-
-
-
-#pragma intrinsic(__nop)
-extern void __nop(void);
-
-#pragma intrinsic(__nopf000)
-extern void __nopf000(void);
-#pragma intrinsic(__nopffff)
-extern void __nopffff(void);
-#pragma intrinsic(__nop0000)
-extern void __nop0000(void);
-
-
-
-#pragma intrinsic(_delay)
-extern __attribute__((nonreentrant)) void _delay(uint32_t);
-#pragma intrinsic(_delaywdt)
-extern __attribute__((nonreentrant)) void _delaywdt(uint32_t);
-
-#pragma intrinsic(_delay3)
-extern __attribute__((nonreentrant)) void _delay3(uint8_t);
-# 25 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-
-
-
-
-
-
-
-
-# 1 "C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\\pic\\include/pic18.h" 1 3
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 1 3
-# 5 "C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\\pic\\include/pic18.h" 2 3
-# 1 "C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\\pic\\include/pic18_chip_select.h" 1 3
-# 339 "C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\\pic\\include/pic18_chip_select.h" 3
+# 1 "io.c" 2
 # 1 "C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\\pic\\include\\proc/pic18f4550.h" 1 3
 # 50 "C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\\pic\\include\\proc/pic18f4550.h" 3
 extern volatile unsigned char SPPDATA __attribute__((address(0xF62)));
@@ -5977,89 +5641,89 @@ extern volatile __bit nW __attribute__((address(0x7E3A)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x7E3A)));
-# 340 "C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\\pic\\include/pic18_chip_select.h" 2 3
-# 6 "C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\\pic\\include/pic18.h" 2 3
-# 15 "C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\\pic\\include/pic18.h" 3
-__attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
-__attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
+# 2 "io.c" 2
+
+# 1 "./io.h" 1
 
 
 
+typedef enum {CHANNEL_0 = 0b0000,
+              CHANNEL_1 = 0b0001,
+              CHANNEL_2 = 0b0010,
+              CHANNEL_3 = 0b0011,
+              CHANNEL_4 = 0b0100,
+              CHANNEL_5 = 0b0101,
+              CHANNEL_6 = 0b0110,
+              CHANNEL_7 = 0b0111,
+              CHANNEL_8 = 0b1000,
+              CHANNEL_9 = 0b1001,
+              CHANNEL_10 = 0b1010,
+              CHANNEL_11 = 0b1011,
+              CHANNEL_12 = 0b1100 } channel_t;
 
+typedef enum {AN12 = 0b0000,
+              AN11 = 0b0011,
+              AN10 = 0b0100,
+              AN09 = 0b0101,
+              AN08 = 0b0110,
+              AN07 = 0b0111,
+              AN06 = 0b1000,
+              AN05 = 0b1001,
+              AN04 = 0b1010,
+              AN03 = 0b1011,
+              AN02 = 0b1100,
+              AN01 = 0b1101,
+              AN00 = 0b1110,
+              DISABLE = 0b1111} port_conf_t;
 
+typedef enum {TAD20 = 0b111,
+              TAD16 = 0b110,
+              TAD12 = 0b101,
+              TAD8 = 0b100,
+              TAD6 = 0b011,
+              TAD4 = 0b010,
+              TAD2 = 0b001,
+              TAD0 = 0b000} tad_t;
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/errata.h" 1 3
-# 24 "C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\\pic\\include/pic18.h" 2 3
-# 139 "C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\\pic\\include/pic18.h" 3
-__attribute__((__unsupported__("The " "Read_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) unsigned char Read_b_eep(unsigned int badd);
-__attribute__((__unsupported__("The " "Busy_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Busy_eep(void);
-__attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer supported. Please use the MPLAB X MCC."))) void Write_b_eep(unsigned int badd, unsigned char bdat);
-# 175 "C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\\pic\\include/pic18.h" 3
-unsigned char __t1rd16on(void);
-unsigned char __t3rd16on(void);
-# 34 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include/xc.h" 2 3
-# 5 "./kernel.h" 2
+typedef enum {FRC1 = 0b111,
+              FOSC64 = 0b110,
+              FOSC16 = 0b101,
+              FOSC4 = 0b100,
+              FRC2 = 0b011,
+              FOSC32 = 0b010,
+              FOSC8 = 0b001,
+              FOSC2 = 0b000} conversion_clock_t;
 
+void set_channel(channel_t channel);
+void set_port(port_conf_t port);
+void config_adc(tad_t tad, conversion_clock_t cclk);
+void adc_go(int go_done);
+int adc_read();
+# 4 "io.c" 2
 
-
-
-extern f_aptos_t readyQueue;
-
-void os_config(void);
-void os_start(void);
-void os_idle_task(void);
-uint8_t os_task_pos(f_ptr task);
-void os_task_time_decrease(void);
-# 3 "sync.c" 2
-# 1 "./scheduler.h" 1
-# 13 "./scheduler.h"
-tcb_t *rr_scheduler(void);
-tcb_t *priority_scheduler(void);
-void scheduler(void);
-# 4 "sync.c" 2
-
-
-
-extern f_aptos_t readyQueue;
-
-
-void sem_init(sem_t *s, uint8_t init_value)
+void set_channel(channel_t channel)
 {
-    s->contador = init_value;
-    s->sem_queue_in = 0;
-    s->sem_queue_out = 0;
+    ADCON0bits.CHS = channel;
 }
 
-void sem_wait(sem_t *s)
+void set_port(port_conf_t port)
 {
-    (INTCONbits.GIE = 0);
-
-
-    s->contador--;
-
-    if (s->contador < 0) {
-
-        s->sem_queue[s->sem_queue_in] = readyQueue.taskRunning;
-        s->sem_queue_in = (s->sem_queue_in + 1) % 5;
-
-        do { if (readyQueue.taskRunning->task_state == RUNNING) { readyQueue.taskRunning->BSR_reg = BSR; readyQueue.taskRunning->STATUS_reg = STATUS; readyQueue.taskRunning->WORK_reg = WREG; readyQueue.taskRunning->task_sp = 0; while (STKPTR) { readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp] = TOS; readyQueue.taskRunning->task_sp++; __asm("POP"); } readyQueue.taskRunning->task_state = WAITING_SEM; } } while (0);;
-        scheduler();
-        do { if (readyQueue.taskRunning->task_state == READY) { BSR = readyQueue.taskRunning->BSR_reg; STATUS = readyQueue.taskRunning->STATUS_reg; WREG = readyQueue.taskRunning->WORK_reg; STKPTR = 0; if (readyQueue.taskRunning->task_sp == 0) { __asm("PUSH"); TOS = (uint24_t)readyQueue.taskRunning->task_func; } else { do { __asm("PUSH"); readyQueue.taskRunning->task_sp--; TOS = readyQueue.taskRunning->STACK[readyQueue.taskRunning->task_sp]; } while (readyQueue.taskRunning->task_sp != 0); } readyQueue.taskRunning->task_state = RUNNING; } } while (0);;
-    }
-
-    (INTCONbits.GIE = 1);
+    ADCON1bits.PCFG = port;
 }
 
-void sem_post(sem_t *s)
+void config_adc(tad_t tad, conversion_clock_t cclk)
 {
-    (INTCONbits.GIE = 0);
+    ADCON2bits.ACQT = tad;
+    ADCON2bits.ADCS = cclk;
+}
 
-    s->contador++;
+void adc_go(int go_done)
+{
+    ADCON0bits.ADON = go_done;
+}
 
-    if (s->contador <= 0) {
-        s->sem_queue[s->sem_queue_out]->task_state = READY;
-        s->sem_queue_out = (s->sem_queue_out + 1) % 5;
-    }
-
-    (INTCONbits.GIE = 1);
+int adc_read()
+{
+    while (ADCON0bits.GODONE);
+    return ADRES;
 }

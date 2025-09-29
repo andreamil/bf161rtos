@@ -5,6 +5,10 @@
 #include "sync.h"
 #include "pipe.h"
 #include "mem.h"
+#include "io.h"
+
+#if EXAMPLE_1 == YES
+// Exemplo 1
 
 //sem_t semaforo_teste;
 pipe_t canal;
@@ -69,3 +73,40 @@ TASK tarefa_3(void)
     }    
 }
 
+#elif EXAMPLE_2 == YES
+
+void config_app(void)
+{
+    set_channel(CHANNEL_0);
+    set_port(AN00);
+    config_adc(TAD12, FOSC4);
+    
+    TRISCbits.RC0 = TRISCbits.RC1 = 0;
+    TRISDbits.RD0 = 0;
+    
+    asm("GLOBAL _tarefa_1");
+}
+
+TASK tarefa_1(void)
+{
+    int pot = 0;
+    
+    adc_go(1);
+    
+    while (1) {
+        LATDbits.LD0 = ~PORTDbits.RD0;
+        
+        pot = adc_read();
+        
+        if (pot > 0 && pot < 500) {
+            LATCbits.LATC0 = 1;
+            LATCbits.LATC1 = 0;
+        }
+        else if (pot >= 500 && pot <= 1023) {
+            LATCbits.LATC1 = 1;
+            LATCbits.LATC0 = 0;
+        }
+    }
+}
+
+#endif

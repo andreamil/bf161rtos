@@ -1,37 +1,28 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F3355 `(v ~T0 @X0 0 tf ]
-"10 user_app.c
-[; ;user_app.c: 10: pipe_t canal;
-[c E3346 0 1 2 3 .. ]
-[n E3346 . READY RUNNING WAITING WAITING_SEM  ]
-"20 ./types.h
-[; ;./types.h: 20: typedef struct tcb {
-[s S391 `uc 1 `*F3355 1 `E3346 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `um -> 32 `i `uc 1 ]
-[n S391 tcb task_id task_func task_state task_priority task_time_to_waiting BSR_reg WORK_reg STATUS_reg STACK task_sp ]
-"41
-[; ;./types.h: 41: typedef struct semaphore {
-[s S393 `i 1 `*S391 -> 5 `i `uc 1 `uc 1 ]
-[n S393 semaphore contador sem_queue sem_queue_in sem_queue_out ]
-"48
-[; ;./types.h: 48: typedef struct pipe {
-[s S394 `uc 1 `uc 1 `uc -> 3 `i `S393 1 `S393 1 ]
-[n S394 pipe pipe_pos_read pipe_pos_write pipe_data pipe_sem_read pipe_sem_write ]
-"4010 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4010:     struct {
-[s S160 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S160 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
-"4020
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4020:     struct {
-[s S161 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S161 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"4009
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4009: typedef union {
-[u S159 `S160 1 `S161 1 ]
-[n S159 . . . ]
-"4031
-[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4031: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
-[v _TRISDbits `VS159 ~T0 @X0 0 e@3989 ]
-"3856
+"80 user_app.c
+[; ;user_app.c: 80:     set_channel(CHANNEL_0);
+[c E3425 0 1 2 3 4 5 6 7 8 9 10 11 12 .. ]
+[n E3425 . CHANNEL_0 CHANNEL_1 CHANNEL_2 CHANNEL_3 CHANNEL_4 CHANNEL_5 CHANNEL_6 CHANNEL_7 CHANNEL_8 CHANNEL_9 CHANNEL_10 CHANNEL_11 CHANNEL_12  ]
+"51 ./io.h
+[; ;./io.h: 51: void set_channel(channel_t channel);
+[v _set_channel `(v ~T0 @X0 0 ef1`E3425 ]
+"81 user_app.c
+[; ;user_app.c: 81:     set_port(AN00);
+[c E3440 0 3 4 5 6 7 8 9 10 11 12 13 14 15 .. ]
+[n E3440 . AN12 AN11 AN10 AN09 AN08 AN07 AN06 AN05 AN04 AN03 AN02 AN01 AN00 DISABLE  ]
+"52 ./io.h
+[; ;./io.h: 52: void set_port(port_conf_t port);
+[v _set_port `(v ~T0 @X0 0 ef1`E3440 ]
+"82 user_app.c
+[; ;user_app.c: 82:     config_adc(TAD12, FOSC4);
+[c E3456 7 6 5 4 3 2 1 0 .. ]
+[n E3456 . TAD20 TAD16 TAD12 TAD8 TAD6 TAD4 TAD2 TAD0  ]
+[c E3466 7 6 5 4 3 2 1 0 .. ]
+[n E3466 . FRC1 FOSC64 FOSC16 FOSC4 FRC2 FOSC32 FOSC8 FOSC2  ]
+"53 ./io.h
+[; ;./io.h: 53: void config_adc(tad_t tad, conversion_clock_t cclk);
+[v _config_adc `(v ~T0 @X0 0 ef2`E3456`E3466 ]
+"3856 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3856:     struct {
 [s S154 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S154 . TRISC0 TRISC1 TRISC2 . TRISC6 TRISC7 ]
@@ -46,12 +37,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3873
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3873: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
 [v _TRISCbits `VS153 ~T0 @X0 0 e@3988 ]
-"6 ./pipe.h
-[; ;./pipe.h: 6: void create_pipe(pipe_t *p);
-[v _create_pipe `(v ~T0 @X0 0 ef1`*S394 ]
-"8 ./mem.h
-[; ;./mem.h: 8: unsigned char * SRAMalloc(unsigned char nBytes);
-[v _SRAMalloc `(*uc ~T0 @X0 0 ef1`uc ]
+"4010
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4010:     struct {
+[s S160 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S160 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"4020
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4020:     struct {
+[s S161 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S161 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"4009
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4009: typedef union {
+[u S159 `S160 1 `S161 1 ]
+[n S159 . . . ]
+"4031
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 4031: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
+[v _TRISDbits `VS159 ~T0 @X0 0 e@3989 ]
+"54 ./io.h
+[; ;./io.h: 54: void adc_go(int go_done);
+[v _adc_go `(v ~T0 @X0 0 ef1`i ]
 "3267 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3267:     struct {
 [s S136 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -86,18 +89,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2734
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 2734: extern volatile PORTDbits_t PORTDbits __attribute__((address(0xF83)));
 [v _PORTDbits `VS116 ~T0 @X0 0 e@3971 ]
-"8 ./pipe.h
-[; ;./pipe.h: 8: void write_pipe(pipe_t *p, char buffer);
-[v _write_pipe `(v ~T0 @X0 0 ef2`*S394`uc ]
-"7 ./syscall.h
-[; ;./syscall.h: 7: void os_delay(uint8_t time);
-[v _os_delay `(v ~T0 @X0 0 ef1`uc ]
-"9 ./mem.h
-[; ;./mem.h: 9: void SRAMfree(unsigned char *pSRAM);
-[v _SRAMfree `(v ~T0 @X0 0 ef1`*uc ]
-"7 ./pipe.h
-[; ;./pipe.h: 7: void read_pipe(pipe_t *p, char *buffer);
-[v _read_pipe `(v ~T0 @X0 0 ef2`*S394`*uc ]
+"55 ./io.h
+[; ;./io.h: 55: int adc_read();
+[v _adc_read `(i ~T0 @X0 0 e? ]
 "3189 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 3189:     struct {
 [s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -623,180 +617,98 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8891
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"10 user_app.c
-[; ;user_app.c: 10: pipe_t canal;
-[v _canal `S394 ~T0 @X0 1 e ]
-"12
-[; ;user_app.c: 12: void config_app(void)
+"78 user_app.c
+[; ;user_app.c: 78: void config_app(void)
 [v _config_app `(v ~T0 @X0 1 ef ]
-"13
-[; ;user_app.c: 13: {
+"79
+[; ;user_app.c: 79: {
 {
 [e :U _config_app ]
 [f ]
-"14
-[; ;user_app.c: 14:     TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
-[e = . . _TRISDbits 1 0 = . . _TRISDbits 1 1 = . . _TRISDbits 1 2 -> -> 0 `i `uc ]
-"16
-[; ;user_app.c: 16:     TRISCbits.RC0 = TRISCbits.RC1 = 0;
+"80
+[; ;user_app.c: 80:     set_channel(CHANNEL_0);
+[e ( _set_channel (1 . `E3425 0 ]
+"81
+[; ;user_app.c: 81:     set_port(AN00);
+[e ( _set_port (1 . `E3440 12 ]
+"82
+[; ;user_app.c: 82:     config_adc(TAD12, FOSC4);
+[e ( _config_adc (2 , . `E3456 2 . `E3466 3 ]
+"84
+[; ;user_app.c: 84:     TRISCbits.RC0 = TRISCbits.RC1 = 0;
 [e = . . _TRISCbits 1 0 = . . _TRISCbits 1 1 -> -> 0 `i `uc ]
-"19
-[; ;user_app.c: 19:     create_pipe(&canal);
-[e ( _create_pipe (1 &U _canal ]
-"21
-[; ;user_app.c: 21:     __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
-[; <" GLOBAL _tarefa_1, _tarefa_2, _tarefa_3 ;# ">
-"22
-[; ;user_app.c: 22: }
+"85
+[; ;user_app.c: 85:     TRISDbits.RD0 = 0;
+[e = . . _TRISDbits 1 0 -> -> 0 `i `uc ]
+"87
+[; ;user_app.c: 87:     __asm("GLOBAL _tarefa_1");
+[; <" GLOBAL _tarefa_1 ;# ">
+"88
+[; ;user_app.c: 88: }
 [e :UE 397 ]
 }
-"24
-[; ;user_app.c: 24: TASK tarefa_1(void)
+"90
+[; ;user_app.c: 90: TASK tarefa_1(void)
 [v _tarefa_1 `(v ~T0 @X0 1 ef ]
-"25
-[; ;user_app.c: 25: {
+"91
+[; ;user_app.c: 91: {
 {
 [e :U _tarefa_1 ]
 [f ]
-"26
-[; ;user_app.c: 26:     char *dados = (char*)SRAMalloc(sizeof(char) * 3);
-[v _dados `*uc ~T0 @X0 1 a ]
-[e = _dados -> ( _SRAMalloc (1 -> * -> # `uc `ui -> -> 3 `i `ui `uc `*uc ]
-"27
-[; ;user_app.c: 27:     dados[0] = 'a';
-[e = *U + _dados * -> -> 0 `i `x -> -> # *U _dados `i `x -> -> 97 `ui `uc ]
-"28
-[; ;user_app.c: 28:     dados[1] = 'b';
-[e = *U + _dados * -> -> 1 `i `x -> -> # *U _dados `i `x -> -> 98 `ui `uc ]
-"29
-[; ;user_app.c: 29:     dados[2] = 'c';
-[e = *U + _dados * -> -> 2 `i `x -> -> # *U _dados `i `x -> -> 99 `ui `uc ]
-"31
-[; ;user_app.c: 31:     int index = 0;
-[v _index `i ~T0 @X0 1 a ]
-[e = _index -> 0 `i ]
-"32
-[; ;user_app.c: 32:     while (1) {
+"92
+[; ;user_app.c: 92:     int pot = 0;
+[v _pot `i ~T0 @X0 1 a ]
+[e = _pot -> 0 `i ]
+"94
+[; ;user_app.c: 94:     adc_go(1);
+[e ( _adc_go (1 -> 1 `i ]
+"96
+[; ;user_app.c: 96:     while (1) {
 [e :U 400 ]
 {
-"33
-[; ;user_app.c: 33:         LATDbits.LD0 = ~PORTDbits.RD0;
+"97
+[; ;user_app.c: 97:         LATDbits.LD0 = ~PORTDbits.RD0;
 [e = . . _LATDbits 1 0 -> ~ -> . . _PORTDbits 0 0 `i `uc ]
-"35
-[; ;user_app.c: 35:         write_pipe(&canal, dados[index]);
-[e ( _write_pipe (2 , &U _canal *U + _dados * -> _index `x -> -> # *U _dados `i `x ]
-"36
-[; ;user_app.c: 36:         index = (index + 1) % 3;
-[e = _index % + _index -> 1 `i -> 3 `i ]
-"37
-[; ;user_app.c: 37:         os_delay(50);
-[e ( _os_delay (1 -> -> 50 `i `uc ]
-"38
-[; ;user_app.c: 38:     }
+"99
+[; ;user_app.c: 99:         pot = adc_read();
+[e = _pot ( _adc_read ..  ]
+"101
+[; ;user_app.c: 101:         if (pot > 0 && pot < 500) {
+[e $ ! && > _pot -> 0 `i < _pot -> 500 `i 402  ]
+{
+"102
+[; ;user_app.c: 102:             LATCbits.LATC0 = 1;
+[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
+"103
+[; ;user_app.c: 103:             LATCbits.LATC1 = 0;
+[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
+"104
+[; ;user_app.c: 104:         }
+}
+[e $U 403  ]
+"105
+[; ;user_app.c: 105:         else if (pot >= 500 && pot <= 1023) {
+[e :U 402 ]
+[e $ ! && >= _pot -> 500 `i <= _pot -> 1023 `i 404  ]
+{
+"106
+[; ;user_app.c: 106:             LATCbits.LATC1 = 1;
+[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
+"107
+[; ;user_app.c: 107:             LATCbits.LATC0 = 0;
+[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
+"108
+[; ;user_app.c: 108:         }
+}
+[e :U 404 ]
+[e :U 403 ]
+"109
+[; ;user_app.c: 109:     }
 }
 [e :U 399 ]
 [e $U 400  ]
 [e :U 401 ]
-"40
-[; ;user_app.c: 40:     SRAMfree(dados);
-[e ( _SRAMfree (1 -> _dados `*uc ]
-"41
-[; ;user_app.c: 41: }
+"110
+[; ;user_app.c: 110: }
 [e :UE 398 ]
-}
-"43
-[; ;user_app.c: 43: TASK tarefa_2(void)
-[v _tarefa_2 `(v ~T0 @X0 1 ef ]
-"44
-[; ;user_app.c: 44: {
-{
-[e :U _tarefa_2 ]
-[f ]
-"45
-[; ;user_app.c: 45:     char dado;
-[v _dado `uc ~T0 @X0 1 a ]
-"47
-[; ;user_app.c: 47:     while (1) {
-[e :U 404 ]
-{
-"48
-[; ;user_app.c: 48:         LATDbits.LD1 = ~PORTDbits.RD1;
-[e = . . _LATDbits 1 1 -> ~ -> . . _PORTDbits 0 1 `i `uc ]
-"50
-[; ;user_app.c: 50:         read_pipe(&canal, &dado);
-[e ( _read_pipe (2 , &U _canal &U _dado ]
-"51
-[; ;user_app.c: 51:         if (dado == 'a') {
-[e $ ! == -> _dado `ui -> 97 `ui 406  ]
-{
-"52
-[; ;user_app.c: 52:             LATCbits.LATC0 = 1;
-[e = . . _LATCbits 0 0 -> -> 1 `i `uc ]
-"53
-[; ;user_app.c: 53:         }
-}
-[e $U 407  ]
-"54
-[; ;user_app.c: 54:         else if (dado == 'b') {
-[e :U 406 ]
-[e $ ! == -> _dado `ui -> 98 `ui 408  ]
-{
-"55
-[; ;user_app.c: 55:             LATCbits.LATC1 = 1;
-[e = . . _LATCbits 0 1 -> -> 1 `i `uc ]
-"56
-[; ;user_app.c: 56:         }
-}
-[e $U 409  ]
-"57
-[; ;user_app.c: 57:         else if (dado == 'c') {
-[e :U 408 ]
-[e $ ! == -> _dado `ui -> 99 `ui 410  ]
-{
-"58
-[; ;user_app.c: 58:             LATCbits.LATC0 = 0;
-[e = . . _LATCbits 0 0 -> -> 0 `i `uc ]
-"59
-[; ;user_app.c: 59:             LATCbits.LATC1 = 0;
-[e = . . _LATCbits 0 1 -> -> 0 `i `uc ]
-"60
-[; ;user_app.c: 60:         }
-}
-[e :U 410 ]
-[e :U 409 ]
-[e :U 407 ]
-"61
-[; ;user_app.c: 61:     }
-}
-[e :U 403 ]
-[e $U 404  ]
-[e :U 405 ]
-"62
-[; ;user_app.c: 62: }
-[e :UE 402 ]
-}
-"64
-[; ;user_app.c: 64: TASK tarefa_3(void)
-[v _tarefa_3 `(v ~T0 @X0 1 ef ]
-"65
-[; ;user_app.c: 65: {
-{
-[e :U _tarefa_3 ]
-[f ]
-"66
-[; ;user_app.c: 66:     while (1) {
-[e :U 413 ]
-{
-"67
-[; ;user_app.c: 67:         LATDbits.LD2 = ~PORTDbits.RD2;
-[e = . . _LATDbits 1 2 -> ~ -> . . _PORTDbits 0 2 `i `uc ]
-"69
-[; ;user_app.c: 69:     }
-}
-[e :U 412 ]
-[e $U 413  ]
-[e :U 414 ]
-"70
-[; ;user_app.c: 70: }
-[e :UE 411 ]
 }

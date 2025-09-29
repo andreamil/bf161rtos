@@ -5930,11 +5930,6 @@ void __attribute__((picinterrupt(("")))) ISR_TIMER_0(void);
 
 
 # 1 "./os_config.h" 1
-
-
-
-# 1 "./types.h" 1
-# 5 "./os_config.h" 2
 # 6 "./types.h" 2
 
 
@@ -5982,6 +5977,7 @@ typedef struct pipe {
     uint8_t pipe_pos_read;
     uint8_t pipe_pos_write;
     char pipe_data[3];
+
     sem_t pipe_sem_read;
     sem_t pipe_sem_write;
 } pipe_t;

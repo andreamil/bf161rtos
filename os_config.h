@@ -1,8 +1,6 @@
 #ifndef OS_CONFIG_H
 #define	OS_CONFIG_H
 
-#include "types.h"
-
 #define YES                         1
 #define NO                          0
 

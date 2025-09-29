@@ -1,18 +1,94 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"11 ./kernel.h
-[; ;./kernel.h: 11: void os_config(void);
-[v _os_config `(v ~T0 @X0 0 ef ]
-[v F3391 `(v ~T0 @X0 0 tf ]
-"6 ./syscall.h
-[; ;./syscall.h: 6: void os_create_task(uint8_t id, f_ptr task_f, uint8_t prior);
-[v _os_create_task `(v ~T0 @X0 0 ef3`uc`*F3391`uc ]
-"21 ./user_app.h
-[; ;./user_app.h: 21: TASK tarefa_1(void);
-[v _tarefa_1 `(v ~T0 @X0 0 ef ]
-"12 ./kernel.h
-[; ;./kernel.h: 12: void os_start(void);
-[v _os_start `(v ~T0 @X0 0 ef ]
+"5 io.c
+[; ;io.c: 5: void set_channel(channel_t channel)
+[c E3117 0 1 2 3 4 5 6 7 8 9 10 11 12 .. ]
+[n E3117 . CHANNEL_0 CHANNEL_1 CHANNEL_2 CHANNEL_3 CHANNEL_4 CHANNEL_5 CHANNEL_6 CHANNEL_7 CHANNEL_8 CHANNEL_9 CHANNEL_10 CHANNEL_11 CHANNEL_12  ]
+"6670 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6670:     struct {
+[s S268 :1 `uc 1 :1 `uc 1 ]
+[n S268 . . GO_NOT_DONE ]
+"6674
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6674:     struct {
+[s S269 :1 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S269 . ADON GO_nDONE CHS ]
+"6679
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6679:     struct {
+[s S270 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S270 . . GO_DONE CHS0 CHS1 CHS2 CHS3 ]
+"6687
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6687:     struct {
+[s S271 :1 `uc 1 :1 `uc 1 ]
+[n S271 . . DONE ]
+"6691
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6691:     struct {
+[s S272 :1 `uc 1 :1 `uc 1 ]
+[n S272 . . GO ]
+"6695
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6695:     struct {
+[s S273 :1 `uc 1 :1 `uc 1 ]
+[n S273 . . NOT_DONE ]
+"6699
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6699:     struct {
+[s S274 :1 `uc 1 :1 `uc 1 ]
+[n S274 . . nDONE ]
+"6703
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6703:     struct {
+[s S275 :1 `uc 1 :1 `uc 1 ]
+[n S275 . . GODONE ]
+"6669
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6669: typedef union {
+[u S267 `S268 1 `S269 1 `S270 1 `S271 1 `S272 1 `S273 1 `S274 1 `S275 1 ]
+[n S267 . . . . . . . . . ]
+"6708
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6708: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
+[v _ADCON0bits `VS267 ~T0 @X0 0 e@4034 ]
+"10 io.c
+[; ;io.c: 10: void set_port(port_conf_t port)
+[c E3132 0 3 4 5 6 7 8 9 10 11 12 13 14 15 .. ]
+[n E3132 . AN12 AN11 AN10 AN09 AN08 AN07 AN06 AN05 AN04 AN03 AN02 AN01 AN00 DISABLE  ]
+"6585 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6585:     struct {
+[s S264 :4 `uc 1 :2 `uc 1 ]
+[n S264 . PCFG VCFG ]
+"6589
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6589:     struct {
+[s S265 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S265 . PCFG0 PCFG1 PCFG2 PCFG3 VCFG0 VCFG1 ]
+"6597
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6597:     struct {
+[s S266 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S266 . . CHSN3 VCFG01 VCFG11 ]
+"6584
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6584: typedef union {
+[u S263 `S264 1 `S265 1 `S266 1 ]
+[n S263 . . . . ]
+"6604
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6604: extern volatile ADCON1bits_t ADCON1bits __attribute__((address(0xFC1)));
+[v _ADCON1bits `VS263 ~T0 @X0 0 e@4033 ]
+"15 io.c
+[; ;io.c: 15: void config_adc(tad_t tad, conversion_clock_t cclk)
+[c E3148 7 6 5 4 3 2 1 0 .. ]
+[n E3148 . TAD20 TAD16 TAD12 TAD8 TAD6 TAD4 TAD2 TAD0  ]
+[c E3158 7 6 5 4 3 2 1 0 .. ]
+[n E3158 . FRC1 FOSC64 FOSC16 FOSC4 FRC2 FOSC32 FOSC8 FOSC2  ]
+"6514 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6514:     struct {
+[s S261 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S261 . ADCS ACQT . ADFM ]
+"6520
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6520:     struct {
+[s S262 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S262 . ADCS0 ADCS1 ADCS2 ACQT0 ACQT1 ACQT2 ]
+"6513
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6513: typedef union {
+[u S260 `S261 1 `S262 1 ]
+[n S260 . . . ]
+"6529
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6529: extern volatile ADCON2bits_t ADCON2bits __attribute__((address(0xFC0)));
+[v _ADCON2bits `VS260 ~T0 @X0 0 e@4032 ]
+"6783
+[; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 6783: extern volatile unsigned short ADRES __attribute__((address(0xFC3)));
+[v _ADRES `Vus ~T0 @X0 0 e@4035 ]
 "52 C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 52: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -523,35 +599,110 @@ Version 4.0 HI-TECH Software Intermediate Code
 "8891
 [; ;C:/Users/Anderson L. F. Perez/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc/pic18f4550.h: 8891: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-[v $root$_main `(v ~T0 @X0 0 e ]
-"7 main.c
-[; ;main.c: 7: int main()
-[v _main `(i ~T0 @X0 1 ef ]
-"8
-[; ;main.c: 8: {
+"5 io.c
+[; ;io.c: 5: void set_channel(channel_t channel)
+[v _set_channel `(v ~T0 @X0 1 ef1`E3117 ]
+"6
+[; ;io.c: 6: {
 {
-[e :U _main ]
+[e :U _set_channel ]
+"5
+[; ;io.c: 5: void set_channel(channel_t channel)
+[v _channel `E3117 ~T0 @X0 1 r1 ]
+"6
+[; ;io.c: 6: {
+[f ]
+"7
+[; ;io.c: 7:     ADCON0bits.CHS = channel;
+[e = . . _ADCON0bits 1 2 -> _channel `uc ]
+"8
+[; ;io.c: 8: }
+[e :UE 386 ]
+}
+"10
+[; ;io.c: 10: void set_port(port_conf_t port)
+[v _set_port `(v ~T0 @X0 1 ef1`E3132 ]
+"11
+[; ;io.c: 11: {
+{
+[e :U _set_port ]
+"10
+[; ;io.c: 10: void set_port(port_conf_t port)
+[v _port `E3132 ~T0 @X0 1 r1 ]
+"11
+[; ;io.c: 11: {
+[f ]
+"12
+[; ;io.c: 12:     ADCON1bits.PCFG = port;
+[e = . . _ADCON1bits 0 0 -> _port `uc ]
+"13
+[; ;io.c: 13: }
+[e :UE 387 ]
+}
+"15
+[; ;io.c: 15: void config_adc(tad_t tad, conversion_clock_t cclk)
+[v _config_adc `(v ~T0 @X0 1 ef2`E3148`E3158 ]
+"16
+[; ;io.c: 16: {
+{
+[e :U _config_adc ]
+"15
+[; ;io.c: 15: void config_adc(tad_t tad, conversion_clock_t cclk)
+[v _tad `E3148 ~T0 @X0 1 r1 ]
+[v _cclk `E3158 ~T0 @X0 1 r2 ]
+"16
+[; ;io.c: 16: {
 [f ]
 "17
-[; ;main.c: 17:     os_config();
-[e ( _os_config ..  ]
-"20
-[; ;main.c: 20:     os_create_task(100, tarefa_1, 5);
-[e ( _os_create_task (3 , , -> -> 100 `i `uc &U _tarefa_1 -> -> 5 `i `uc ]
+[; ;io.c: 17:     ADCON2bits.ACQT = tad;
+[e = . . _ADCON2bits 0 1 -> _tad `uc ]
+"18
+[; ;io.c: 18:     ADCON2bits.ADCS = cclk;
+[e = . . _ADCON2bits 0 0 -> _cclk `uc ]
+"19
+[; ;io.c: 19: }
+[e :UE 388 ]
+}
+"21
+[; ;io.c: 21: void adc_go(int go_done)
+[v _adc_go `(v ~T0 @X0 1 ef1`i ]
+"22
+[; ;io.c: 22: {
+{
+[e :U _adc_go ]
+"21
+[; ;io.c: 21: void adc_go(int go_done)
+[v _go_done `i ~T0 @X0 1 r1 ]
+"22
+[; ;io.c: 22: {
+[f ]
+"23
+[; ;io.c: 23:     ADCON0bits.ADON = go_done;
+[e = . . _ADCON0bits 1 0 -> _go_done `uc ]
 "24
-[; ;main.c: 24:     os_start();
-[e ( _os_start ..  ]
+[; ;io.c: 24: }
+[e :UE 389 ]
+}
 "26
-[; ;main.c: 26:     while (1);
-[e :U 399 ]
-[e :U 398 ]
-[e $U 399  ]
-[e :U 400 ]
+[; ;io.c: 26: int adc_read()
+[v _adc_read `(i ~T0 @X0 1 ef ]
+"27
+[; ;io.c: 27: {
+{
+[e :U _adc_read ]
+[f ]
 "28
-[; ;main.c: 28:     return 0;
-[e ) -> 0 `i ]
-[e $UE 397  ]
+[; ;io.c: 28:     while (ADCON0bits.GODONE);
+[e $U 391  ]
+[e :U 392 ]
+[e :U 391 ]
+[e $ != -> . . _ADCON0bits 7 1 `i -> 0 `i 392  ]
+[e :U 393 ]
 "29
-[; ;main.c: 29: }
-[e :UE 397 ]
+[; ;io.c: 29:     return ADRES;
+[e ) -> _ADRES `i ]
+[e $UE 390  ]
+"30
+[; ;io.c: 30: }
+[e :UE 390 ]
 }

@@ -5912,23 +5912,10 @@ unsigned char __t3rd16on(void);
 
 
 
-# 1 "./types.h" 1
-
-
-
-
 # 1 "./os_config.h" 1
-
-
-
+# 5 "./user_app.h" 2
 # 1 "./types.h" 1
-# 5 "./os_config.h" 2
-# 6 "./types.h" 2
-
-
-
-
-
+# 11 "./types.h"
 typedef void TASK;
 
 
@@ -5970,6 +5957,7 @@ typedef struct pipe {
     uint8_t pipe_pos_read;
     uint8_t pipe_pos_write;
     char pipe_data[3];
+
     sem_t pipe_sem_read;
     sem_t pipe_sem_write;
 } pipe_t;
@@ -5986,13 +5974,11 @@ typedef union _SALLOC
   unsigned alloc:1;
  } bits;
 }SALLOC;
-# 5 "./user_app.h" 2
-
+# 6 "./user_app.h" 2
+# 19 "./user_app.h"
 void config_app(void);
 
 TASK tarefa_1(void);
-TASK tarefa_2(void);
-TASK tarefa_3(void);
 # 4 "user_app.c" 2
 # 1 "./syscall.h" 1
 
@@ -6038,66 +6024,94 @@ void SRAMfree(unsigned char *pSRAM);
 void SRAMInitHeap(void);
      unsigned char _SRAMmerge(SALLOC * pSegA);
 # 8 "user_app.c" 2
+# 1 "./io.h" 1
 
 
-pipe_t canal;
 
+typedef enum {CHANNEL_0 = 0b0000,
+              CHANNEL_1 = 0b0001,
+              CHANNEL_2 = 0b0010,
+              CHANNEL_3 = 0b0011,
+              CHANNEL_4 = 0b0100,
+              CHANNEL_5 = 0b0101,
+              CHANNEL_6 = 0b0110,
+              CHANNEL_7 = 0b0111,
+              CHANNEL_8 = 0b1000,
+              CHANNEL_9 = 0b1001,
+              CHANNEL_10 = 0b1010,
+              CHANNEL_11 = 0b1011,
+              CHANNEL_12 = 0b1100 } channel_t;
+
+typedef enum {AN12 = 0b0000,
+              AN11 = 0b0011,
+              AN10 = 0b0100,
+              AN09 = 0b0101,
+              AN08 = 0b0110,
+              AN07 = 0b0111,
+              AN06 = 0b1000,
+              AN05 = 0b1001,
+              AN04 = 0b1010,
+              AN03 = 0b1011,
+              AN02 = 0b1100,
+              AN01 = 0b1101,
+              AN00 = 0b1110,
+              DISABLE = 0b1111} port_conf_t;
+
+typedef enum {TAD20 = 0b111,
+              TAD16 = 0b110,
+              TAD12 = 0b101,
+              TAD8 = 0b100,
+              TAD6 = 0b011,
+              TAD4 = 0b010,
+              TAD2 = 0b001,
+              TAD0 = 0b000} tad_t;
+
+typedef enum {FRC1 = 0b111,
+              FOSC64 = 0b110,
+              FOSC16 = 0b101,
+              FOSC4 = 0b100,
+              FRC2 = 0b011,
+              FOSC32 = 0b010,
+              FOSC8 = 0b001,
+              FOSC2 = 0b000} conversion_clock_t;
+
+void set_channel(channel_t channel);
+void set_port(port_conf_t port);
+void config_adc(tad_t tad, conversion_clock_t cclk);
+void adc_go(int go_done);
+int adc_read();
+# 9 "user_app.c" 2
+# 78 "user_app.c"
 void config_app(void)
 {
-    TRISDbits.RD0 = TRISDbits.RD1 = TRISDbits.RD2 = 0;
+    set_channel(CHANNEL_0);
+    set_port(AN00);
+    config_adc(TAD12, FOSC4);
 
     TRISCbits.RC0 = TRISCbits.RC1 = 0;
+    TRISDbits.RD0 = 0;
 
-
-    create_pipe(&canal);
-
-    __asm("GLOBAL _tarefa_1, _tarefa_2, _tarefa_3");
+    __asm("GLOBAL _tarefa_1");
 }
 
 TASK tarefa_1(void)
 {
-    char *dados = (char*)SRAMalloc(sizeof(char) * 3);
-    dados[0] = 'a';
-    dados[1] = 'b';
-    dados[2] = 'c';
+    int pot = 0;
 
-    int index = 0;
+    adc_go(1);
+
     while (1) {
         LATDbits.LD0 = ~PORTDbits.RD0;
 
-        write_pipe(&canal, dados[index]);
-        index = (index + 1) % 3;
-        os_delay(50);
-    }
+        pot = adc_read();
 
-    SRAMfree(dados);
-}
-
-TASK tarefa_2(void)
-{
-    char dado;
-
-    while (1) {
-        LATDbits.LD1 = ~PORTDbits.RD1;
-
-        read_pipe(&canal, &dado);
-        if (dado == 'a') {
+        if (pot > 0 && pot < 500) {
             LATCbits.LATC0 = 1;
-        }
-        else if (dado == 'b') {
-            LATCbits.LATC1 = 1;
-        }
-        else if (dado == 'c') {
-            LATCbits.LATC0 = 0;
             LATCbits.LATC1 = 0;
         }
-    }
-}
-
-TASK tarefa_3(void)
-{
-    while (1) {
-        LATDbits.LD2 = ~PORTDbits.RD2;
-
+        else if (pot >= 500 && pot <= 1023) {
+            LATCbits.LATC1 = 1;
+            LATCbits.LATC0 = 0;
+        }
     }
 }

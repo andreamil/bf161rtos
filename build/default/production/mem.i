@@ -123,11 +123,6 @@ typedef uint32_t uint_fast32_t;
 # 149 "C:\\Program Files\\Microchip\\xc8\\v3.00\\pic\\include\\c99/stdint.h" 2 3
 # 5 "./types.h" 2
 # 1 "./os_config.h" 1
-
-
-
-# 1 "./types.h" 1
-# 5 "./os_config.h" 2
 # 6 "./types.h" 2
 
 
@@ -175,6 +170,7 @@ typedef struct pipe {
     uint8_t pipe_pos_read;
     uint8_t pipe_pos_write;
     char pipe_data[3];
+
     sem_t pipe_sem_read;
     sem_t pipe_sem_write;
 } pipe_t;
