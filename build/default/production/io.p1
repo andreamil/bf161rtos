@@ -660,49 +660,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;io.c: 18:     ADCON2bits.ADCS = cclk;
 [e = . . _ADCON2bits 0 0 -> _cclk `uc ]
 "19
-[; ;io.c: 19: }
+[; ;io.c: 19:     ADCON2bits.ADFM = 1;
+[e = . . _ADCON2bits 0 3 -> -> 1 `i `uc ]
+"20
+[; ;io.c: 20: }
 [e :UE 388 ]
 }
-"21
-[; ;io.c: 21: void adc_go(int go_done)
-[v _adc_go `(v ~T0 @X0 1 ef1`i ]
 "22
-[; ;io.c: 22: {
+[; ;io.c: 22: void adc_go(int go_done)
+[v _adc_go `(v ~T0 @X0 1 ef1`i ]
+"23
+[; ;io.c: 23: {
 {
 [e :U _adc_go ]
-"21
-[; ;io.c: 21: void adc_go(int go_done)
-[v _go_done `i ~T0 @X0 1 r1 ]
 "22
-[; ;io.c: 22: {
-[f ]
+[; ;io.c: 22: void adc_go(int go_done)
+[v _go_done `i ~T0 @X0 1 r1 ]
 "23
-[; ;io.c: 23:     ADCON0bits.ADON = go_done;
-[e = . . _ADCON0bits 1 0 -> _go_done `uc ]
+[; ;io.c: 23: {
+[f ]
 "24
-[; ;io.c: 24: }
+[; ;io.c: 24:     ADCON0bits.ADON = go_done;
+[e = . . _ADCON0bits 1 0 -> _go_done `uc ]
+"25
+[; ;io.c: 25: }
 [e :UE 389 ]
 }
-"26
-[; ;io.c: 26: int adc_read()
-[v _adc_read `(i ~T0 @X0 1 ef ]
 "27
-[; ;io.c: 27: {
+[; ;io.c: 27: int adc_read()
+[v _adc_read `(i ~T0 @X0 1 ef ]
+"28
+[; ;io.c: 28: {
 {
 [e :U _adc_read ]
 [f ]
-"28
-[; ;io.c: 28:     while (ADCON0bits.GODONE);
+"29
+[; ;io.c: 29:     ADCON0bits.GO = 1;
+[e = . . _ADCON0bits 4 1 -> -> 1 `i `uc ]
+"30
+[; ;io.c: 30:     while (ADCON0bits.GODONE);
 [e $U 391  ]
 [e :U 392 ]
 [e :U 391 ]
 [e $ != -> . . _ADCON0bits 7 1 `i -> 0 `i 392  ]
 [e :U 393 ]
-"29
-[; ;io.c: 29:     return ADRES;
+"31
+[; ;io.c: 31:     return ADRES;
 [e ) -> _ADRES `i ]
 [e $UE 390  ]
-"30
-[; ;io.c: 30: }
+"32
+[; ;io.c: 32: }
 [e :UE 390 ]
 }

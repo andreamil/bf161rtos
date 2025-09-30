@@ -191,9 +191,9 @@ FOSC2 0
 [v _set_port set_port `(v  1 e 1 0 ]
 "15
 [v _config_adc config_adc `(v  1 e 1 0 ]
-"21
+"22
 [v _adc_go adc_go `(v  1 e 1 0 ]
-"26
+"27
 [v _adc_read adc_read `(i  1 e 2 0 ]
 "12 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\kernel.c
 [v _os_config os_config `(v  1 e 1 0 ]
@@ -485,7 +485,7 @@ FOSC2 0
 [v config_adc@cclk cclk `E3158  1 p 1 5 ]
 "17
 [v config_adc@tad tad `E3148  1 p 1 7 ]
-"19
+"20
 } 0
 "7 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\hardware.c
 [v _conf_timer_0 conf_timer_0 `(v  1 e 1 0 ]
@@ -538,16 +538,16 @@ FOSC2 0
 [v tarefa_1@pot pot `i  1 a 2 3 ]
 "110
 } 0
-"26 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\io.c
+"27 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\io.c
 [v _adc_read adc_read `(i  1 e 2 0 ]
 {
-"30
+"32
 } 0
-"21
+"22
 [v _adc_go adc_go `(v  1 e 1 0 ]
 {
 [v adc_go@go_done go_done `i  1 p 2 0 ]
-"24
+"25
 } 0
 "25 C:\Anderson\Aulas\Ensino\Graduação\Sistemas Operacionais Embarcados\Atividades Aulas\2025-2\BF161RTOS.X\hardware.c
 [v _ISR_TIMER_0 ISR_TIMER_0 `IIH(v  1 e 1 0 ]
