@@ -2,6 +2,7 @@
 
 #include "io.h"
 
+
 void set_channel(channel_t channel)
 {
     ADCON0bits.CHS = channel;
