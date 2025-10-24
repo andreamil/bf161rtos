@@ -6,7 +6,7 @@
 #include "mem.h"
 #include <xc.h>
 
-// Declaração da fila de aptos
+// Declaraï¿½ï¿½o da fila de aptos
 f_aptos_t readyQueue;
 
 void os_config(void)
@@ -22,31 +22,32 @@ void os_config(void)
 
 void os_start(void)
 {
+    // Configura oscilador interno antes de qualquer perifÃ©rico
+    conf_osc_internal_8MHz();
     // Configurar o timer
     conf_interrupts();
     
-    // Configuração de memória
+    // Configuraï¿½ï¿½o de memï¿½ria
     #if DYNAMIC_MEM_ALLOC == YES
     SRAMInitHeap();
     #endif    
 
-    // Configurações de usuário
+    // Configuraï¿½ï¿½es de usuï¿½rio
     config_app();
     
     conf_timer_0();
    
-    // Habilita interrupções globais
+    // Habilita interrupï¿½ï¿½es globais
     ei();
 }
 
 
 void os_idle_task(void)
 {
-    TRISDbits.RD3 = 0;
-    
+    // LED de idle movido para RB7 para nÃ£o conflitar com PWM em RD1..RD4
+    TRISBbits.RB7 = 0;
     while (1) {
-        // Nop();
-        LATDbits.LD3 = ~PORTDbits.RD3;
+        LATBbits.LATB7 = ~PORTBbits.RB7;
     }
 }
 

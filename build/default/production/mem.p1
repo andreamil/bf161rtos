@@ -1,15 +1,15 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"64 ./types.h
-[; ;./types.h: 64:  {
-[s S6 :7 `uc 1 :1 `uc 1 ]
-[n S6 _BITS count alloc ]
-"61
-[; ;./types.h: 61: {
-[u S5 `uc 1 `S6 1 ]
-[n S5 _SALLOC byte bits ]
+"74 ./types.h
+[; ;./types.h: 74:  {
+[s S7 :7 `uc 1 :1 `uc 1 ]
+[n S7 _BITS count alloc ]
+"71
+[; ;./types.h: 71: {
+[u S6 `uc 1 `S7 1 ]
+[n S6 _SALLOC byte bits ]
 "11 ./mem.h
 [; ;./mem.h: 11:      unsigned char _SRAMmerge(SALLOC * pSegA);
-[v __SRAMmerge `(uc ~T0 @X0 0 ef1`*S5 ]
+[v __SRAMmerge `(uc ~T0 @X0 0 ef1`*S6 ]
 "120 mem.c
 [v __uDynamicHeap `uc ~T0 @X0 -> 512 `i e ]
 "154
@@ -27,28 +27,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "156
 [; ;mem.c: 156:  SALLOC * pHeap;
-[v _pHeap `*S5 ~T0 @X0 1 a ]
+[v _pHeap `*S6 ~T0 @X0 1 a ]
 "157
 [; ;mem.c: 157:  SALLOC * temp;
-[v _temp `*S5 ~T0 @X0 1 a ]
+[v _temp `*S6 ~T0 @X0 1 a ]
 "158
 [; ;mem.c: 158:       SALLOC segHeader;
-[v _segHeader `S5 ~T0 @X0 1 a ]
+[v _segHeader `S6 ~T0 @X0 1 a ]
 "159
 [; ;mem.c: 159:       unsigned char segLen;
 [v _segLen `uc ~T0 @X0 1 a ]
 "162
 [; ;mem.c: 162:  if (nBytes > (0x7F - 1)) return (0);
-[e $ ! > -> _nBytes `i - -> 127 `i -> 1 `i 8  ]
+[e $ ! > -> _nBytes `i - -> 127 `i -> 1 `i 9  ]
 [e ) -> -> 0 `i `*uc ]
-[e $UE 7  ]
-[e :U 8 ]
+[e $UE 8  ]
+[e :U 9 ]
 "165
 [; ;mem.c: 165:  pHeap = (SALLOC *)_uDynamicHeap;
-[e = _pHeap -> &U __uDynamicHeap `*S5 ]
+[e = _pHeap -> &U __uDynamicHeap `*S6 ]
 "167
 [; ;mem.c: 167:  while (1)
-[e :U 10 ]
+[e :U 11 ]
 "168
 [; ;mem.c: 168:  {
 {
@@ -60,37 +60,37 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _segLen -> - -> . . _segHeader 1 0 `i -> 1 `i `uc ]
 "176
 [; ;mem.c: 176:   if (segHeader.byte == 0) return (0);
-[e $ ! == -> . _segHeader 0 `i -> 0 `i 12  ]
+[e $ ! == -> . _segHeader 0 `i -> 0 `i 13  ]
 [e ) -> -> 0 `i `*uc ]
-[e $UE 7  ]
-[e :U 12 ]
+[e $UE 8  ]
+[e :U 13 ]
 "179
 [; ;mem.c: 179:   if (!(segHeader.bits.alloc))
-[e $ ! ! != -> . . _segHeader 1 1 `i -> 0 `i 13  ]
+[e $ ! ! != -> . . _segHeader 1 1 `i -> 0 `i 14  ]
 "180
 [; ;mem.c: 180:   {
 {
 "182
 [; ;mem.c: 182:    if (nBytes > segLen)
-[e $ ! > -> _nBytes `i -> _segLen `i 14  ]
+[e $ ! > -> _nBytes `i -> _segLen `i 15  ]
 "183
 [; ;mem.c: 183:    {
 {
 "185
 [; ;mem.c: 185:     if (!(_SRAMmerge(pHeap))) pHeap += segHeader.bits.count;
-[e $ ! ! != -> ( __SRAMmerge (1 _pHeap `i -> 0 `i 15  ]
+[e $ ! ! != -> ( __SRAMmerge (1 _pHeap `i -> 0 `i 16  ]
 [e =+ _pHeap * -> -> . . _segHeader 1 0 `i `x -> -> # *U _pHeap `i `x ]
-[e :U 15 ]
+[e :U 16 ]
 "186
 [; ;mem.c: 186:    }
 }
-[e $U 16  ]
+[e $U 17  ]
 "187
 [; ;mem.c: 187:    else
-[e :U 14 ]
+[e :U 15 ]
 "191
 [; ;mem.c: 191:    if (nBytes == segLen)
-[e $ ! == -> _nBytes `i -> _segLen `i 17  ]
+[e $ ! == -> _nBytes `i -> _segLen `i 18  ]
 "192
 [; ;mem.c: 192:    {
 {
@@ -100,14 +100,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "197
 [; ;mem.c: 197:     return ((unsigned char *)(pHeap + 1));
 [e ) -> + _pHeap * -> -> 1 `i `x -> -> # *U _pHeap `i `x `*uc ]
-[e $UE 7  ]
+[e $UE 8  ]
 "198
 [; ;mem.c: 198:    }
 }
-[e $U 18  ]
+[e $U 19  ]
 "201
 [; ;mem.c: 201:    else
-[e :U 17 ]
+[e :U 18 ]
 "202
 [; ;mem.c: 202:    {
 {
@@ -126,19 +126,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "216
 [; ;mem.c: 216:     return ((unsigned char *) temp);
 [e ) -> _temp `*uc ]
-[e $UE 7  ]
+[e $UE 8  ]
 "217
 [; ;mem.c: 217:    }
 }
-[e :U 18 ]
-[e :U 16 ]
+[e :U 19 ]
+[e :U 17 ]
 "218
 [; ;mem.c: 218:   }
 }
-[e $U 19  ]
+[e $U 20  ]
 "221
 [; ;mem.c: 221:   else
-[e :U 13 ]
+[e :U 14 ]
 "222
 [; ;mem.c: 222:   {
 {
@@ -148,16 +148,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 "224
 [; ;mem.c: 224:   }
 }
-[e :U 19 ]
+[e :U 20 ]
 "225
 [; ;mem.c: 225:  }
 }
-[e :U 9 ]
-[e $U 10  ]
-[e :U 11 ]
+[e :U 10 ]
+[e $U 11  ]
+[e :U 12 ]
 "226
 [; ;mem.c: 226: }
-[e :UE 7 ]
+[e :UE 8 ]
 }
 "250
 [; ;mem.c: 250: void SRAMfree(unsigned char * pSRAM)
@@ -174,10 +174,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "253
 [; ;mem.c: 253:  (*(SALLOC *)(pSRAM - 1)).bits.alloc = 0;
-[e = . . *U -> - _pSRAM * -> -> 1 `i `x -> -> # *U _pSRAM `i `x `*S5 1 1 -> -> 0 `i `uc ]
+[e = . . *U -> - _pSRAM * -> -> 1 `i `x -> -> # *U _pSRAM `i `x `*S6 1 1 -> -> 0 `i `uc ]
 "254
 [; ;mem.c: 254: }
-[e :UE 20 ]
+[e :UE 21 ]
 }
 "276
 [; ;mem.c: 276: void SRAMInitHeap(void)
@@ -201,13 +201,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _count -> - -> 512 `i -> 1 `i `ui ]
 "284
 [; ;mem.c: 284:  while (1)
-[e :U 23 ]
+[e :U 24 ]
 "285
 [; ;mem.c: 285:  {
 {
 "286
 [; ;mem.c: 286:   if (count > 0x7F)
-[e $ ! > _count -> -> 127 `i `ui 25  ]
+[e $ ! > _count -> -> 127 `i `ui 26  ]
 "287
 [; ;mem.c: 287:   {
 {
@@ -223,10 +223,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "291
 [; ;mem.c: 291:   }
 }
-[e $U 26  ]
+[e $U 27  ]
 "292
 [; ;mem.c: 292:   else
-[e :U 25 ]
+[e :U 26 ]
 "293
 [; ;mem.c: 293:   {
 {
@@ -238,42 +238,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = *U + _pHeap * -> _count `ux -> -> # *U _pHeap `ui `ux -> -> 0 `i `uc ]
 "296
 [; ;mem.c: 296:    return;
-[e $UE 21  ]
+[e $UE 22  ]
 "297
 [; ;mem.c: 297:   }
 }
-[e :U 26 ]
+[e :U 27 ]
 "298
 [; ;mem.c: 298:  }
 }
-[e :U 22 ]
-[e $U 23  ]
-[e :U 24 ]
+[e :U 23 ]
+[e $U 24  ]
+[e :U 25 ]
 "299
 [; ;mem.c: 299: }
-[e :UE 21 ]
+[e :UE 22 ]
 }
 "322
 [; ;mem.c: 322:      unsigned char _SRAMmerge(SALLOC * pSegA)
-[v __SRAMmerge `(uc ~T0 @X0 1 ef1`*S5 ]
+[v __SRAMmerge `(uc ~T0 @X0 1 ef1`*S6 ]
 "323
 [; ;mem.c: 323: {
 {
 [e :U __SRAMmerge ]
 "322
 [; ;mem.c: 322:      unsigned char _SRAMmerge(SALLOC * pSegA)
-[v _pSegA `*S5 ~T0 @X0 1 r1 ]
+[v _pSegA `*S6 ~T0 @X0 1 r1 ]
 "323
 [; ;mem.c: 323: {
 [f ]
 "324
 [; ;mem.c: 324:  SALLOC * pSegB;
-[v _pSegB `*S5 ~T0 @X0 1 a ]
+[v _pSegB `*S6 ~T0 @X0 1 a ]
 "325
 [; ;mem.c: 325:       SALLOC uSegA, uSegB, uSum;
-[v _uSegA `S5 ~T0 @X0 1 a ]
-[v _uSegB `S5 ~T0 @X0 1 a ]
-[v _uSum `S5 ~T0 @X0 1 a ]
+[v _uSegA `S6 ~T0 @X0 1 a ]
+[v _uSegB `S6 ~T0 @X0 1 a ]
+[v _uSum `S6 ~T0 @X0 1 a ]
 "329
 [; ;mem.c: 329:  pSegB = pSegA + (*pSegA).byte;
 [e = _pSegB + _pSegA * -> -> . *U _pSegA 0 `i `x -> -> # *U _pSegA `i `x ]
@@ -285,28 +285,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _uSegB *U _pSegB ]
 "336
 [; ;mem.c: 336:  if (uSegB.byte == 0) return (0);
-[e $ ! == -> . _uSegB 0 `i -> 0 `i 28  ]
+[e $ ! == -> . _uSegB 0 `i -> 0 `i 29  ]
 [e ) -> -> 0 `i `uc ]
-[e $UE 27  ]
-[e :U 28 ]
+[e $UE 28  ]
+[e :U 29 ]
 "339
 [; ;mem.c: 339:  if (uSegA.bits.alloc || uSegB.bits.alloc) return (0);
-[e $ ! || != -> . . _uSegA 1 1 `i -> 0 `i != -> . . _uSegB 1 1 `i -> 0 `i 29  ]
+[e $ ! || != -> . . _uSegA 1 1 `i -> 0 `i != -> . . _uSegB 1 1 `i -> 0 `i 30  ]
 [e ) -> -> 0 `i `uc ]
-[e $UE 27  ]
-[e :U 29 ]
+[e $UE 28  ]
+[e :U 30 ]
 "342
 [; ;mem.c: 342:  if (uSegA.bits.count == 0x7F) return (0);
-[e $ ! == -> . . _uSegA 1 0 `i -> 127 `i 30  ]
+[e $ ! == -> . . _uSegA 1 0 `i -> 127 `i 31  ]
 [e ) -> -> 0 `i `uc ]
-[e $UE 27  ]
-[e :U 30 ]
+[e $UE 28  ]
+[e :U 31 ]
 "345
 [; ;mem.c: 345:  uSum.byte = uSegA.byte + uSegB.byte;
 [e = . _uSum 0 -> + -> . _uSegA 0 `i -> . _uSegB 0 `i `uc ]
 "351
 [; ;mem.c: 351:  if ((uSum.byte) > 0x7F)
-[e $ ! > -> . _uSum 0 `i -> 127 `i 31  ]
+[e $ ! > -> . _uSum 0 `i -> 127 `i 32  ]
 "352
 [; ;mem.c: 352:  {
 {
@@ -325,26 +325,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "358
 [; ;mem.c: 358:   return (0x7F);
 [e ) -> -> 127 `i `uc ]
-[e $UE 27  ]
+[e $UE 28  ]
 "359
 [; ;mem.c: 359:  }
 }
-[e $U 32  ]
+[e $U 33  ]
 "362
 [; ;mem.c: 362:  else
-[e :U 31 ]
+[e :U 32 ]
 "363
 [; ;mem.c: 363:  {
 {
 "364
 [; ;mem.c: 364:   return ((*pSegA).byte = uSum.byte);
 [e ) = . *U _pSegA 0 . _uSum 0 ]
-[e $UE 27  ]
+[e $UE 28  ]
 "365
 [; ;mem.c: 365:  }
 }
-[e :U 32 ]
+[e :U 33 ]
 "366
 [; ;mem.c: 366: }
-[e :UE 27 ]
+[e :UE 28 ]
 }

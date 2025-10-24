@@ -10,10 +10,10 @@
 // Define o tipo tarefa
 typedef void TASK;
 
-// Define o ponteiro para a função
+// Define o ponteiro para a funï¿½ï¿½o
 typedef void (*f_ptr)(void);
 
-// Define os estados possíveis
+// Define os estados possï¿½veis
 typedef enum {READY = 0, RUNNING, WAITING, WAITING_SEM} state_t;
 
 // Define a TCB 
@@ -48,11 +48,21 @@ typedef struct semaphore {
 typedef struct pipe {
     uint8_t pipe_pos_read;
     uint8_t pipe_pos_write;
-    char pipe_data[PIPE_MAX_SIZE];
-    //char* pipe_data;
+    // Buffer alocado dinamicamente
+    char* pipe_data;
+    uint8_t pipe_capacity;
     sem_t pipe_sem_read;
     sem_t pipe_sem_write;
 } pipe_t;
+
+// Mutex (variÃ¡vel de exclusÃ£o mÃºtua)
+typedef struct mutex {
+    uint8_t locked;              // 0 livre, 1 bloqueado
+    tcb_t *owner;                // tarefa dona do mutex
+    tcb_t *wait_queue[MAX_TASKS_ON_READY_QUEUE];
+    uint8_t q_in;
+    uint8_t q_out;
+} mutex_t;
 
 /*********************************************************************
  * Segment header data type

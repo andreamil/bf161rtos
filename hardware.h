@@ -5,8 +5,9 @@
 
 void conf_timer_0(void);
 void conf_interrupts(void);
+void conf_osc_internal_8MHz(void);
 
-// Tratador de interrupção
+// Tratador de interrupï¿½ï¿½o
 void __interrupt() ISR_TIMER_0(void);
 
 

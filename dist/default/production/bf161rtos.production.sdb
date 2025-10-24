@@ -1,0 +1,1015 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+[d frameptr 4065 ]
+"10 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\kernel.c
+[e E39 . `uc
+READY 0
+RUNNING 1
+WAITING 2
+WAITING_SEM 3
+]
+"28 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\user_app.c
+[e E3333 . `uc
+READY 0
+RUNNING 1
+WAITING 2
+WAITING_SEM 3
+]
+"41
+[e E3441 . `uc
+CHANNEL_0 0
+CHANNEL_1 1
+CHANNEL_2 2
+CHANNEL_3 3
+CHANNEL_4 4
+CHANNEL_5 5
+CHANNEL_6 6
+CHANNEL_7 7
+CHANNEL_8 8
+CHANNEL_9 9
+CHANNEL_10 10
+CHANNEL_11 11
+CHANNEL_12 12
+]
+"42
+[e E3456 . `uc
+AN12 0
+AN11 3
+AN10 4
+AN09 5
+AN08 6
+AN07 7
+AN06 8
+AN05 9
+AN04 10
+AN03 11
+AN02 12
+AN01 13
+AN00 14
+DISABLE 15
+]
+"44
+[e E3472 . `uc
+TAD20 7
+TAD16 6
+TAD12 5
+TAD8 4
+TAD6 3
+TAD4 2
+TAD2 1
+TAD0 0
+]
+[e E3482 . `uc
+FRC1 7
+FOSC64 6
+FOSC16 5
+FOSC4 4
+FRC2 3
+FOSC32 2
+FOSC8 1
+FOSC2 0
+]
+"89
+[e E3502 . `uc
+PWM_CH1 0
+PWM_CH2 1
+PWM_CH3 2
+PWM_CH4 3
+]
+"102
+[e E3690 . `uc
+MSG_SENSORS 1
+MSG_BAT_LOW 2
+]
+"11 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\syscall.c
+[e E3333 . `uc
+READY 0
+RUNNING 1
+WAITING 2
+WAITING_SEM 3
+]
+"12 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\scheduler.c
+[e E39 . `uc
+READY 0
+RUNNING 1
+WAITING 2
+WAITING_SEM 3
+]
+"52 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\hardware.c
+[e E3337 . `uc
+READY 0
+RUNNING 1
+WAITING 2
+WAITING_SEM 3
+]
+"10 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\sync.c
+[e E39 . `uc
+READY 0
+RUNNING 1
+WAITING 2
+WAITING_SEM 3
+]
+"6 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\pipe.c
+[e E39 . `uc
+READY 0
+RUNNING 1
+WAITING 2
+WAITING_SEM 3
+]
+"6 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\io.c
+[e E3151 . `uc
+CHANNEL_0 0
+CHANNEL_1 1
+CHANNEL_2 2
+CHANNEL_3 3
+CHANNEL_4 4
+CHANNEL_5 5
+CHANNEL_6 6
+CHANNEL_7 7
+CHANNEL_8 8
+CHANNEL_9 9
+CHANNEL_10 10
+CHANNEL_11 11
+CHANNEL_12 12
+]
+"11
+[e E3166 . `uc
+AN12 0
+AN11 3
+AN10 4
+AN09 5
+AN08 6
+AN07 7
+AN06 8
+AN05 9
+AN04 10
+AN03 11
+AN02 12
+AN01 13
+AN00 14
+DISABLE 15
+]
+"16
+[e E3182 . `uc
+TAD20 7
+TAD16 6
+TAD12 5
+TAD8 4
+TAD6 3
+TAD4 2
+TAD2 1
+TAD0 0
+]
+[e E3192 . `uc
+FRC1 7
+FOSC64 6
+FOSC16 5
+FOSC4 4
+FRC2 3
+FOSC32 2
+FOSC8 1
+FOSC2 0
+]
+"58
+[e E3212 . `uc
+PWM_CH1 0
+PWM_CH2 1
+PWM_CH3 2
+PWM_CH4 3
+]
+"7 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `R(i  1 e 2 0 ]
+"4 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `R(b  1 e 0 0 ]
+"62 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `R(f  1 e 4 0 ]
+"86 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `R(f  1 e 4 0 ]
+"54 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `R(f  1 e 4 0 ]
+"62 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `R(f  1 e 4 0 ]
+"19 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `R(f  1 e 4 0 ]
+"10 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `R(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `R(d  1 e 4 0 ]
+"11 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `R(d  1 e 4 0 ]
+"8 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `R(d  1 e 4 0 ]
+"15 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `R(ul  1 e 4 0 ]
+"91 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `R(uo  1 e 8 0 ]
+"7 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\hardware.c
+[v _conf_osc_internal_8MHz conf_osc_internal_8MHz `R(v  1 e 1 0 ]
+"22
+[v _conf_timer_0 conf_timer_0 `R(v  1 e 1 0 ]
+"34
+[v _conf_interrupts conf_interrupts `R(v  1 e 1 0 ]
+"40
+[v _ISR_TIMER_0 ISR_TIMER_0 `IIH(v  1 e 1 0 ]
+"6 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\io.c
+[v _set_channel set_channel `R(v  1 e 1 0 ]
+"11
+[v _set_port set_port `R(v  1 e 1 0 ]
+"16
+[v _config_adc config_adc `R(v  1 e 1 0 ]
+"23
+[v _adc_go adc_go `R(v  1 e 1 0 ]
+"28
+[v _adc_read adc_read `R(i  1 e 2 0 ]
+"40
+[v _pwm_init pwm_init `R(v  1 e 1 0 ]
+"58
+[v _pwm_set_duty pwm_set_duty `R(v  1 e 1 0 ]
+"65
+[v _pwm_tick pwm_tick `R(v  1 e 1 0 ]
+"80
+[v _exti_init exti_init `R(v  1 e 1 0 ]
+"88
+[v _exti_enable exti_enable `R(v  1 e 1 0 ]
+"93
+[v _exti_set_callback exti_set_callback `R(v  1 e 1 0 ]
+"98
+[v _exti_isr exti_isr `R(v  1 e 1 0 ]
+"12 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\kernel.c
+[v _os_config os_config `R(v  1 e 1 0 ]
+"23
+[v _os_start os_start `R(v  1 e 1 0 ]
+"45
+[v _os_idle_task os_idle_task `R(v  1 e 1 0 ]
+"54
+[v _os_task_pos os_task_pos `R(uc  1 e 1 0 ]
+"63
+[v _os_task_time_decrease os_task_time_decrease `R(v  1 e 1 0 ]
+"18 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\main.c
+[v _main main `R(i  1 e 2 0 ]
+"154 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\mem.c
+[v _SRAMalloc SRAMalloc `R(*.39uc  1 e 2 0 ]
+"250
+[v _SRAMfree SRAMfree `R(v  1 e 1 0 ]
+"276
+[v _SRAMInitHeap SRAMInitHeap `R(v  1 e 1 0 ]
+"322
+[v __SRAMmerge _SRAMmerge `R(uc  1 e 1 0 ]
+"6 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\pipe.c
+[v _create_pipe create_pipe `R(v  1 e 1 0 ]
+"27
+[v _read_pipe read_pipe `R(v  1 e 1 0 ]
+"43
+[v _write_pipe write_pipe `R(v  1 e 1 0 ]
+"59
+[v _pipe_write_block pipe_write_block `R(v  1 e 1 0 ]
+"66
+[v _pipe_read_block pipe_read_block `R(v  1 e 1 0 ]
+"20 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos/types.h
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+"30 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\scheduler.c
+[v _priority_scheduler priority_scheduler `R(*.39S67  1 e 2 0 ]
+"76
+[v _scheduler scheduler `R(v  1 e 1 0 ]
+"10 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\sync.c
+[v _sem_init sem_init `R(v  1 e 1 0 ]
+"17
+[v _sem_wait sem_wait `R(v  1 e 1 0 ]
+"37
+[v _sem_post sem_post `R(v  1 e 1 0 ]
+"52
+[v _mutex_init mutex_init `R(v  1 e 1 0 ]
+"73
+[v _mutex_lock mutex_lock `R(v  1 e 1 0 ]
+"93
+[v _mutex_unlock mutex_unlock `R(v  1 e 1 0 ]
+"9 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\syscall.c
+[v _os_create_task os_create_task `R(v  1 e 1 0 ]
+"27
+[v _os_delay os_delay `R(v  1 e 1 0 ]
+"40
+[v _os_yield os_yield `R(v  1 e 1 0 ]
+"32 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\user_app.c
+[v _isr_button_toggle isr_button_toggle `R(v  1 s 1 isr_button_toggle ]
+"38
+[v _config_app config_app `R(v  1 e 1 0 ]
+"69
+[v _read_adc_channel read_adc_channel `R(us  1 s 2 read_adc_channel ]
+"76
+[v _task_motors task_motors `R(v  1 e 1 0 ]
+"99
+[v _task_sensors task_sensors `R(v  1 e 1 0 ]
+"114
+[v _task_battery task_battery `R(v  1 e 1 0 ]
+"134
+[v _task_central task_central `R(v  1 e 1 0 ]
+[s S166 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"2481 C:/Users/andre/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc\pic18f4550.h
+[s S246 . 1 `uc 1 INT0 1 0 :1:0 
+`uc 1 INT1 1 0 :1:1 
+`uc 1 INT2 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 PGM 1 0 :1:5 
+`uc 1 PGC 1 0 :1:6 
+`uc 1 PGD 1 0 :1:7 
+]
+[s S254 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CCP2_PA2 1 0 :1:3 
+]
+[u S257 . 1 `S166 1 . 1 0 `S246 1 . 1 0 `S254 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES257  1 e 1 @3969 ]
+[s S477 . 1 `uc 1 RD0 1 0 :1:0 
+`uc 1 RD1 1 0 :1:1 
+`uc 1 RD2 1 0 :1:2 
+`uc 1 RD3 1 0 :1:3 
+`uc 1 RD4 1 0 :1:4 
+`uc 1 RD5 1 0 :1:5 
+`uc 1 RD6 1 0 :1:6 
+`uc 1 RD7 1 0 :1:7 
+]
+"2734
+[s S618 . 1 `uc 1 SPP0 1 0 :1:0 
+`uc 1 SPP1 1 0 :1:1 
+`uc 1 SPP2 1 0 :1:2 
+`uc 1 SPP3 1 0 :1:3 
+`uc 1 SPP4 1 0 :1:4 
+`uc 1 SPP5 1 0 :1:5 
+`uc 1 SPP6 1 0 :1:6 
+`uc 1 SPP7 1 0 :1:7 
+]
+[s S627 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 SS2 1 0 :1:7 
+]
+[u S630 . 1 `S477 1 . 1 0 `S618 1 . 1 0 `S627 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES630  1 e 1 @3971 ]
+[s S197 . 1 `uc 1 LATB0 1 0 :1:0 
+`uc 1 LATB1 1 0 :1:1 
+`uc 1 LATB2 1 0 :1:2 
+`uc 1 LATB3 1 0 :1:3 
+`uc 1 LATB4 1 0 :1:4 
+`uc 1 LATB5 1 0 :1:5 
+`uc 1 LATB6 1 0 :1:6 
+`uc 1 LATB7 1 0 :1:7 
+]
+"3098
+[s S206 . 1 `uc 1 LB0 1 0 :1:0 
+`uc 1 LB1 1 0 :1:1 
+`uc 1 LB2 1 0 :1:2 
+`uc 1 LB3 1 0 :1:3 
+`uc 1 LB4 1 0 :1:4 
+`uc 1 LB5 1 0 :1:5 
+`uc 1 LB6 1 0 :1:6 
+`uc 1 LB7 1 0 :1:7 
+]
+[u S215 . 1 `S197 1 . 1 0 `S206 1 . 1 0 ]
+[v _LATBbits LATBbits `VES215  1 e 1 @3978 ]
+[s S569 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"3288
+[s S578 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S587 . 1 `S569 1 . 1 0 `S578 1 . 1 0 ]
+[v _LATDbits LATDbits `VES587  1 e 1 @3980 ]
+[s S157 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"3655
+[u S175 . 1 `S157 1 . 1 0 `S166 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES175  1 e 1 @3987 ]
+[s S468 . 1 `uc 1 TRISD0 1 0 :1:0 
+`uc 1 TRISD1 1 0 :1:1 
+`uc 1 TRISD2 1 0 :1:2 
+`uc 1 TRISD3 1 0 :1:3 
+`uc 1 TRISD4 1 0 :1:4 
+`uc 1 TRISD5 1 0 :1:5 
+`uc 1 TRISD6 1 0 :1:6 
+`uc 1 TRISD7 1 0 :1:7 
+]
+"4031
+[u S486 . 1 `S468 1 . 1 0 `S477 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES486  1 e 1 @3989 ]
+[s S1600 . 1 `uc 1 ADCS 1 0 :3:0 
+`uc 1 ACQT 1 0 :3:3 
+`uc 1 . 1 0 :1:6 
+`uc 1 ADFM 1 0 :1:7 
+]
+"6529
+[s S1605 . 1 `uc 1 ADCS0 1 0 :1:0 
+`uc 1 ADCS1 1 0 :1:1 
+`uc 1 ADCS2 1 0 :1:2 
+`uc 1 ACQT0 1 0 :1:3 
+`uc 1 ACQT1 1 0 :1:4 
+`uc 1 ACQT2 1 0 :1:5 
+]
+[u S1612 . 1 `S1600 1 . 1 0 `S1605 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES1612  1 e 1 @4032 ]
+[s S1547 . 1 `uc 1 PCFG 1 0 :4:0 
+`uc 1 VCFG 1 0 :2:4 
+]
+"6604
+[s S1550 . 1 `uc 1 PCFG0 1 0 :1:0 
+`uc 1 PCFG1 1 0 :1:1 
+`uc 1 PCFG2 1 0 :1:2 
+`uc 1 PCFG3 1 0 :1:3 
+`uc 1 VCFG0 1 0 :1:4 
+`uc 1 VCFG1 1 0 :1:5 
+]
+[s S1557 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+`uc 1 VCFG01 1 0 :1:4 
+`uc 1 VCFG11 1 0 :1:5 
+]
+[u S1562 . 1 `S1547 1 . 1 0 `S1550 1 . 1 0 `S1557 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES1562  1 e 1 @4033 ]
+[s S1464 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"6708
+[s S1467 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :4:2 
+]
+[s S1471 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+]
+[s S1478 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S1481 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S1484 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S1487 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S1490 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S1493 . 1 `S1464 1 . 1 0 `S1467 1 . 1 0 `S1471 1 . 1 0 `S1478 1 . 1 0 `S1481 1 . 1 0 `S1484 1 . 1 0 `S1487 1 . 1 0 `S1490 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES1493  1 e 1 @4034 ]
+"6783
+[v _ADRES ADRES `VEus  1 e 2 @4035 ]
+[s S897 . 1 `uc 1 SCS 1 0 :2:0 
+`uc 1 IOFS 1 0 :1:2 
+`uc 1 OSTS 1 0 :1:3 
+`uc 1 IRCF 1 0 :3:4 
+`uc 1 IDLEN 1 0 :1:7 
+]
+"8007
+[s S903 . 1 `uc 1 SCS0 1 0 :1:0 
+`uc 1 SCS1 1 0 :1:1 
+`uc 1 FLTS 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 IRCF0 1 0 :1:4 
+`uc 1 IRCF1 1 0 :1:5 
+`uc 1 IRCF2 1 0 :1:6 
+]
+[u S911 . 1 `S897 1 . 1 0 `S903 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES911  1 e 1 @4051 ]
+[s S929 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T08BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"8087
+[s S936 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+]
+[u S940 . 1 `S929 1 . 1 0 `S936 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES940  1 e 1 @4053 ]
+"8137
+[v _TMR0 TMR0 `VEus  1 e 2 @4054 ]
+"8158
+[v _STATUS STATUS `VEuc  1 e 1 @4056 ]
+"8285
+[v _BSR BSR `VEuc  1 e 1 @4064 ]
+"8348
+[v _WREG WREG `VEuc  1 e 1 @4072 ]
+[s S1702 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 NOT_RBPU 1 0 :1:7 
+]
+"8530
+[s S1705 . 1 `uc 1 RBIP 1 0 :1:0 
+`uc 1 . 1 0 :1:1 
+`uc 1 TMR0IP 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INTEDG2 1 0 :1:4 
+`uc 1 INTEDG1 1 0 :1:5 
+`uc 1 INTEDG0 1 0 :1:6 
+`uc 1 nRBPU 1 0 :1:7 
+]
+[s S1714 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IP 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 RBPU 1 0 :1:7 
+]
+[u S1719 . 1 `S1702 1 . 1 0 `S1705 1 . 1 0 `S1714 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES1719  1 e 1 @4081 ]
+[s S108 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"8612
+[s S117 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S126 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S130 . 1 `S108 1 . 1 0 `S117 1 . 1 0 `S126 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES130  1 e 1 @4082 ]
+"8792
+[v _STKPTR STKPTR `VEuc  1 e 1 @4092 ]
+"8867
+[v _TOS TOS `VEum  1 e 3 @4093 ]
+"36 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\io.c
+[v __pwm_period _pwm_period `VEuc  1 s 1 _pwm_period ]
+"37
+[v __pwm_phase _pwm_phase `VEuc  1 s 1 _pwm_phase ]
+"38
+[v __pwm_duty _pwm_duty `VE[4]uc  1 s 4 _pwm_duty ]
+"78
+[v __exti_cb _exti_cb `*.37R(v  1 s 2 _exti_cb ]
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+"10 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\kernel.c
+[s S78 f_aptos 533 `[5]S67 1 readyQueue 530 0 `uc 1 readyQueueSize 1 530 `*.39S67 1 taskRunning 2 531 ]
+[v _readyQueue readyQueue `S78  1 e 533 0 ]
+"120 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\mem.c
+[v __uDynamicHeap _uDynamicHeap `[512]uc  1 e 512 0 ]
+[s S339 . 4 `uc 1 m1 1 0 `uc 1 m2 1 1 `uc 1 m3 1 2 `uc 1 m4 1 3 ]
+"27 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\user_app.c
+[v _g_speeds g_speeds `S339  1 s 4 g_speeds ]
+"28
+[s S361 mutex 15 `uc 1 locked 1 0 `*.39S67 1 owner 2 1 `[5]*.39S67 1 wait_queue 10 3 `uc 1 q_in 1 13 `uc 1 q_out 1 14 ]
+[v _g_speeds_mutex g_speeds_mutex `S361  1 s 15 g_speeds_mutex ]
+"29
+[s S367 semaphore 14 `i 1 contador 2 0 `[5]*.39S67 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[s S372 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `*.39uc 1 pipe_data 2 2 `uc 1 pipe_capacity 1 4 `S367 1 pipe_sem_read 14 5 `S367 1 pipe_sem_write 14 19 ]
+[v _g_pipe g_pipe `S372  1 s 33 g_pipe ]
+"30
+[v _g_flight_enabled g_flight_enabled `VEuc  1 s 1 g_flight_enabled ]
+"18 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\main.c
+[v _main main `R(i  1 e 2 0 ]
+{
+"34
+} 0
+"23 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\kernel.c
+[v _os_start os_start `R(v  1 e 1 0 ]
+{
+"42
+} 0
+"38 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\user_app.c
+[v _config_app config_app `R(v  1 e 1 0 ]
+{
+"67
+} 0
+"11 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\io.c
+[v _set_port set_port `R(v  1 e 1 0 ]
+{
+[v _port port `E3166  1 p 1 -1 ]
+"14
+} 0
+"6
+[v _set_channel set_channel `R(v  1 e 1 0 ]
+{
+[v _channel channel `E3151  1 p 1 -1 ]
+"9
+} 0
+"40
+[v _pwm_init pwm_init `R(v  1 e 1 0 ]
+{
+[v _period period `uc  1 p 1 -1 ]
+"56
+} 2
+"52 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\sync.c
+[v _mutex_init mutex_init `R(v  1 e 1 0 ]
+{
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+[s S361 mutex 15 `uc 1 locked 1 0 `*.39S67 1 owner 2 1 `[5]*.39S67 1 wait_queue 10 3 `uc 1 q_in 1 13 `uc 1 q_out 1 14 ]
+[v _m m `*.39S361  1 p 2 -2 ]
+"58
+} 0
+"93 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\io.c
+[v _exti_set_callback exti_set_callback `R(v  1 e 1 0 ]
+{
+[v _cb cb `*.37R(v  1 p 2 -2 ]
+"96
+} 0
+"80
+[v _exti_init exti_init `R(v  1 e 1 0 ]
+{
+[v _rising_edge rising_edge `uc  1 p 1 -1 ]
+"86
+} 0
+"88
+[v _exti_enable exti_enable `R(v  1 e 1 0 ]
+{
+[v _enable enable `uc  1 p 1 -1 ]
+"91
+} 0
+"6 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\pipe.c
+[v _create_pipe create_pipe `R(v  1 e 1 0 ]
+{
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+[s S367 semaphore 14 `i 1 contador 2 0 `[5]*.39S67 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[s S372 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `*.39uc 1 pipe_data 2 2 `uc 1 pipe_capacity 1 4 `S367 1 pipe_sem_read 14 5 `S367 1 pipe_sem_write 14 19 ]
+[v _p p `*.39S372  1 p 2 -2 ]
+"16
+} 0
+"10 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\sync.c
+[v _sem_init sem_init `R(v  1 e 1 0 ]
+{
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+[s S367 semaphore 14 `i 1 contador 2 0 `[5]*.39S67 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[v _s s `*.39S367  1 p 2 -2 ]
+[v _init_value init_value `uc  1 p 1 -3 ]
+"15
+} 0
+"154 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\mem.c
+[v _SRAMalloc SRAMalloc `R(*.39uc  1 e 2 0 ]
+{
+[s S1385 _BITS 1 `uc 1 count 1 0 :7:0 
+`uc 1 alloc 1 0 :1:7 
+]
+"156
+[u S1388 _SALLOC 1 `uc 1 byte 1 0 `S1385 1 bits 1 0 ]
+[v _pHeap pHeap `*.39S1388  1 a 2 0 ]
+"157
+[v _temp temp `*.39S1388  1 a 2 2 ]
+"158
+[v _segHeader segHeader `S1388  1 a 1 4 ]
+"159
+[v _segLen segLen `uc  1 a 1 5 ]
+"154
+[v _nBytes nBytes `uc  1 p 1 -1 ]
+"226
+} 6
+"322
+[v __SRAMmerge _SRAMmerge `R(uc  1 e 1 0 ]
+{
+[s S1385 _BITS 1 `uc 1 count 1 0 :7:0 
+`uc 1 alloc 1 0 :1:7 
+]
+"324
+[u S1388 _SALLOC 1 `uc 1 byte 1 0 `S1385 1 bits 1 0 ]
+[v _pSegB pSegB `*.39S1388  1 a 2 0 ]
+"325
+[v _uSegB uSegB `S1388  1 a 1 2 ]
+[v _uSegA uSegA `S1388  1 a 1 3 ]
+[v _uSum uSum `S1388  1 a 1 4 ]
+"322
+[v _pSegA pSegA `*.39S1388  1 p 2 -2 ]
+"366
+} 5
+"16 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\io.c
+[v _config_adc config_adc `R(v  1 e 1 0 ]
+{
+[v _tad tad `E3182  1 p 1 -1 ]
+[v _cclk cclk `E3192  1 p 1 -2 ]
+"21
+} 0
+"23
+[v _adc_go adc_go `R(v  1 e 1 0 ]
+{
+[v _go_done go_done `i  1 p 2 -2 ]
+"26
+} 0
+"22 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\hardware.c
+[v _conf_timer_0 conf_timer_0 `R(v  1 e 1 0 ]
+{
+"32
+} 0
+"7
+[v _conf_osc_internal_8MHz conf_osc_internal_8MHz `R(v  1 e 1 0 ]
+{
+"19
+} 0
+"34
+[v _conf_interrupts conf_interrupts `R(v  1 e 1 0 ]
+{
+"37
+} 0
+"276 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\mem.c
+[v _SRAMInitHeap SRAMInitHeap `R(v  1 e 1 0 ]
+{
+"279
+[v _count count `ui  1 a 2 0 ]
+"278
+[v _pHeap pHeap `*.39uc  1 a 2 2 ]
+"299
+} 4
+"12 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\kernel.c
+[v _os_config os_config `R(v  1 e 1 0 ]
+{
+"21
+} 0
+"9 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\syscall.c
+[v _os_create_task os_create_task `R(v  1 e 1 0 ]
+{
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+"11
+[v _new_task new_task `S67  1 a 106 0 ]
+"9
+[v _id id `uc  1 p 1 -1 ]
+[v _task_f task_f `*.37R(v  1 p 2 -3 ]
+[v _prior prior `uc  1 p 1 -4 ]
+"25
+} 106
+"45 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\kernel.c
+[v _os_idle_task os_idle_task `R(v  1 e 1 0 ]
+{
+"52
+} 0
+"76 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\user_app.c
+[v _task_motors task_motors `R(v  1 e 1 0 ]
+{
+[s S339 . 4 `uc 1 m1 1 0 `uc 1 m2 1 1 `uc 1 m3 1 2 `uc 1 m4 1 3 ]
+"81
+[v _local local `S339  1 a 4 0 ]
+"96
+} 4
+"58 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\io.c
+[v _pwm_set_duty pwm_set_duty `R(v  1 e 1 0 ]
+{
+[v _ch ch `E3212  1 p 1 -1 ]
+[v _duty duty `uc  1 p 1 -2 ]
+"63
+} 0
+"27 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\syscall.c
+[v _os_delay os_delay `R(v  1 e 1 0 ]
+{
+[v _time time `uc  1 p 1 -1 ]
+"38
+} 0
+"93 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\sync.c
+[v _mutex_unlock mutex_unlock `R(v  1 e 1 0 ]
+{
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+"104
+[v _next next `*.39S67  1 a 2 0 ]
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+"93
+[s S361 mutex 15 `uc 1 locked 1 0 `*.39S67 1 owner 2 1 `[5]*.39S67 1 wait_queue 10 3 `uc 1 q_in 1 13 `uc 1 q_out 1 14 ]
+[v _m m `*.39S361  1 p 2 -2 ]
+"115
+} 2
+"73
+[v _mutex_lock mutex_lock `R(v  1 e 1 0 ]
+{
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+[s S361 mutex 15 `uc 1 locked 1 0 `*.39S67 1 owner 2 1 `[5]*.39S67 1 wait_queue 10 3 `uc 1 q_in 1 13 `uc 1 q_out 1 14 ]
+[v _m m `*.39S361  1 p 2 -2 ]
+"91
+} 0
+"76 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\scheduler.c
+[v _scheduler scheduler `R(v  1 e 1 0 ]
+{
+"83
+} 0
+"20 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos/types.h
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+"30 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\scheduler.c
+[v _priority_scheduler priority_scheduler `R(*.39S67  1 e 2 0 ]
+{
+"60
+[v _idx idx `uc  1 a 1 0 ]
+"41
+[v _i i `uc  1 a 1 1 ]
+"40
+[v _best_priority best_priority `uc  1 a 1 2 ]
+"61
+[v _idle_selected idle_selected `uc  1 a 1 3 ]
+"44
+[v _any_ready_non_idle any_ready_non_idle `uc  1 a 1 4 ]
+"39
+[v _start start `uc  1 a 1 5 ]
+"74
+} 6
+"54 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\kernel.c
+[v _os_task_pos os_task_pos `R(uc  1 e 1 0 ]
+{
+"56
+[v _i i `uc  1 a 1 0 ]
+"54
+[v _task task `*.37R(v  1 p 2 -2 ]
+"61
+} 1
+"7 D:\Program Files\Microchip\xc8\v2.36\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `R(i  1 e 2 0 ]
+{
+"10
+[v _sign sign `uc  1 a 1 0 ]
+[v _counter counter `uc  1 a 1 1 ]
+"7
+[v _dividend dividend `i  1 p 2 -2 ]
+[v _divisor divisor `i  1 p 2 -4 ]
+"34
+} 2
+"99 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\user_app.c
+[v _task_sensors task_sensors `R(v  1 e 1 0 ]
+{
+[s S548 . 5 `uc 1 type 1 0 `us 1 gyro 2 1 `us 1 accel 2 3 ]
+"101
+[v _msg msg `S548  1 a 5 0 ]
+"111
+} 5
+"69
+[v _read_adc_channel read_adc_channel `R(us  1 s 2 read_adc_channel ]
+{
+[v _ch ch `E3441  1 p 1 -1 ]
+"73
+} 0
+"28 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\io.c
+[v _adc_read adc_read `R(i  1 e 2 0 ]
+{
+"33
+} 0
+"59 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\pipe.c
+[v _pipe_write_block pipe_write_block `R(v  1 e 1 0 ]
+{
+"61
+[v _i i `uc  1 a 1 0 ]
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+"59
+[s S367 semaphore 14 `i 1 contador 2 0 `[5]*.39S67 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[s S372 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `*.39uc 1 pipe_data 2 2 `uc 1 pipe_capacity 1 4 `S367 1 pipe_sem_read 14 5 `S367 1 pipe_sem_write 14 19 ]
+[v _p p `*.39S372  1 p 2 -2 ]
+[v _data data `*.39Cuc  1 p 2 -4 ]
+[v _len len `uc  1 p 1 -5 ]
+"64
+} 1
+"43
+[v _write_pipe write_pipe `R(v  1 e 1 0 ]
+{
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+[s S367 semaphore 14 `i 1 contador 2 0 `[5]*.39S67 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[s S372 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `*.39uc 1 pipe_data 2 2 `uc 1 pipe_capacity 1 4 `S367 1 pipe_sem_read 14 5 `S367 1 pipe_sem_write 14 19 ]
+[v _p p `*.39S372  1 p 2 -2 ]
+[v _buffer buffer `uc  1 p 1 -3 ]
+"57
+} 0
+"17 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\sync.c
+[v _sem_wait sem_wait `R(v  1 e 1 0 ]
+{
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+[s S367 semaphore 14 `i 1 contador 2 0 `[5]*.39S67 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[v _s s `*.39S367  1 p 2 -2 ]
+"35
+} 0
+"37
+[v _sem_post sem_post `R(v  1 e 1 0 ]
+{
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+[s S367 semaphore 14 `i 1 contador 2 0 `[5]*.39S67 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[v _s s `*.39S367  1 p 2 -2 ]
+"49
+} 0
+"114 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\user_app.c
+[v _task_battery task_battery `R(v  1 e 1 0 ]
+{
+"123
+[v _type type `uc  1 a 1 0 ]
+"120
+[v _bat bat `us  1 a 2 1 ]
+"121
+[v _is_low is_low `uc  1 a 1 3 ]
+"116
+[v _LOW_THRESHOLD LOW_THRESHOLD `Cus  1 a 2 4 ]
+"117
+[v _last_low last_low `uc  1 a 1 6 ]
+"131
+} 7
+"134
+[v _task_central task_central `R(v  1 e 1 0 ]
+{
+[s S339 . 4 `uc 1 m1 1 0 `uc 1 m2 1 1 `uc 1 m3 1 2 `uc 1 m4 1 3 ]
+"162
+[v _next next `S339  1 a 4 16 ]
+"158
+[v _m4 m4 `s  1 a 2 20 ]
+"157
+[v _m3 m3 `s  1 a 2 22 ]
+"156
+[v _m2 m2 `s  1 a 2 24 ]
+"155
+[v _m1 m1 `s  1 a 2 26 ]
+"151
+[v _a a `uc  1 a 1 28 ]
+"150
+[v _g g `uc  1 a 1 29 ]
+[s S548 . 5 `uc 1 type 1 0 `us 1 gyro 2 1 `us 1 accel 2 3 ]
+"137
+[v _smsg smsg `S548  1 a 5 30 ]
+"138
+[v _mtype mtype `uc  1 a 1 35 ]
+"158
+[v task_central@F3734 F3734 `S339  1 s 4 F3734 ]
+"182
+} 36
+"66 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\pipe.c
+[v _pipe_read_block pipe_read_block `R(v  1 e 1 0 ]
+{
+"68
+[v _i i `uc  1 a 1 0 ]
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+"66
+[s S367 semaphore 14 `i 1 contador 2 0 `[5]*.39S67 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[s S372 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `*.39uc 1 pipe_data 2 2 `uc 1 pipe_capacity 1 4 `S367 1 pipe_sem_read 14 5 `S367 1 pipe_sem_write 14 19 ]
+[v _p p `*.39S372  1 p 2 -2 ]
+[v _data data `*.39uc  1 p 2 -4 ]
+[v _len len `uc  1 p 1 -5 ]
+"71
+} 1
+"27
+[v _read_pipe read_pipe `R(v  1 e 1 0 ]
+{
+[s S67 tcb 106 `uc 1 task_id 1 0 `*.37R(v 1 task_func 2 1 `E39 1 task_state 1 3 `uc 1 task_priority 1 4 `uc 1 task_time_to_waiting 1 5 `uc 1 BSR_reg 1 6 `uc 1 WORK_reg 1 7 `uc 1 STATUS_reg 1 8 `[32]um 1 STACK 96 9 `uc 1 task_sp 1 105 ]
+[s S367 semaphore 14 `i 1 contador 2 0 `[5]*.39S67 1 sem_queue 10 2 `uc 1 sem_queue_in 1 12 `uc 1 sem_queue_out 1 13 ]
+[s S372 pipe 33 `uc 1 pipe_pos_read 1 0 `uc 1 pipe_pos_write 1 1 `*.39uc 1 pipe_data 2 2 `uc 1 pipe_capacity 1 4 `S367 1 pipe_sem_read 14 5 `S367 1 pipe_sem_write 14 19 ]
+[v _p p `*.39S372  1 p 2 -2 ]
+[v _buffer buffer `*.39uc  1 p 2 -4 ]
+"41
+} 0
+"40 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\syscall.c
+[v _os_yield os_yield `R(v  1 e 1 0 ]
+{
+"50
+} 0
+"40 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\hardware.c
+[v _ISR_TIMER_0 ISR_TIMER_0 `IIH(v  1 e 1 0 ]
+{
+"63
+} 0
+"65 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\io.c
+[v _pwm_tick pwm_tick `R(v  1 e 1 0 ]
+{
+"75
+} 0
+"63 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\kernel.c
+[v _os_task_time_decrease os_task_time_decrease `R(v  1 e 1 0 ]
+{
+"65
+[v _i i `uc  1 a 1 0 ]
+"74
+} 1
+"98 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\io.c
+[v _exti_isr exti_isr `R(v  1 e 1 0 ]
+{
+"104
+} 0
+"32 C:\Users\andre\Downloads\TP_SistemasDistribuidos-master\bf161rtos\user_app.c
+[v _isr_button_toggle isr_button_toggle `R(v  1 s 1 isr_button_toggle ]
+{
+"36
+} 0

@@ -2,26 +2,39 @@
 #include "kernel.h"
 #include "scheduler.h"
 #include <xc.h>
+#include "io.h"
+
+void conf_osc_internal_8MHz(void)
+{
+    // Seleciona 8 MHz: IRCF<2:0> = 111
+    OSCCONbits.IRCF2 = 1;
+    OSCCONbits.IRCF1 = 1;
+    OSCCONbits.IRCF0 = 1;
+
+    // NÃ£o force SCS via software em simulaÃ§Ã£o (Proteus nÃ£o modela a troca runtime):
+    // deixe FOSC nos Config Bits (INTOSCIO_EC) selecionar o clock interno.
+    // OSCTUNEbits.TUN = 0; // ajuste fino opcional
+}
 
 
 void conf_timer_0(void)
 {
-    // Configuração do periférico do TIMER (timer zero)
-    T0CONbits.T0CS      = 0;        // Mudança de instrução interna
+    // Configuraï¿½ï¿½o do perifï¿½rico do TIMER (timer zero)
+    T0CONbits.T0CS      = 0;        // Mudanï¿½a de instruï¿½ï¿½o interna
     T0CONbits.PSA       = 0;        // Ativa preescale
     T0CONbits.T0PS      = 0b110;    // 1:128
     TMR0                = 128;      // Carrega offset do timer
-    INTCONbits.TMR0IE   = 1;        // Ativa interrupção por timer
+    INTCONbits.TMR0IE   = 1;        // Ativa interrupï¿½ï¿½o por timer
     INTCONbits.TMR0IF   = 0;        // Seta flag do timer em zero
     T0CONbits.TMR0ON    = 1;        // Liga o timer
 }
 
 void conf_interrupts(void)
 {
-    INTCONbits.PEIE     = 1;        // Interrupções de periférico ativida    
+    INTCONbits.PEIE     = 1;        // Interrupï¿½ï¿½es de perifï¿½rico ativida    
 }
 
-// Tratador de interrupção
+// Tratador de interrupï¿½ï¿½o
 void __interrupt() ISR_TIMER_0(void)
 {
     di();
@@ -31,10 +44,17 @@ void __interrupt() ISR_TIMER_0(void)
         
         // Diminui tempo das tarefas em espera
         os_task_time_decrease();
+        // Atualiza PWM por software
+        pwm_tick();
         
         SAVE_CONTEXT(READY);
         scheduler();
         RESTORE_CONTEXT();
+    }
+    
+    // InterrupÃ§Ã£o externa INT0
+    if (INTCONbits.INT0IF == 1) {
+        exti_isr();
     }
     
     ei();

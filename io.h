@@ -1,6 +1,8 @@
 #ifndef IO_H
 #define	IO_H
 
+#include <stdint.h>
+
 typedef enum {CHANNEL_0     = 0b0000, 
               CHANNEL_1     = 0b0001,
               CHANNEL_2     = 0b0010,
@@ -54,6 +56,19 @@ void config_adc(tad_t tad, conversion_clock_t cclk);
 void adc_go(int go_done);
 int adc_read();
         
+// ---------------- PWM (software) -----------------
+typedef enum { PWM_CH1 = 0, PWM_CH2 = 1, PWM_CH3 = 2, PWM_CH4 = 3 } pwm_channel_t;
+
+// Inicializa PWM por software em RC0..RC3; period define a resolução (0-255)
+void pwm_init(uint8_t period);
+void pwm_set_duty(pwm_channel_t ch, uint8_t duty); // 0..period
+void pwm_tick(void); // chamada em cada tick do Timer0
+
+// -------------- Interrupção Externa (INT0) --------------
+void exti_init(uint8_t rising_edge);
+void exti_enable(uint8_t enable);
+void exti_set_callback(void (*cb)(void));
+void exti_isr(void);
 
 
 #endif	/* IO_H */
