@@ -478,7 +478,7 @@ bssBIGRAM 81 495 BIGRAM 81 1
 %locals
 dist/default/production\bf161rtos.production.o
 C:/Users/andre/.mchp_packs/Microchip/PIC18Fxxxx_DFP/1.7.171/xc8\pic\include\proc\pic18f4550.h
-C:\Users\andre\AppData\Local\Temp\xcAsvhc.s
+C:\Users\andre\AppData\Local\Temp\xcAstjk.s
 3521 2764 0 CODE 0
 3523 2764 0 CODE 0
 3526 2764 0 CODE 0
@@ -1077,7 +1077,7 @@ syscall.c
 47 12F0 0 CODE 0
 49 1420 0 CODE 0
 50 1422 0 CODE 0
-C:\Users\andre\AppData\Local\Temp\xcAsvhc.s
+C:\Users\andre\AppData\Local\Temp\xcAstjk.s
 13093 8 0 CODE 0
 hardware.c
 40 8 0 CODE 0

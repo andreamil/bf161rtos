@@ -11,8 +11,10 @@ void conf_osc_internal_8MHz(void)
     OSCCONbits.IRCF1 = 1;
     OSCCONbits.IRCF0 = 1;
 
-    // Não force SCS via software em simulação (Proteus não modela a troca runtime):
-    // deixe FOSC nos Config Bits (INTOSCIO_EC) selecionar o clock interno.
+    // Seleciona o oscilador interno como fonte do sistema: SCS<1:0> = 10
+    OSCCONbits.SCS1 = 1;
+    OSCCONbits.SCS0 = 0;
+
     // OSCTUNEbits.TUN = 0; // ajuste fino opcional
 }
 
